@@ -1,2 +1,10 @@
 # dominion-tracker
-Quick deck tracker for dominion.online
+
+## What
+Quick deck tracker for https://dominion.games/
+
+## Why
+Why not
+
+## How Tested
+Oh not at all currently
