@@ -1,0 +1,15 @@
+{
+  "name": "Dominion Deck Tracker",
+  "version": "0.0.0.1",
+  "manifest_version": 2,
+  "description": "A chromium extension to track any given players deck in the online dominion.",
+  "icons": {
+    "16": "icons/icon16x16.png",
+    "32": "icons/icon32x32.png",
+    "48": "icons/icon48x48.png",
+    "128": "icons/icon128x128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
