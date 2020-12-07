@@ -6,6 +6,11 @@ Quick deck tracker for https://dominion.games/. Actively parses the log to deter
 
 ## Instructions
 
+Prerequisites:
+
+- Ensure latest node & npm is installed: https://nodejs.org/
+- (Recommended) install vscode: https://code.visualstudio.com/
+
 Clone repo:
 
 ```
