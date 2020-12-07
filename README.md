@@ -8,6 +8,7 @@ Quick deck tracker for https://dominion.games/. Actively parses the log to deter
 
 Prerequisites:
 
+- Ensure git is installed: https://git-scm.com/
 - Ensure latest node & npm is installed: https://nodejs.org/
 - (Recommended) install vscode: https://code.visualstudio.com/
 
@@ -24,7 +25,7 @@ Build repo:
 npm run watch
 ```
 
-Add extension to Edge Chromium:
+Add the extension you have just built to Edge Chromium:
 
 ```
 In Edge:
