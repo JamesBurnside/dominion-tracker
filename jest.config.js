@@ -3,6 +3,6 @@ module.exports = {
 		"src"
 	],
 	"transform": {
-		"^.+\\.ts$": "ts-jest"
+		"^.+\\.(ts|js)x?$": "ts-jest",
 	},
 }; 

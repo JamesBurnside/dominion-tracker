@@ -1,9 +1,3 @@
-export function dummyFunction(): string {
-	return "test";
-}
-
-function logError(message: string) {
-	console.error(`[Dominion Tracker] ${message}`);
-}
+import { logError } from "./utils";
 
 logError("Test new error");
