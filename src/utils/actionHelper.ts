@@ -1,4 +1,4 @@
-import { DominionAction, SupportedAction } from "../@types";
+import { DominionAction, SupportedAction } from "@types";
 import { logError } from ".";
 
 export function stringToAction(actionAsString: string): DominionAction {

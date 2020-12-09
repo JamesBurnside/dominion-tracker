@@ -4,11 +4,15 @@
       "target": "es6",
       "noImplicitAny": true,
       "sourceMap": true,
+      "baseUrl": "src",
       "rootDir": "src",
       "outDir": "dist/js",
       "noEmitOnError": true,
       "typeRoots": [
         "node_modules/@types"
       ]
-  }
+  },
+  "include": [
+    "src"
+  ]
 }

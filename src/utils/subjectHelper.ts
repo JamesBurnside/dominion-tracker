@@ -1,4 +1,4 @@
-import { DominionSubject } from "../@types";
+import { DominionSubject } from "@types";
 import { logError } from "./errorLogger";
 
 export function stringToSubject(subjectString: string): DominionSubject {

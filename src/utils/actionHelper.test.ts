@@ -1,4 +1,4 @@
-import { DominionAction } from "../@types";
+import { DominionAction } from "@types";
 import { stringToAction } from "./actionHelper";
 
 describe("Action enum conversion tests", () => {

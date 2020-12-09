@@ -1,14 +1,15 @@
-import { logError } from "../utils";
+import { DominionLogs } from "@types";
+import { logError } from "utils";
 import { getLogContainer } from "./logHelpers";
 
 export default class LogParser {
-	constructor(onLogsChanged?: (logs: string[]) => void) {
+	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
 		this.logsUpdatedCallback = onLogsChanged;
 		this.updateLogContainer();
 	}
 
 	// Public getter for the logs
-	public get logs() : string[]
+	public get logs() : DominionLogs
 	{
 		return this._logs;
 	}
@@ -55,6 +56,6 @@ export default class LogParser {
 
 	private logObserver: MutationObserver = null;
 	private logContainer: HTMLElement = null;
-	private logsUpdatedCallback: (logs: string[]) => void = null;
-	private _logs: string[] = [];
+	private logsUpdatedCallback: (allLogs: DominionLogs) => void = null;
+	private _logs: DominionLogs = [];
 }
