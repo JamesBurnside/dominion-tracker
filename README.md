@@ -1,5 +1,5 @@
 # Dominion Deck Tracker
-![CI](https://github.com/JamesBurnside/dominion-tracker/workflows/CI/badge.svg)
+[![CI](https://github.com/JamesBurnside/dominion-tracker/workflows/CI/badge.svg)](https://github.com/JamesBurnside/dominion-tracker/actions?query=workflow%3ACI)
 
 ## What
 
