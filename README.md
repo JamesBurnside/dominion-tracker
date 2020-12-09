@@ -1,4 +1,5 @@
 # Dominion Deck Tracker
+![CI](https://github.com/JamesBurnside/dominion-tracker/workflows/CI/badge.svg)
 
 ## What
 
