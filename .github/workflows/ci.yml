@@ -44,3 +44,5 @@ jobs:
       # upload test code coverage to codecov
       - name: Codecov
         uses: codecov/codecov-action@v1.0.15
+        with:
+          token: 65a53498-2a23-4a44-ace0-0adb07586906
