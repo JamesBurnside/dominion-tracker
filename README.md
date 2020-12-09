@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/JamesBurnside/dominion-tracker/workflows/CI/badge.svg)](https://github.com/JamesBurnside/dominion-tracker/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/JamesBurnside/dominion-tracker/branch/main/graph/badge.svg?token=PXTivJVNbk)](https://codecov.io/gh/JamesBurnside/dominion-tracker)
+![badge-joke](https://img.shields.io/badge/number%20of%20contributions%20from%20jakob-0-red)
 
 ## What
 
