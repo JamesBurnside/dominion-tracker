@@ -42,8 +42,8 @@ describe("Log helper tests", () => {
 			// }
 		});
 
-		expect(convertLogStringToLog("C gains a Silver from trash.")).toEqual({
-			playerName: "C",
+		expect(convertLogStringToLog("Turtles gains a Silver from trash.")).toEqual({
+			playerName: "Turtles",
 			primaryAction: DominionAction.Gains,
 			primarySubject: undefined
 			// primarySubject: {

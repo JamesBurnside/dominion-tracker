@@ -34,15 +34,15 @@ Add the extension you have just built to Edge Chromium:
 
 ```
 In Edge:
-Settings > Extensions > "Load Packed"
-...choose project dist folder
+Settings > Extensions > "Load unpacked"
+Choose project dist folder (<repo root>/dist)
 ```
 
 Changes should be retranspiled and reloaded automatically. In edge you may have to click `reload` under the extension in the Edge Extensions page. The official [docs](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) don't actually say when this is necessarry ¯\\\_(ツ)\_\/¯
 
 ### How Tested
 
-Oh, barely currently. But you can run tests with:
+Oh, barely currently - but that's because nothing is implemented yet. You can run tests with:
 
 ```
 npm run test
