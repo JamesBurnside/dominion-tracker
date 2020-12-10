@@ -1,17 +1,45 @@
-import { DominionLog, DominionLogs } from "@types";
+import { DominionAction, DominionLog, DominionLogs, DominionSubject } from "@types";
+import { extractActionFromLogLine } from "utils/actionHelper";
 
 export const getLogContainer = (): HTMLElement => document.getElementById("log-container");
 
 export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
 	convertLogStringsToLogs(getLogsAsStringsFromContainer(logContainer));
 
+export const isValidLogString = (logString: string): boolean => {
+	// Quickly check that the log string contains a valid action
+	const validActions = Object.values(DominionAction);
+	return logString && validActions.some(action => logString.includes(action));
+
+	// Check if there was an not known about action and log an error
+	// !(logString.startsWith("Game ") && logString.endsWith("rated.")) &&
+	// !(logString.startsWith("Kingdom generated with")) &&
+	// !(logString.match((new VerEx()).startOfLine().digit().oneOrMore().then("%").then(":"))) &&
+	// !(logString.match((new VerEx()).startOfLine().then("Turn ").digit().then(" - ")));
+}
+
 export const getLogsAsStringsFromContainer = (logContainer: HTMLElement): string[] => {
-	return [];
+	const logs = logContainer.innerHTML;
+	return logs.split(/\r?\n/).filter((logline) => isValidLogString(logline));
 }
 
 export const convertLogStringsToLogs = (logsAsStrings: string[]): DominionLogs =>
 	logsAsStrings.map((logAsString) => convertLogStringToLog(logAsString));
 
 export const convertLogStringToLog = (logAsString: string): DominionLog => {
-	return null;
+	// Extract player - Be trivial about this for now and assume
+	// players dont have spaces in their name for now
+	const playerName = logAsString.split(" ")[0];
+
+	// Extract action
+	const primaryAction = extractActionFromLogLine(logAsString);
+
+	// Extract subject
+	const primarySubject: DominionSubject = undefined;
+
+	return {
+		playerName,
+		primaryAction,
+		primarySubject
+	}
 }

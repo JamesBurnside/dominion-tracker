@@ -1,17 +1,11 @@
-import { DominionAction, SupportedAction } from "@types";
-import { logError } from ".";
+import { DominionAction } from "@types";
 
-export function stringToAction(actionAsString: string): DominionAction {
-	switch(actionAsString) {
-	case "buys": return DominionAction.Buy;
-	case "gains": return DominionAction.Gain;
-	case "buys and gains": return DominionAction.Buy_And_Gain;
-	default:
-		logError(`Unknown action: ${actionAsString}!`, true);
-		return DominionAction.Unknown;
-	}
-}
-
-export function actionIsSupported(action: DominionAction): boolean {
-	return (Object.values(SupportedAction).includes(action as string));
+/** 
+ * Extract action from log line.
+ * Be trivial about this for now and just search for known actions
+ */
+export function extractActionFromLogLine(logLine: string): DominionAction {
+	return logLine.includes(DominionAction.Buys_And_Gains) ? DominionAction.Buys_And_Gains : 
+		logLine.includes(DominionAction.Gains) ? DominionAction.Gains :
+			undefined;
 }

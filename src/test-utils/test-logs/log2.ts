@@ -1,0 +1,535 @@
+export const log2 = `Game #61327746, unrated.
+
+Kingdom generated with these relative percentages:
+0%: Treasure Map
+50%: Poacher and Bandit
+200%: Wandering Minstrel
+
+C starts with 7 Coppers.
+C starts with 3 Estates.
+L starts with 7 Coppers.
+L starts with 3 Estates.
+C shuffles their deck.
+C draws 3 Coppers and 2 Estates.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 1 - Cl0bBer123
+C plays 3 Coppers. (+$3)
+C buys and gains a Shanty Town.
+C draws 4 Coppers and an Estate.
+
+Turn 1 - Lord Rattington
+L plays 3 Coppers. (+$3)
+L buys and gains a Silver.
+L draws 5 cards.
+
+Turn 2 - Cl0bBer123
+C plays 4 Coppers. (+$4)
+C buys and gains an Envoy.
+C shuffles their deck.
+C draws 3 Coppers, an Estate and a Shanty Town.
+
+Turn 2 - Lord Rattington
+L plays 4 Coppers. (+$4)
+L buys and gains an Envoy.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 3 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate and 3 Coppers.
+C draws a Copper and an Estate.
+C plays 4 Coppers. (+$4)
+C buys and gains a Shanty Town.
+C draws 3 Coppers, an Estate and an Envoy.
+
+Turn 3 - Lord Rattington
+L plays an Envoy.
+L reveals 4 Coppers and a Silver.
+L discards a Silver.
+L puts 4 Coppers into their hand.
+L plays 7 Coppers. (+$7)
+L buys and gains a Torturer.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 4 - Cl0bBer123
+C plays an Envoy.
+C shuffles their deck.
+C reveals 2 Estates, 2 Coppers and a Shanty Town.
+C discards a Shanty Town.
+C puts 2 Coppers and 2 Estates into their hand.
+C plays 5 Coppers. (+$5)
+C buys and gains a Torturer.
+C shuffles their deck.
+C draws 3 Coppers, a Shanty Town and a Torturer.
+
+Turn 4 - Lord Rattington
+L plays 3 Coppers. (+$3)
+L buys and gains a Silver.
+L draws 5 cards.
+
+Turn 5 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: 3 Coppers and a Torturer.
+C plays a Torturer.
+C draws 2 Coppers and an Estate.
+L discards a card and a Copper.
+C plays 5 Coppers. (+$5)
+C buys and gains a Torturer.
+C draws 2 Coppers, an Estate, a Shanty Town and an Envoy.
+
+Turn 5 - Lord Rattington
+L plays a Copper and a Silver. (+$3)
+L buys and gains a Silver.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 6 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, 2 Coppers and an Envoy.
+C plays an Envoy.
+C shuffles their deck.
+C reveals 2 Estates and 3 Coppers.
+C discards an Estate.
+C puts 3 Coppers and an Estate into their hand.
+C plays 5 Coppers. (+$5)
+C buys and gains a Minion.
+C draws 2 Coppers, a Shanty Town and 2 Torturers.
+
+Turn 6 - Lord Rattington
+L plays a Torturer.
+L draws 3 cards.
+C discards 2 Coppers.
+L plays 2 Coppers and 2 Silvers. (+$6)
+L buys and gains a Gold.
+L draws 5 cards.
+
+Turn 7 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: 2 Torturers.
+C plays a Torturer.
+C shuffles their deck.
+C draws 2 Estates and an Envoy.
+L discards a card and a Copper.
+C plays a Torturer.
+C draws 3 Coppers.
+L discards a card and a Copper.
+C plays 3 Coppers. (+$3)
+C buys and gains a Shanty Town.
+C draws 4 Coppers and a Minion.
+
+Turn 7 - Lord Rattington
+L plays a Silver. (+$2)
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 8 - Cl0bBer123
+C plays a Minion.
+C gets +1 Action.
+C discards 4 Coppers.
+C shuffles their deck.
+C draws 2 Coppers, an Estate and a Shanty Town.
+L discards 4 other cards and a Copper.
+L draws 4 cards.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate and 2 Coppers.
+C draws 2 Estates.
+C plays 2 Coppers. (+$2)
+C draws 2 Coppers, 2 Torturers and an Envoy.
+
+Turn 8 - Lord Rattington
+L plays 2 Coppers and a Silver. (+$4)
+L buys and gains a Silver.
+L draws 5 cards.
+
+Turn 9 - Cl0bBer123
+C plays a Torturer.
+C draws 2 Coppers and a Shanty Town.
+L discards a card and a Silver.
+C plays 4 Coppers. (+$4)
+C buys and gains a Silver.
+C shuffles their deck.
+C draws 2 Coppers, an Estate and 2 Shanty Towns.
+
+Turn 9 - Lord Rattington
+L plays a Torturer.
+L shuffles their deck.
+L draws 3 cards.
+C discards a Copper and an Estate.
+L plays a Copper, a Gold and a Silver. (+$6)
+L buys and gains a Gold.
+L draws 5 cards.
+
+Turn 10 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: a Copper and a Shanty Town.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: a Copper.
+C draws 2 Coppers.
+C plays 3 Coppers. (+$3)
+C buys and gains a Silver.
+C draws a Silver, 2 Estates, a Minion and an Envoy.
+
+Turn 10 - Lord Rattington
+L plays 2 Coppers and 2 Silvers. (+$6)
+L buys and gains an Upgrade.
+L draws 5 cards.
+
+Turn 11 - Cl0bBer123
+C plays a Minion.
+C gets +1 Action.
+C discards a Silver, 2 Estates and an Envoy.
+C draws 3 Coppers and a Torturer.
+L discards 4 other cards and an Estate.
+L shuffles their deck.
+L draws 4 cards.
+C plays a Torturer.
+C shuffles their deck.
+C draws a Silver, a Shanty Town and a Torturer.
+L discards a card and an Estate.
+C plays 3 Coppers and a Silver. (+$5)
+C buys and gains a Minion.
+C draws 2 Coppers, a Silver and 2 Estates.
+
+Turn 11 - Lord Rattington
+L plays 2 Coppers. (+$2)
+L draws 5 cards.
+
+Turn 12 - Cl0bBer123
+C plays 2 Coppers and a Silver. (+$4)
+C buys and gains a Shanty Town.
+C draws a Copper, an Estate, 2 Shanty Towns and an Envoy.
+
+Turn 12 - Lord Rattington
+L plays a Torturer.
+L draws 3 cards.
+C discards a Copper and an Estate.
+L plays a Copper, a Gold and 3 Silvers. (+$10)
+L buys and gains a Province.
+L draws 5 cards.
+
+Turn 13 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Envoy and a Shanty Town.
+C plays an Envoy.
+C shuffles their deck.
+C reveals an Estate, a Copper, a Minion and 2 Shanty Towns.
+C discards a Minion.
+C puts a Copper, an Estate and 2 Shanty Towns into their hand.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, a Copper and 2 Shanty Towns.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, a Copper and a Shanty Town.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate and a Copper.
+C draws an Estate and a Torturer.
+C plays a Torturer.
+C draws 3 Coppers.
+L discards a card and a Copper.
+C plays 4 Coppers. (+$4)
+C buys and gains a Black Market.
+C draws a Copper, 2 Silvers, an Estate and a Torturer.
+
+Turn 13 - Lord Rattington
+L plays an Envoy.
+L shuffles their deck.
+L reveals an Estate, 2 Coppers, an Upgrade and a Province.
+L discards an Upgrade.
+L puts 2 Coppers, an Estate and a Province into their hand.
+L plays 2 Coppers, a Gold and a Silver. (+$7)
+L buys and gains a Minion.
+L draws 5 cards.
+
+Turn 14 - Cl0bBer123
+C plays a Torturer.
+C draws 2 Coppers and a Minion.
+L discards a card and a Copper.
+C plays 3 Coppers and 2 Silvers. (+$7)
+C buys and gains a Gold.
+C shuffles their deck.
+C draws 3 Coppers, an Estate and a Black Market.
+
+Turn 14 - Lord Rattington
+L plays a Torturer.
+L draws 3 cards.
+C discards a Copper and an Estate.
+L plays 2 Coppers and 3 Silvers. (+$8)
+L buys and gains a Province.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 15 - Cl0bBer123
+C plays a Black Market.
+C gets +$2.
+C reveals a Courtyard, a Border Village and a Soothsayer.
+C plays 2 Coppers. (+$2)
+C puts a Courtyard, a Border Village and a Soothsayer on the bottom of the Black Market Deck.
+C buys and gains a Silver.
+C draws a Copper, a Silver, 2 Shanty Towns and an Envoy.
+
+Turn 15 - Lord Rattington
+L plays a Copper and a Gold. (+$4)
+L buys and gains an Envoy.
+L draws 5 cards.
+
+Turn 16 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: a Copper, an Envoy, a Shanty Town and a Silver.
+C plays an Envoy.
+C reveals an Estate, a Copper, a Shanty Town, a Torturer and a Silver.
+C discards a Torturer.
+C puts a Copper, a Silver, an Estate and a Shanty Town into their hand.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, 2 Coppers, a Shanty Town and 2 Silvers.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, 2 Coppers and 2 Silvers.
+C draws a Copper and an Estate.
+C plays 3 Coppers and 2 Silvers. (+$7)
+C buys and gains a Gold.
+C draws a Copper, a Gold, 2 Minions and a Shanty Town.
+
+Turn 16 - Lord Rattington
+L plays an Envoy.
+L reveals an Estate, a Copper, a Minion, a Gold and a Silver.
+L discards a Gold.
+L puts a Copper, a Silver, an Estate and a Minion into their hand.
+L plays 2 Coppers and 3 Silvers. (+$8)
+L buys and gains a Province.
+L draws 5 cards.
+
+Turn 17 - Cl0bBer123
+C plays a Minion.
+C gets +1 Action.
+C gets +$2.
+C plays a Minion.
+C gets +1 Action.
+C gets +$2.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: a Copper and a Gold.
+C shuffles their deck.
+C draws a Gold and a Torturer.
+C plays a Torturer.
+C draws 2 Coppers and a Black Market.
+L discards a card and a Copper.
+C plays a Black Market.
+C gets +$2.
+C reveals a Journeyman, a Hunting Party and a Bazaar.
+C gains a Hunting Party.
+C puts a Bazaar and a Journeyman on the bottom of the Black Market Deck.
+C plays 3 Coppers and 2 Golds. (+$9)
+C buys and gains a Province.
+C draws a Copper, a Silver, an Estate, a Shanty Town and an Envoy.
+
+Turn 17 - Lord Rattington
+L plays a Torturer.
+L shuffles their deck.
+L draws 3 cards.
+C discards a Copper and an Estate.
+L plays 3 Coppers and a Silver. (+$5)
+L buys and gains a Duchy.
+L draws 5 cards.
+
+Turn 18 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Envoy and a Silver.
+C plays an Envoy.
+C reveals an Estate, 2 Coppers and 2 Shanty Towns.
+C discards a Shanty Town.
+C puts 2 Coppers, an Estate and a Shanty Town into their hand.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, 2 Coppers and a Silver.
+C draws 2 Silvers.
+C plays 2 Coppers and 3 Silvers. (+$8)
+C buys and gains a Province.
+C shuffles their deck.
+C draws a Copper, an Estate, a Shanty Town, a Torturer and an Envoy.
+
+Turn 18 - Lord Rattington
+L plays an Envoy.
+L reveals an Estate, a Copper, an Envoy, a Minion and a Province.
+L discards a Copper.
+L puts an Estate, a Province, a Minion and an Envoy into their hand.
+L plays a Copper and 2 Silvers. (+$5)
+L buys and gains a Duchy.
+L draws 5 cards.
+
+Turn 19 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, a Copper, an Envoy and a Torturer.
+C plays a Torturer.
+C draws a Copper, an Estate and a Minion.
+L discards a card and an Estate.
+C plays a Minion.
+C gets +1 Action.
+C discards 2 Coppers, 2 Estates and an Envoy.
+C draws 2 Coppers and 2 Provinces.
+C plays 2 Coppers. (+$2)
+C draws 2 Coppers, a Silver, an Estate and a Torturer.
+
+Turn 19 - Lord Rattington
+L plays a Copper, a Gold and a Silver. (+$6)
+L buys and gains a Duchy.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 20 - Cl0bBer123
+C plays a Torturer.
+C draws a Silver, a Gold and a Hunting Party.
+L discards a card and a Province.
+C plays 2 Coppers, a Gold and 2 Silvers. (+$9)
+C buys and gains a Province.
+C draws a Copper, a Silver, 2 Shanty Towns and a Black Market.
+
+Turn 20 - Lord Rattington
+L plays a Copper and a Gold. (+$4)
+L buys and gains an Estate.
+L draws 5 cards.
+
+Turn 21 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: a Copper, a Black Market, a Shanty Town and a Silver.
+C plays a Black Market.
+C gets +$2.
+C reveals a Fortune Teller, a Harvest and a Jester.
+C plays a Copper and a Silver. (+$3)
+C gains a Jester.
+C puts a Fortune Teller and a Harvest on the bottom of the Black Market Deck.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: nothing.
+C draws a Minion and a Shanty Town.
+C plays a Minion.
+C gets +1 Action.
+C discards a Shanty Town.
+C shuffles their deck.
+C draws a Copper, a Silver, a Gold and an Estate.
+L discards 4 other cards and a Silver.
+L draws 4 cards.
+C plays a Copper, a Gold and a Silver. (+$6)
+C buys and gains a Duchy.
+C draws 2 Coppers, a Silver, a Province and a Hunting Party.
+
+Turn 21 - Lord Rattington
+L plays 2 Coppers and a Silver. (+$4)
+L buys and gains an Estate.
+L draws 5 cards.
+
+Turn 22 - Cl0bBer123
+C plays a Hunting Party.
+C draws a Gold.
+C gets +1 Action.
+C reveals their hand: 2 Coppers, a Gold, a Province and a Silver.
+C reveals an Estate.
+C puts an Estate into their hand.
+C plays 2 Coppers, a Gold and a Silver. (+$7)
+C buys and gains a Duchy.
+C draws 2 Coppers, a Torturer, a Jester and an Envoy.
+
+Turn 22 - Lord Rattington
+L plays a Copper, a Gold and a Silver. (+$6)
+L buys and gains a Duchy.
+L draws 5 cards.
+
+Turn 23 - Cl0bBer123
+C plays a Jester.
+C gets +$2.
+L discards an Estate.
+L gains a Curse.
+C plays 2 Coppers. (+$2)
+C buys and gains an Estate.
+C draws a Province, a Minion, 2 Shanty Towns and a Torturer.
+
+Turn 23 - Lord Rattington
+L plays a Torturer.
+L shuffles their deck.
+L draws 3 cards.
+C discards a Province and a Shanty Town.
+L plays 2 Coppers. (+$2)
+L buys and gains an Estate.
+L draws 5 cards.
+
+Turn 24 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: a Minion and a Torturer.
+C plays a Torturer.
+C draws a Copper, an Estate and a Province.
+L discards a card and a Duchy.
+C plays a Minion.
+C gets +1 Action.
+C discards a Copper, an Estate and a Province.
+C shuffles their deck.
+C draws 2 Coppers, a Duchy and a Province.
+C plays 2 Coppers. (+$2)
+C buys and gains an Estate.
+C draws a Copper, a Silver, an Estate, a Shanty Town and a Hunting Party.
+
+Turn 24 - Lord Rattington
+L plays a Silver. (+$2)
+L buys and gains an Estate.
+L draws 5 cards.
+
+Turn 25 - Cl0bBer123
+C plays a Hunting Party.
+C draws a Gold.
+C gets +1 Action.
+C reveals their hand: an Estate, a Copper, a Gold, a Shanty Town and a Silver.
+C reveals an Estate and a Shanty Town and finally Province.
+C puts a Province into their hand.
+C discards an Estate and a Shanty Town.
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, a Copper, a Gold, a Silver and a Province.
+C draws a Copper and a Torturer.
+C plays a Torturer.
+C draws a Copper, a Province and a Minion.
+L discards a card and an Estate.
+C plays a Minion.
+C gets +1 Action.
+C gets +$2.
+C plays 3 Coppers, a Gold and a Silver. (+$8)
+C buys and gains a Province.
+C draws a Copper, a Gold, an Estate, a Duchy and a Shanty Town.
+
+Turn 25 - Lord Rattington
+L plays a Silver. (+$2)
+L buys and gains an Estate.
+L draws 5 cards.
+
+Turn 26 - Cl0bBer123
+C plays a Shanty Town.
+C gets +2 Actions.
+C reveals their hand: an Estate, a Copper, a Duchy and a Gold.
+C draws a Jester and a Black Market.
+C plays a Jester.
+C gets +$2.
+L discards a Gold.
+C gains a Gold.
+C plays a Black Market.
+C gets +$2.
+C reveals a Herald, a Masquerade and a Warehouse.
+C puts a Masquerade, a Warehouse and a Herald on the bottom of the Black Market Deck.
+C plays a Copper and a Gold. (+$4)
+C buys and gains a Province.
+C draws a Copper, 2 Silvers, an Estate and an Envoy.`;
