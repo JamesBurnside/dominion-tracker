@@ -19,7 +19,7 @@ describe("Log helper tests", () => {
 		expect(isValidLogString("C gains a Silver from trash.")).toBeTruthy();
 	});
 
-	test("Successfully converts log strings to dominion logs", () => {
+	test.skip("Successfully converts log strings to dominion logs", () => {
 		expect(convertLogStringToLog("L buys and gains an Ambassador.")).toEqual({
 			playerName: "L",
 			primaryAction: DominionAction.Buys_And_Gains,

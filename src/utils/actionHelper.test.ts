@@ -1,12 +1,13 @@
 import { DominionAction } from "@types";
-import { stringToAction } from "./actionHelper";
+import { extractActionFromLogLine } from "./actionHelper";
 
 describe("Action enum conversion tests", () => {
 	test("stringToAction should provide known action if string is recognized", () => {
-		expect(stringToAction("buys")).toEqual(DominionAction.Buy);
+		expect(extractActionFromLogLine("A buys and gains a turtle")).toEqual(DominionAction.Buys_And_Gains);
+		expect(extractActionFromLogLine("A gains a turtle")).toEqual(DominionAction.Gains);
 	});
 
-	test("stringToAction should throw error if string is not recognized", () => {
-		expect(() => { stringToAction("turtles"); }).toThrowError();
-	});
+	// test("stringToAction should throw error if string is not recognized", () => {
+	// 	expect(() => { stringToAction("turtles"); }).toThrowError();
+	// });
 });
