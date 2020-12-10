@@ -5,6 +5,6 @@ export function stringToSubject(subjectString: string): DominionSubject {
 	switch(subjectString) {
 	default:
 		logError(`Unknown subject: ${subjectString}!`, true);
-		return DominionSubject.Unknown;
+		return undefined;
 	}
 }
