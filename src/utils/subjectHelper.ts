@@ -1,5 +1,5 @@
 import { DominionSubject } from "@types";
-import { logError } from "./errorLogger";
+import { logError } from "utils";
 
 export function stringToSubject(subjectString: string): DominionSubject {
 	switch(subjectString) {

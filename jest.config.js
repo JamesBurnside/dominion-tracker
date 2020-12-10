@@ -1,9 +1,10 @@
 module.exports = {
-	"roots": [
+	roots: [
 		"src"
 	],
-	"transform": {
-		"^.+\\.(ts|js)x?$": "ts-jest",
+	transform: {
+		"^.+\\.(ts)x?$": "ts-jest",
 	},
-	"modulePaths": ["<rootDir>/src/"]
+	modulePaths: ["<rootDir>/src/"],
+	setupFiles: ["./src/test-utils/jestSetup.ts"],
 }; 
