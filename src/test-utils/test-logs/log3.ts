@@ -1,0 +1,364 @@
+export const log3 = `Game #61659493, unrated.
+
+Kingdom generated with these relative percentages:
+0%: Treasure Map
+50%: Poacher and Bandit
+
+s starts with 7 Coppers.
+s starts with 3 Estates.
+C starts with 7 Coppers.
+C starts with 3 Estates.
+s shuffles their deck.
+s draws 5 cards.
+C shuffles their deck.
+C draws 3 Coppers and 2 Estates.
+
+Turn 1 - shealr
+s plays 4 Coppers. (+$4)
+s buys and gains a Flag Bearer.
+s takes the Flag.
+s shuffles their deck.
+s draws 6 cards.
+
+Turn 1 - Cl0bBer123
+C plays 3 Coppers. (+$3)
+C buys and gains a Silver.
+C draws 4 Coppers and an Estate.
+
+Turn 2 - shealr
+s plays 4 Coppers. (+$4)
+s buys and gains a Royal Blacksmith.
+s repays 4 debt (4 remaining).
+s shuffles their deck.
+s draws 6 cards.
+
+Turn 2 - Cl0bBer123
+C plays 4 Coppers. (+$4)
+C buys and gains a Flag Bearer.
+C takes the Flag.
+C shuffles their deck.
+C draws 3 Coppers, a Silver, an Estate and a Flag Bearer.
+
+Turn 3 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 2 Coppers. (+$2)
+s repays 4 debt.
+s plays 2 Coppers. (+$2)
+s buys and gains a Courtyard.
+s draws 5 cards.
+
+Turn 3 - Cl0bBer123
+C plays a Flag Bearer.
+C gets +$2.
+C plays 3 Coppers and a Silver. (+$5)
+C buys and gains a Forge.
+C draws 4 Coppers and 2 Estates.
+
+Turn 4 - shealr
+s plays a Royal Blacksmith.
+s shuffles their deck.
+s draws 5 cards.
+s reveals their hand: a Flag Bearer, 5 Coppers and 3 Estates.
+s discards 5 Coppers.
+s shuffles their deck.
+s draws 5 cards.
+
+Turn 4 - Cl0bBer123
+C plays 4 Coppers. (+$4)
+C buys and gains a Silver.
+C shuffles their deck.
+C draws 2 Coppers, 2 Silvers, an Estate and a Forge.
+
+Turn 5 - shealr
+s plays a Courtyard.
+s draws 3 cards.
+s topdecks a card.
+s plays 5 Coppers. (+$5)
+s buys and gains a Butcher.
+s draws 5 cards.
+
+Turn 5 - Cl0bBer123
+C plays a Forge.
+C trashes 2 Coppers and an Estate.
+C gains a Courtyard.
+C plays 2 Silvers. (+$4)
+C buys and gains a Silver.
+C draws 5 Coppers and an Estate.
+
+Turn 6 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 2 Coppers. (+$2)
+s buys a Flag Bearer.
+s takes 2 VP from Colonnade.
+s gains a Flag Bearer.
+s takes the Flag.
+s shuffles their deck.
+s draws 6 cards.
+
+Turn 6 - Cl0bBer123
+C plays 5 Coppers. (+$5)
+C buys and gains a Flag Bearer.
+C takes the Flag.
+C shuffles their deck.
+C draws 3 Coppers, an Estate and 2 Flag Bearers.
+
+Turn 7 - shealr
+s plays a Royal Blacksmith.
+s draws 5 cards.
+s reveals their hand: a Butcher, a Flag Bearer, a Courtyard, 5 Coppers and 2 Estates.
+s discards 5 Coppers.
+s shuffles their deck.
+s draws 5 cards.
+
+Turn 7 - Cl0bBer123
+C plays a Flag Bearer.
+C gets +$2.
+C plays 3 Coppers. (+$3)
+C buys and gains a Mastermind.
+C draws 2 Coppers, 3 Silvers and a Forge.
+
+Turn 8 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 2 Coppers. (+$2)
+s buys and gains a Silver.
+s draws 5 cards.
+
+Turn 8 - Cl0bBer123
+C plays a Forge.
+C trashes 2 Coppers and 2 Silvers.
+C gains a Gold.
+C plays a Silver. (+$2)
+C shuffles their deck.
+C draws a Copper, an Estate, a Courtyard, a Forge and 2 Flag Bearers.
+
+Turn 9 - shealr
+s plays a Courtyard.
+s draws 3 cards.
+s topdecks a card.
+s plays 4 Coppers. (+$4)
+s buys and gains a Silver.
+s shuffles their deck.
+s draws 5 cards.
+
+Turn 9 - Cl0bBer123
+C plays a Forge.
+C trashes a Copper, an Estate, a Courtyard and a Flag Bearer.
+C gains a Province.
+C draws 2 Coppers, a Silver, a Gold, an Estate and a Mastermind.
+
+Turn 10 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 3 Coppers. (+$3)
+s buys and gains a Mastermind.
+s draws 5 cards.
+
+Turn 10 - Cl0bBer123
+C plays a Mastermind.
+C plays a Gold, 2 Coppers and a Silver. (+$7)
+C buys and gains a Royal Blacksmith.
+C repays 7 debt (1 remaining).
+C shuffles their deck.
+C draws 2 Coppers, a Silver, a Gold, a Province and a Flag Bearer.
+
+Turn 11 - shealr
+s plays a Courtyard.
+s draws 3 cards.
+s topdecks a card.
+s plays a Copper and 2 Silvers. (+$5)
+s buys and gains a Silver.
+s draws 5 cards.
+
+Turn 11 - Cl0bBer123
+C starts their turn.
+C plays a Flag Bearer.
+C gets +$2.
+C plays a Flag Bearer again.
+C gets +$2.
+C plays a Flag Bearer a third time.
+C gets +$2.
+C plays a Gold, 2 Coppers and a Silver. (+$7)
+C repays 1 debt.
+C buys and gains a Province.
+C shuffles their deck.
+C draws 2 Coppers, a Silver, an Estate, a Forge and a Royal Blacksmith.
+
+Turn 12 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 3 Coppers. (+$3)
+s buys a Flag Bearer.
+s takes 2 VP from Colonnade.
+s gains a Flag Bearer.
+s takes the Flag.
+s shuffles their deck.
+s draws 6 cards.
+
+Turn 12 - Cl0bBer123
+C plays a Forge.
+C trashes 2 Coppers, a Silver and an Estate.
+C gains a Duchy.
+C buys and gains a Ruined Village.
+C draws a Gold, 2 Provinces, a Flag Bearer and a Mastermind.
+
+Turn 13 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 4 Coppers and a Silver. (+$6)
+s buys and gains a Province.
+s draws 6 cards.
+
+Turn 13 - Cl0bBer123
+C plays a Mastermind.
+C plays a Gold. (+$3)
+C buys and gains a Silver.
+C shuffles their deck.
+C draws a Silver, 2 Provinces, a Ruined Village and a Royal Blacksmith.
+
+Turn 14 - shealr
+s plays a Royal Blacksmith.
+s draws 5 cards.
+s reveals their hand: 2 Flag Bearers, a Butcher, 2 Coppers, a Mastermind, 2 Estates and 2 Silvers.
+s discards 2 Coppers.
+s plays 2 Silvers. (+$4)
+s buys and gains a Silver.
+s shuffles their deck.
+s draws 6 cards.
+
+Turn 14 - Cl0bBer123
+C starts their turn.
+C plays a Ruined Village.
+C gets +1 Action.
+C plays a Ruined Village again.
+C gets +1 Action.
+C plays a Ruined Village a third time.
+C gets +1 Action.
+C plays a Royal Blacksmith.
+C draws a Gold, a Duchy, a Forge and a Flag Bearer.
+C reveals their hand: a Duchy, a Gold, a Flag Bearer, 2 Provinces, a Silver and a Forge.
+C discards nothing.
+C plays a Forge.
+C trashes a Duchy.
+C gains a Duchy.
+C plays a Flag Bearer.
+C gets +$2.
+C plays a Gold and a Silver. (+$5)
+C buys and gains a Duchy.
+C shuffles their deck.
+C draws a Silver, a Duchy, a Ruined Village, a Royal Blacksmith and a Flag Bearer.
+
+Turn 15 - shealr
+s plays a Courtyard.
+s draws 3 cards.
+s topdecks a card.
+s plays 3 Coppers and a Silver. (+$5)
+s buys and gains a Silver.
+s draws 6 cards.
+
+Turn 15 - Cl0bBer123
+C plays a Royal Blacksmith.
+C draws a Gold, a Duchy, 2 Provinces and a Mastermind.
+C reveals their hand: 2 Duchies, a Gold, a Flag Bearer, a Mastermind, 2 Provinces, a Ruined Village and a Silver.
+C discards nothing.
+C plays a Gold and a Silver. (+$5)
+C buys and gains a Silver.
+C shuffles their deck.
+C draws a Silver, a Gold, a Province, a Forge and a Ruined Village.
+
+Turn 16 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays 2 Coppers and 2 Silvers. (+$6)
+s buys and gains a Province.
+s draws 6 cards.
+
+Turn 16 - Cl0bBer123
+C plays a Forge.
+C trashes a Province.
+C gains a Province.
+C plays a Gold and a Silver. (+$5)
+C buys and gains a Duchy.
+C draws 2 Duchies, a Province, a Flag Bearer and a Mastermind.
+
+Turn 17 - shealr
+s plays a Royal Blacksmith.
+s shuffles their deck.
+s draws 5 cards.
+s reveals their hand: a Butcher, 2 Flag Bearers, 3 Coppers, a Mastermind, an Estate and 2 Silvers.
+s discards 3 Coppers.
+s plays 2 Silvers. (+$4)
+s buys and gains a Silver.
+s draws 6 cards.
+
+Turn 17 - Cl0bBer123
+C plays a Mastermind.
+C shuffles their deck.
+C draws a Silver, a Gold, 2 Duchies and a Royal Blacksmith.
+
+Turn 18 - shealr
+s plays a Courtyard.
+s draws 3 cards.
+s topdecks a card.
+s plays 3 Coppers and 2 Silvers. (+$7)
+s buys and gains a Gold.
+s shuffles their deck.
+s draws 6 cards.
+
+Turn 18 - Cl0bBer123
+C starts their turn.
+C plays a Royal Blacksmith.
+C draws a Silver, 2 Provinces, a Forge and a Flag Bearer.
+C reveals their hand: 2 Duchies, a Gold, a Flag Bearer, 2 Provinces, 2 Silvers and a Forge.
+C discards nothing.
+C plays a Royal Blacksmith again.
+C draws a Duchy and a Ruined Village.
+C reveals their hand: 3 Duchies, a Gold, a Flag Bearer, 2 Provinces, 2 Silvers, a Forge and a Ruined Village.
+C discards nothing.
+C plays a Royal Blacksmith a third time.
+C reveals their hand: 3 Duchies, a Gold, a Flag Bearer, 2 Provinces, 2 Silvers, a Forge and a Ruined Village.
+C discards nothing.
+C plays a Forge.
+C trashes a Ruined Village and a Flag Bearer.
+C takes the Flag.
+C gains a Flag Bearer.
+C plays a Gold and 2 Silvers. (+$7)
+C buys and gains a Gold.
+C shuffles their deck.
+C draws a Silver, 2 Golds, a Duchy, a Province and a Mastermind.
+
+Turn 19 - shealr
+s plays a Flag Bearer.
+s gets +$2.
+s plays a Copper and 2 Silvers. (+$5)
+s buys and gains a Gold.
+s draws 5 cards.
+
+Turn 19 - Cl0bBer123
+C plays a Mastermind.
+C plays 2 Golds and a Silver. (+$8)
+C buys and gains a Province.
+C draws a Silver, a Duchy, a Province, a Forge, a Royal Blacksmith and a Flag Bearer.
+
+Turn 20 - shealr
+s plays 2 Coppers and a Silver. (+$4)
+s buys and gains a Silver.
+s draws 5 cards.
+
+Turn 20 - Cl0bBer123
+C starts their turn.
+C plays a Flag Bearer.
+C gets +$2.
+C plays a Flag Bearer again.
+C gets +$2.
+C plays a Flag Bearer a third time.
+C gets +$2.
+C plays a Forge.
+C trashes a Province.
+C gains a Province.
+C plays a Silver. (+$2)
+C buys and gains a Province.
+C shuffles their deck.
+C draws a Silver, a Gold, a Duchy, a Province, a Forge and a Flag Bearer.`;
