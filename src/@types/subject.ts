@@ -3,6 +3,7 @@ export enum DominionSubjectType {
 	Card,
 	Deck,
 	Discard,
+	Hand
 }
 
 export interface DominionSubject {

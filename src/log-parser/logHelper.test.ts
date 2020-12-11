@@ -1,4 +1,4 @@
-import { DominionAction } from "@types";
+import { DominionAction, DominionSubjectType } from "@types";
 import { convertLogStringToLog, getLogsFromContainer, isValidLogString } from "./logHelpers";
 
 describe("Log helper tests", () => {
@@ -23,34 +23,31 @@ describe("Log helper tests", () => {
 		expect(convertLogStringToLog("L buys and gains an Ambassador.")).toEqual({
 			playerName: "L",
 			primaryAction: DominionAction.Buys_And_Gains,
-			primarySubject: undefined
-			// primarySubject: {
-			// 	type: DominionSubjectType.Card,
-			// 	card: "Ambassador",
-			// 	amount: 1
-			// }
+			primarySubject: {
+				type: DominionSubjectType.Card,
+				card: "Ambassador",
+				amount: 1
+			}
 		});
 
 		expect(convertLogStringToLog("C gains a Noble Brigand.")).toEqual({
 			playerName: "C",
 			primaryAction: DominionAction.Gains,
-			primarySubject: undefined
-			// primarySubject: {
-			// 	type: DominionSubjectType.Card,
-			// 	card: "Noble Brigand",
-			// 	amount: 1
-			// }
+			primarySubject: {
+				type: DominionSubjectType.Card,
+				card: "Noble Brigand",
+				amount: 1
+			}
 		});
 
 		expect(convertLogStringToLog("Turtles gains a Silver from trash.")).toEqual({
 			playerName: "Turtles",
 			primaryAction: DominionAction.Gains,
-			primarySubject: undefined
-			// primarySubject: {
-			// 	type: DominionSubjectType.Card,
-			// 	card: "Silver",
-			// 	amount: 1
-			// }
+			primarySubject: {
+				type: DominionSubjectType.Card,
+				card: "Silver",
+				amount: 1
+			}
 		});
 	})
 

@@ -1,5 +1,6 @@
 import { DominionAction, DominionLog, DominionLogs, DominionSubject } from "@types";
 import { extractActionFromLogLine } from "utils/actionHelper";
+import { extractSubjectFromLogLine } from "utils/subjectHelper";
 
 export const getLogContainer = (): HTMLElement => document.getElementById("log-container");
 
@@ -11,7 +12,7 @@ export const isValidLogString = (logString: string): boolean => {
 	const validActions = Object.values(DominionAction);
 	return logString && validActions.some(action => logString.includes(action));
 
-	// Check if there was an not known about action and log an error
+	// Check if there was an unknown action and log an error
 	// !(logString.startsWith("Game ") && logString.endsWith("rated.")) &&
 	// !(logString.startsWith("Kingdom generated with")) &&
 	// !(logString.match((new VerEx()).startOfLine().digit().oneOrMore().then("%").then(":"))) &&
@@ -28,14 +29,14 @@ export const convertLogStringsToLogs = (logsAsStrings: string[]): DominionLogs =
 
 export const convertLogStringToLog = (logAsString: string): DominionLog => {
 	// Extract player - Be trivial about this for now and assume
-	// players dont have spaces in their name for now
+	// players dont have spaces in their name.
 	const playerName = logAsString.split(" ")[0];
 
 	// Extract action
 	const primaryAction = extractActionFromLogLine(logAsString);
 
 	// Extract subject
-	const primarySubject: DominionSubject = undefined;
+	const primarySubject = extractSubjectFromLogLine(logAsString);
 
 	return {
 		playerName,

@@ -1,6 +1,6 @@
 import { DominionLogs } from "@types";
 import { logError } from "utils";
-import { getLogContainer } from "./logHelpers";
+import { getLogContainer, getLogsFromContainer } from "./logHelpers";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
@@ -23,8 +23,8 @@ export default class LogParser {
 	}
 
 	private updateLogsFromContainer(): void {
-		// todo
-		this._logs = [];
+		if (!this.logContainer) logError("Log Container is null!", true);
+		this._logs = getLogsFromContainer(this.logContainer);
 	}
 
 	private updateLogContainer(): void {
