@@ -1,5 +1,6 @@
 /**
  * All known dominion actions.
+ * TODO: this list will grow as more actions are supported.
  */
 export enum DominionAction {
 	Gains = "gains",
@@ -8,6 +9,8 @@ export enum DominionAction {
 
 /**
  * Known actions that are not currently supported.
+ * TODO: this is not an exhaustive list and this list
+ * will grow as more actions are discovered.
  */
 export enum UnsupportedAction {
 	Plays = "plays",

@@ -8,6 +8,7 @@ const unsupportedCard: DominionSubject = {
 
 export function extractSubjectFromLogLine(logLine: string): DominionSubject {
 	// To be incredibly trivial and assume everything after the known action is a `a` or `an` <card>
+	// TODO: support multi subjects, e.g. L trashes 3 coppers and an estate.
 	const action = extractActionFromLogLine(logLine);
 
 	if (!action) return unsupportedCard;
@@ -19,16 +20,16 @@ export function extractSubjectFromLogLine(logLine: string): DominionSubject {
 	let card = subjectLine.startsWith("an ") ?
 		subjectLine.substr(3) : subjectLine.substr(2);
 
-	// remove known endings, order of endings array matters here
+	// remove known endings. Order of endings array matters here
 	const endings = [".", " from trash"];
-	for(const ending of endings) {
+	for (const ending of endings) {
 		if (card.endsWith(ending)) {
 			card = card.substr(0, card.length - ending.length);
 		}
 	}
 
 	if (!card || card.length < 1) {
-		logError("Card not parsed", true);
+		logError(`Card not parsed as subject succesfully, logline: ${logLine}`, true);
 		return unsupportedCard;
 	}
 

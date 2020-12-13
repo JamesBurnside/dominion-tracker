@@ -22,8 +22,8 @@ describe("Log helper tests", () => {
 	test("Successfully converts log strings to dominion logs", () => {
 		expect(convertLogStringToLog("L buys and gains an Ambassador.")).toEqual({
 			playerName: "L",
-			primaryAction: DominionAction.Buys_And_Gains,
-			primarySubject: {
+			action: DominionAction.Buys_And_Gains,
+			subject: {
 				type: DominionSubjectType.Card,
 				card: "Ambassador",
 				amount: 1
@@ -32,8 +32,8 @@ describe("Log helper tests", () => {
 
 		expect(convertLogStringToLog("C gains a Noble Brigand.")).toEqual({
 			playerName: "C",
-			primaryAction: DominionAction.Gains,
-			primarySubject: {
+			action: DominionAction.Gains,
+			subject: {
 				type: DominionSubjectType.Card,
 				card: "Noble Brigand",
 				amount: 1
@@ -42,8 +42,8 @@ describe("Log helper tests", () => {
 
 		expect(convertLogStringToLog("Turtles gains a Silver from trash.")).toEqual({
 			playerName: "Turtles",
-			primaryAction: DominionAction.Gains,
-			primarySubject: {
+			action: DominionAction.Gains,
+			subject: {
 				type: DominionSubjectType.Card,
 				card: "Silver",
 				amount: 1
