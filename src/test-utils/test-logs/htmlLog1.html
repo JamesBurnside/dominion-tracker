@@ -1,0 +1,414 @@
+<div class="log-container" ng-controller="LogController as logController">
+	<div class="game-log" ng-show="logController.shouldShowLog()" aria-hidden="false">
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">Game #61817011,
+					unrated.<br><br>Kingdom generated with these relative percentages:<br>
+					<div style="padding-left:0.5em; text-indent:-0.5em; display: inline;">0%: <span
+							onmousedown="publicStudyRequest(event, 'Treasure Map')" style="cursor:default;"><span
+								style="color:white">Treasure Map</span></span><br></div>
+					<div style="padding-left:0.5em; text-indent:-0.5em; display: inline;">50%: <span
+							onmousedown="publicStudyRequest(event, 'Poacher')" style="cursor:default;"><span
+								style="color:white">Poacher</span></span> and <span
+							onmousedown="publicStudyRequest(event, 'Bandit')" style="cursor:default;"><span
+								style="color:white">Bandit</span></span><br></div>
+					<div style="padding-left:0.5em; text-indent:-0.5em; display: inline;">200%: <span
+							onmousedown="publicStudyRequest(event, 'Wandering Minstrel')" style="cursor:default;"><span
+								style="color:white">Wandering Minstrel</span></span><br></div><br>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					starts with <span onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">7 Coppers</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					starts with <span onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">3 Estates</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> starts with <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">7 Coppers</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> starts with <span
+						onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">3 Estates</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:#ff7f7f">
+						<div style="display:inline; font-style:italic;"><span style="color:red">L</span> shuffles their
+							deck.</div>
+					</span></div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					draws <span onmousedown="publicStudyRequest(event, 'Back')" style="cursor:default;"><span
+							style="color:white">5 cards</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:#ff7f7f">
+						<div style="display:inline; font-style:italic;"><span style="color:rgb(70, 70, 219)">C</span>
+							shuffles their deck.</div>
+					</span></div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> draws <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">4 Coppers</span></span> and <span
+						onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">an Estate</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 1 - Lord Rattington</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					plays <span onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">4 Coppers</span></span>. (+$4)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					buys and gains <span onmousedown="publicStudyRequest(event, 'Militia')"
+						style="cursor:default;"><span style="color:white">a Militia</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					draws <span onmousedown="publicStudyRequest(event, 'Back')" style="cursor:default;"><span
+							style="color:white">5 cards</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 1 - Cl0bBer123</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> plays <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">4 Coppers</span></span>. (+$4)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> buys and gains <span
+						onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">a Silver</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> draws <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">3 Coppers</span></span> and <span
+						onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">2 Estates</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 2 - Lord Rattington</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					plays <span onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">3 Coppers</span></span>. (+$3)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					buys and gains <span onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">a Silver</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:#ff7f7f">
+						<div style="display:inline; font-style:italic;"><span style="color:red">L</span> shuffles their
+							deck.</div>
+					</span></div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					draws <span onmousedown="publicStudyRequest(event, 'Back')" style="cursor:default;"><span
+							style="color:white">5 cards</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 2 - Cl0bBer123</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> plays <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">3 Coppers</span></span>. (+$3)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> buys and gains <span
+						onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">a Silver</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:#ff7f7f">
+						<div style="display:inline; font-style:italic;"><span style="color:rgb(70, 70, 219)">C</span>
+							shuffles their deck.</div>
+					</span></div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> draws <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">4 Coppers</span></span> and <span
+						onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">an Estate</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 3 - Lord Rattington</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					plays <span onmousedown="publicStudyRequest(event, 'Militia')" style="cursor:default;"><span
+							style="color:white">a Militia</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:2em; text-indent:-0.5em;"><span style="color:red">L</span> gets
+					+$2.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:2em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> discards <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">a Copper</span></span> and <span
+						onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">an Estate</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					plays <span onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">2 Coppers</span></span>. (+$2)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					buys and gains <span onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">a Silver</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					draws <span onmousedown="publicStudyRequest(event, 'Back')" style="cursor:default;"><span
+							style="color:white">5 cards</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 3 - Cl0bBer123</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> plays <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">3 Coppers</span></span>. (+$3)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> buys and gains <span
+						onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">a Silver</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span
+						style="color:rgb(70, 70, 219)">C</span> draws <span
+						onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">2 Coppers</span></span>, <span
+						onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">2 Silvers</span></span> and <span
+						onmousedown="publicStudyRequest(event, 'Estate')" style="cursor:default;"><span
+							style="color:#66CD00">an Estate</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 4 - Lord Rattington</div>
+				</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					plays <span onmousedown="publicStudyRequest(event, 'Copper')" style="cursor:default;"><span
+							style="color:#FFFF33">4 Coppers</span></span> and <span
+						onmousedown="publicStudyRequest(event, 'Silver')" style="cursor:default;"><span
+							style="color:#FFFF33">a Silver</span></span>. (+$6)</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					buys and gains <span onmousedown="publicStudyRequest(event, 'Council Room')"
+						style="cursor:default;"><span style="color:white">a Council Room</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:#ff7f7f">
+						<div style="display:inline; font-style:italic;"><span style="color:red">L</span> shuffles their
+							deck.</div>
+					</span></div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml">
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;"><span style="color:red">L</span>
+					draws <span onmousedown="publicStudyRequest(event, 'Back')" style="cursor:default;"><span
+							style="color:white">5 cards</span></span>.</div>
+			</div>
+		</div>
+		<div class="actual-log" ng-if="!logController.shouldShowBullets"
+			ng-repeat="l in logController.log.entries track by l.index" style="">
+			<div class="log-line" ng-bind-html="::l.string | trustAsHtml"><br>
+				<div style="display:inline; padding-left:0.5em; text-indent:-0.5em;">
+					<div style="display: inline; font-weight: bold; color: white; padding-left:0px; text-indent:0px;">
+						Turn 4 - Cl0bBer123</div>
+				</div>
+			</div>
+		</div>
+
+		<br>
+	</div>
+	<player-zones>
+	</player-zones>
+	<trash-zone>
+	</trash-zone>
+	<hover-over-cards>
+	</hover-over-cards>
+</div>

@@ -8,15 +8,18 @@ export default class LogParser {
 		this.updateLogContainer();
 	}
 
-	// Public getter for the logs
+	/** Public getter for the logs */
 	public get logs() : DominionLogs
 	{
 		return this._logs;
 	}
 
+	/** Reparse all logs from the log container. */
 	public forceRefreshLogs(): void {
 		this.updateLogsFromContainer();
 
+		// TODO: callback should ideally only be called if the logs actually have changed.
+		// Currently it will always be called even if there are no new logs.
 		if (this.logsUpdatedCallback) {
 			this.logsUpdatedCallback(this._logs);
 		}

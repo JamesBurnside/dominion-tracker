@@ -1,4 +1,4 @@
-export const log3 = `Game #61659493, unrated.
+Game #61659493, unrated.
 
 Kingdom generated with these relative percentages:
 0%: Treasure Map
@@ -361,4 +361,4 @@ C gains a Province.
 C plays a Silver. (+$2)
 C buys and gains a Province.
 C shuffles their deck.
-C draws a Silver, a Gold, a Duchy, a Province, a Forge and a Flag Bearer.`;
+C draws a Silver, a Gold, a Duchy, a Province, a Forge and a Flag Bearer.

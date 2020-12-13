@@ -1,4 +1,3 @@
-export const log4 = `
 Game #61650779, unrated.
 
 Kingdom generated with these relative percentages:
@@ -297,4 +296,3 @@ s plays 2 Coppers, a Silver and a Gold. (+$7)
 s uses 1 Coffers. (+$1)
 s buys and gains a Province.
 s draws 5 cards.
-`;

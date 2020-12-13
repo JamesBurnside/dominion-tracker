@@ -1,4 +1,4 @@
-export const log2 = `Game #61327746, unrated.
+Game #61327746, unrated.
 
 Kingdom generated with these relative percentages:
 0%: Treasure Map
@@ -532,4 +532,4 @@ C reveals a Herald, a Masquerade and a Warehouse.
 C puts a Masquerade, a Warehouse and a Herald on the bottom of the Black Market Deck.
 C plays a Copper and a Gold. (+$4)
 C buys and gains a Province.
-C draws a Copper, 2 Silvers, an Estate and an Envoy.`;
+C draws a Copper, 2 Silvers, an Estate and an Envoy.

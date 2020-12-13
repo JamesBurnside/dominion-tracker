@@ -1,4 +1,4 @@
-export const log1 = `Game #61325495, unrated.
+Game #61325495, unrated.
 
 Kingdom generated with these relative percentages:
 0%: Treasure Map
@@ -451,4 +451,4 @@ C looks at an Ambassador, a Silver, a Gold and a Walled Village.
 C topdecks a Silver, a Gold, an Ambassador and a Walled Village.
 C plays a Silver and 2 Golds. (+$8)
 C buys and gains a Province.
-C draws a Silver, a Gold, a Province, an Ambassador and a Walled Village.`;
+C draws a Silver, a Gold, a Province, an Ambassador and a Walled Village.

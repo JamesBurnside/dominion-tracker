@@ -2,13 +2,32 @@ import { DominionAction, DominionLog, DominionLogs } from "@types";
 import { extractActionFromLogLine } from "utils/actionHelper";
 import { extractSubjectFromLogLine } from "utils/subjectHelper";
 
+const LOG_CONTAINER_CLASS_NAME = "log-container";
+const LOG_LINE_CLASS_NAME = "log-line";
+
 /**
  * TODO: Check if this is the correct ID name from dominion.
  */
-export const getLogContainer = (): HTMLElement => document.getElementById("log-container");
+export const getLogContainer = (): HTMLElement => document.getElementsByClassName(LOG_CONTAINER_CLASS_NAME)[0] as HTMLElement;
 
-export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
-	convertLogStringsToLogs(getLogsAsStringsFromContainer(logContainer));
+/**
+ * Extract an array of DominionLogs from the HTML log container element.
+ */
+export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs => Array
+	// extract log html elements as array of HTMLElements
+	.from(logContainer.getElementsByClassName(LOG_LINE_CLASS_NAME))
+	// convert html elements to string
+	.map(log => convertLogAsHTMLElementToString(log as HTMLElement))
+	// filter logs to remove only the logs we care about
+	.filter((log) => isValidLogString(log))
+	// convert the log strings to a usable DominionLog type
+	.map(log => convertLogStringToLog(log));
+
+/**
+ * Get the log text out of the html element.
+ * TODO: For now just use .innerText. This likely won't cover all scenarios and may need updated.
+ */
+export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
 
 /**
  * Currently a valid log is simply a logline that contains a known action.
@@ -27,27 +46,12 @@ export const isValidLogString = (logString: string): boolean => {
 }
 
 /**
- * TODO: Currently this fn just uses logContainer.innerHTML which won't work on the
- * real dominion.games html element. Text logs need extracted from the log container
- * html element. I envision the logs being extracted into one huge string with each
- * log line seperated by a newline but implementation can change depending on what
- * ends up being easiest.
- */
-export const getLogsAsStringsFromContainer = (logContainer: HTMLElement): string[] => {
-	const logs = logContainer.innerHTML;
-	return logs.split(/\r?\n/).filter((logline) => isValidLogString(logline));
-}
-
-export const convertLogStringsToLogs = (logsAsStrings: string[]): DominionLogs =>
-	logsAsStrings.map((logAsString) => convertLogStringToLog(logAsString));
-
-/**
  * Converts a log that is a string to a usable DominionLog.
  */
 export const convertLogStringToLog = (logAsString: string): DominionLog => {
 	// Extract player - Be trivial about this for now and assume
 	// players dont have spaces in their name.
-	const playerName = logAsString.split(" ")[0];
+	const playerName = logAsString.split(/\s/gm)[0];
 
 	// Extract action
 	const action = extractActionFromLogLine(logAsString);

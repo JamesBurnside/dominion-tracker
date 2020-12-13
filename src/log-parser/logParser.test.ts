@@ -1,4 +1,4 @@
-import logParser from "./logParser";
+// import logParser from "./logParser";
 
 describe("Log parser tests", () => {
 	test("Successfully gets logs from document", () => {

@@ -1,4 +1,3 @@
-export const log5 = `
 Game #61651856, unrated.
 
 Kingdom generated with these relative percentages:
@@ -458,4 +457,3 @@ C plays a Silver and 4 Golds. (+$14)
 C repays 5 debt.
 C buys and gains a Province.
 C draws 2 Provinces, 2 Rangers and a Priest.
-`;
