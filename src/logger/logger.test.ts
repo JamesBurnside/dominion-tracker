@@ -5,7 +5,7 @@ describe("Error logging tests", () => {
 		const consoleSpy = jest.spyOn(console, "error").mockImplementation();
 		const errorMessage = "turtles";
 		logger.error(errorMessage);
-		expect(consoleSpy).toHaveBeenLastCalledWith(`[Dominion Tracker] ${errorMessage}`);
+		expect(consoleSpy).toHaveBeenLastCalledWith("[Dominion Tracker]", errorMessage);
 	});
 
 	test("Error logger should throw error if shouldThrow it true", () => {
@@ -18,6 +18,6 @@ describe("Regular logging tests", () => {
 		const consoleSpy = jest.spyOn(console, "log").mockImplementation();
 		const message = "turtles";
 		logger.log(message);
-		expect(consoleSpy).toHaveBeenLastCalledWith(`[Dominion Tracker] ${message}`);
+		expect(consoleSpy).toHaveBeenLastCalledWith("[Dominion Tracker]", message);
 	});
 });

@@ -6,5 +6,4 @@ function onLogsChanged(logs: DominionLogs) {
 	logger.log(logs);
 }
 
-const logParser = new LogParser(onLogsChanged);
-logger.log(logParser);
+new LogParser(onLogsChanged);
