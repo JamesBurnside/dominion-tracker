@@ -30,7 +30,16 @@ module.exports = {
 		]
 	},
 	resolve: {
-		extensions: [".ts", ".tsx", ".js"]
+		extensions: [".ts", ".tsx", ".js"],
+		alias: {
+			src: path.resolve(__dirname, srcDir),
+
+			// Allow for absolute imports
+			"@types": path.resolve(__dirname, srcDir, "@types"),
+			"log-parser": path.resolve(__dirname, srcDir, "log-parser"),
+			"logger": path.resolve(__dirname, srcDir, "logger"),
+			"utils": path.resolve(__dirname, srcDir, "utils")
+		},
 	},
 	plugins: [
 		// exclude locale files in moment

@@ -12,9 +12,8 @@ Object.defineProperty(global.Element.prototype, "innerText", {
 	configurable: true, // make it so that it doesn't blow chunks on re-running tests with things like --watch
 });
 
-// Do not perform this error logging during tests. Tests should
-// fail when the expect() fails.
-jest.mock("utils", () => ({
-	...(jest.requireActual("utils")),
-	logError: jest.fn()
+// Do not perform logging during tests. Tests should fail when the expect() fails.
+jest.mock("logger", () => ({
+	log: jest.fn(),
+	error: jest.fn()
 }));

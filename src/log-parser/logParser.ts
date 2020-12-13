@@ -1,5 +1,5 @@
 import { DominionLogs } from "@types";
-import { logError } from "utils";
+import logger from "logger";
 import { getLogContainer, getLogsFromContainer } from "./logHelpers";
 
 export default class LogParser {
@@ -26,7 +26,7 @@ export default class LogParser {
 	}
 
 	private updateLogsFromContainer(): void {
-		if (!this.logContainer) logError("Log Container is null!", true);
+		if (!this.logContainer) logger.error("Log Container is null!", true);
 		this._logs = getLogsFromContainer(this.logContainer);
 	}
 
@@ -45,8 +45,8 @@ export default class LogParser {
 	}
 
 	private subscribeToLogContainerChanges(): void {
-		if (!this.logContainer) logError("Log Container is null!", true);
-		if (this.logObserver) logError("Log Observer has already been set!", true);
+		if (!this.logContainer) logger.error("Log Container is null!", true);
+		if (this.logObserver) logger.error("Log Observer has already been set!", true);
 
 		this.logObserver = new MutationObserver(this.logUpdated);
 		this.logObserver.observe(this.logContainer);

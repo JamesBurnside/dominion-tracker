@@ -1,6 +1,6 @@
 import { DominionSubject, DominionSubjectType } from "@types";
 import { extractActionFromLogLine } from "./actionHelper";
-import { logError } from "utils";
+import logger from "logger";
 
 const unsupportedCard: DominionSubject = {
 	type: DominionSubjectType.Unsupported
@@ -29,7 +29,7 @@ export function extractSubjectFromLogLine(logLine: string): DominionSubject {
 	}
 
 	if (!card || card.length < 1) {
-		logError(`Card not parsed as subject succesfully, logline: ${logLine}`, true);
+		logger.error(`Card not parsed as subject succesfully, logline: ${logLine}`, true);
 		return unsupportedCard;
 	}
 

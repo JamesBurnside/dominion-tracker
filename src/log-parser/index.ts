@@ -1,1 +1,3 @@
-export * from "./logParser";
+import logParser from "./logParser";
+
+export default logParser;
