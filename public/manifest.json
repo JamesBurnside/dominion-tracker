@@ -14,7 +14,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http*://*dominion.games/*"],
+      "matches": ["https://dominion.games/"],
       "js": ["js/contentScript.js"]
     }
   ]

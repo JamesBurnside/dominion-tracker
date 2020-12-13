@@ -1,3 +1,5 @@
+const LOG_PREFIX = "[Dominion Tracker]";
+
 class Logger {
 	/**
 	 * Quick console logging function - USE THIS INSTEAD OF CONSOLE.LOG
@@ -5,7 +7,7 @@ class Logger {
 	 * It also allows for easy mocking in tests.
 	 */
 	public log(message: unknown): void {
-		console.log(`[Dominion Tracker] ${message}`);
+		console.log(LOG_PREFIX, message);
 	}
 
 	/**
@@ -16,12 +18,10 @@ class Logger {
 	 * @param shouldThrow throw an error instead instead of logging to console.error
 	 */
 	public error(message: unknown, shouldThrow = false): void {
-		const errorMessage = `[Dominion Tracker] ${message}`;
-
 		if (shouldThrow) {
-			throw new Error(errorMessage);
+			throw new Error(`${LOG_PREFIX} ${message}`);
 		} else {
-			console.error(errorMessage);
+			console.error(LOG_PREFIX, message);
 		}
 	}
 }

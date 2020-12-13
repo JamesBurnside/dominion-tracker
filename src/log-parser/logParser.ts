@@ -4,8 +4,6 @@ import { getLogContainer, getLogsFromContainer } from "./logHelpers";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
-		logger.log("LogParser ctor");
-
 		this.logsUpdatedCallback = onLogsChanged;
 
 		if (!getLogContainer()) {
@@ -40,7 +38,6 @@ export default class LogParser {
 	}
 
 	private updateLogContainer(): void {
-		logger.log("Updating log container");
 		if (this.logContainer && this.logObserver) {
 			this.unSubscribeToLogContainerChanges();
 		}
@@ -50,22 +47,15 @@ export default class LogParser {
 		this.subscribeToLogContainerChanges();
 	}
 
-	private logUpdated(/*mutationsList: MutationRecord[], observer: MutationObserver*/): void {
-		logger.log("New log callback");
-		this.forceRefreshLogs();
-	}
-
-	private documentObserverCallback(): void {
-		logger.log("Document changed callback");
-		if (getLogContainer()) {
-			this.updateLogContainer();
-			this.unsubscribeFromDocumentChanges();
-		}
-	}
-
 	private listenForLogContainerCreation(): void {
-		logger.log("Listening for document changes");
-		this.documentObserver = new MutationObserver(this.documentObserverCallback);
+
+		this.documentObserver = new MutationObserver(() => {
+			if (getLogContainer()) {
+				this.updateLogContainer();
+				this.unsubscribeFromDocumentChanges();
+			}
+		});
+
 		this.documentObserver.observe(document.body, {
 			childList: true,
 			subtree: true,
@@ -75,7 +65,6 @@ export default class LogParser {
 	}
 
 	private unsubscribeFromDocumentChanges(): void {
-		logger.log("Unsubscribing from document changes");
 		this.documentObserver.disconnect();
 		this.documentObserver = null;
 	}
@@ -84,13 +73,19 @@ export default class LogParser {
 		if (!this.logContainer) logger.error("Log Container is null!", true);
 		if (this.logObserver) logger.error("Log Observer has already been set!", true);
 
-		logger.log("Listening for log container changes");
-		this.logObserver = new MutationObserver(this.logUpdated);
-		this.logObserver.observe(this.logContainer);
+		this.logObserver = new MutationObserver(() => {
+			this.forceRefreshLogs();
+		});
+
+		this.logObserver.observe(this.logContainer, {
+			childList: true,
+			subtree: true,
+			attributes: false,
+			characterData: false
+		});
 	}
 
 	private unSubscribeToLogContainerChanges(): void {
-		logger.log("Unsubscribing from log container changes");
 		this.logObserver.disconnect();
 		this.logObserver = null;
 	}
