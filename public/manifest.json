@@ -11,5 +11,11 @@
   },
   "browser_action": {
     "default_popup": "popup.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http*://*dominion.games/*"],
+      "js": ["js/contentScript.js"]
+    }
+  ]
 }
