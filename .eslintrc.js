@@ -19,7 +19,8 @@ module.exports = {
 	rules: {
 		eqeqeq: "warn",
 		indent: ["warn", "tab"],
-		quotes: ["warn", "double", { "allowTemplateLiterals": true }]
+		quotes: ["warn", "double", { "allowTemplateLiterals": true }],
+		"no-trailing-spaces": "warn"
 	},
 	ignorePatterns: [
 		"node_modules/",

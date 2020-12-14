@@ -17,4 +17,4 @@ export interface DominionSubject {
 	type: DominionSubjectType
 	card?: string;
 	amount?: number;
-} 
+}

@@ -23,18 +23,29 @@ export default class LogParser {
 
 	/** Reparse all logs from the log container. */
 	public forceRefreshLogs(): void {
-		this.updateLogsFromContainer();
+		const logsUpdated = this.updateLogsFromContainer();
 
 		// TODO: callback should ideally only be called if the logs actually have changed.
 		// Currently it will always be called even if there are no new logs.
-		if (this.logsUpdatedCallback) {
+		if (logsUpdated && this.logsUpdatedCallback) {
 			this.logsUpdatedCallback(this._logs);
 		}
 	}
 
-	private updateLogsFromContainer(): void {
+	/**
+	 * Update the _logs value with the most updated logs from the logContainer
+	 * @returns boolean: true if the logs were actually updated.
+	 */
+	private updateLogsFromContainer(): boolean {
 		if (!this.logContainer) logger.error("Log Container is null!", true);
-		this._logs = getLogsFromContainer(this.logContainer);
+		const newLogs = getLogsFromContainer(this.logContainer);
+
+		// TODO: for now just trivially check if the log lengths match, we should
+		// really be checking each log to see if anything has changed.
+		const wasThereAnyNewLogs = newLogs.length !== this.logs.length;
+
+		this._logs = newLogs;
+		return wasThereAnyNewLogs;
 	}
 
 	private updateLogContainer(): void {

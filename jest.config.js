@@ -7,4 +7,4 @@ module.exports = {
 	},
 	modulePaths: ["<rootDir>/src/"],
 	setupFiles: ["<rootDir>/src/test-utils/jestSetup.ts"],
-}; 
+};
