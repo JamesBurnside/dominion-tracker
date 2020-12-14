@@ -18,5 +18,9 @@ export enum UnsupportedAction {
 	Starts_With = "starts with",
 	Shuffles = "shuffles",
 	Draws = "draws",
-	TopDecks = "topdecks"
+	TopDecks = "topdecks",
+	Gets = "gets",
+	Discards = "discards"
 }
+
+export const KnownActions = [...Object.values(DominionAction), ...Object.values(UnsupportedAction)];

@@ -25,8 +25,6 @@ export default class LogParser {
 	public forceRefreshLogs(): void {
 		const logsUpdated = this.updateLogsFromContainer();
 
-		// TODO: callback should ideally only be called if the logs actually have changed.
-		// Currently it will always be called even if there are no new logs.
 		if (logsUpdated && this.logsUpdatedCallback) {
 			this.logsUpdatedCallback(this._logs);
 		}

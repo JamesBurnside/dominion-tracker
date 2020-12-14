@@ -1,4 +1,5 @@
-import { DominionAction, DominionLog, DominionLogs } from "@types";
+import { DominionAction, DominionLog, DominionLogs, KnownActions } from "@types";
+import logger from "logger";
 import { extractActionFromLogLine } from "utils/actionHelper";
 import { extractSubjectFromLogLine } from "utils/subjectHelper";
 
@@ -29,20 +30,34 @@ export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
  */
 export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
 
+
+/**
+ * Check if the log line contains any known action - supported or unsupported.
+ * Also ignore some known log lines such as "Turn 1 - Player1"
+ * TODO: these extra lines really should be filtered out before this function is called.
+ */
+export const hasKnownAction = (logString: string): boolean =>
+	logString &&
+		(
+			logString.includes("Turn ") ||
+			logString.startsWith("Game ") ||
+			logString.startsWith("Kingdom generated with ") ||
+			KnownActions.some(action => logString.includes(action))
+		);
+
 /**
  * Currently a valid log is simply a logline that contains a known action.
  * This may need changed as more edge cases are discovered.
  */
 export const isValidLogString = (logString: string): boolean => {
 	// Quickly check that the log string contains a valid action
-	const validActions = Object.values(DominionAction);
-	return logString && validActions.some(action => logString.includes(action));
+	const supportedActions = Object.values(DominionAction);
 
-	// TODO: Check if there was an unknown action and log an error.
-	// !(logString.startsWith("Game ") && logString.endsWith("rated.")) &&
-	// !(logString.startsWith("Kingdom generated with")) &&
-	// !(logString.match((new VerEx()).startOfLine().digit().oneOrMore().then("%").then(":"))) &&
-	// !(logString.match((new VerEx()).startOfLine().then("Turn ").digit().then(" - ")));
+	if (!hasKnownAction(logString)) {
+		logger.error(`Log contains no know action: ${logString}`);
+	}
+
+	return logString && supportedActions.some(action => logString.includes(action));
 }
 
 /**
