@@ -1,10 +1,11 @@
 /**
  * All known dominion actions.
+ * Order matters (should be ordered from longest to shortest when string contain substrings)
  * TODO: this list will grow as more actions are supported.
  */
 export enum DominionAction {
-	Gains = "gains",
 	Buys_And_Gains = "buys and gains",
+	Gains = "gains",
 	Trashes = "trashes"
 }
 
