@@ -20,6 +20,10 @@ export function extractSubjectFromLogLine(logLine: string): DominionSubject {
 	let card = subjectLine.startsWith("an ") ?
 		subjectLine.substr(3) : subjectLine.substr(2);
 
+	//find the number leading the card
+	const qualifier = subjectLine.substring(0, subjectLine.indexOf(' '))
+	const amount = parseQualifierToInt(qualifier)
+
 	// remove known endings. Order of endings array matters here
 	const endings = [".", " from trash"];
 	for (const ending of endings) {
@@ -36,6 +40,19 @@ export function extractSubjectFromLogLine(logLine: string): DominionSubject {
 	return {
 		type: DominionSubjectType.Card,
 		card,
-		amount: 1
+		amount
 	};
+}
+
+export const parseQualifierToInt = (qualifier: string): number => {
+	//try to make an integer out of the qualifier
+	//if integer exists = use it
+	const qualifierInt = parseInt(qualifier)
+	if(qualifierInt) return qualifierInt
+
+	//check for "a" or "an"
+	if(qualifier === "a" || qualifier === "an") return 1
+
+	//something must be wrong
+	return null
 }

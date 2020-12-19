@@ -1,6 +1,6 @@
 /**
  * All known dominion actions.
- * Order matters (should be ordered from longest to shortest when string contain substrings)
+ * Order matters (should be ordered from longest to shortest if a string contains a substring of other actions)
  * TODO: this list will grow as more actions are supported.
  */
 export enum DominionAction {

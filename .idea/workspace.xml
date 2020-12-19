@@ -4,6 +4,8 @@
     <list default="true" id="88bd3e38-73a6-4010-9d1a-eb553d807ede" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/@types/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/@types/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/subjectHelper.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/subjectHelper.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/subjectHelper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/subjectHelper.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608325952186</updated>
-      <workItem from="1608325953316" duration="17154000" />
+      <workItem from="1608325953316" duration="19759000" />
     </task>
     <servers />
   </component>
