@@ -5,6 +5,7 @@
 export enum DominionAction {
 	Gains = "gains",
 	Buys_And_Gains = "buys and gains",
+	Trashes = "trashes"
 }
 
 /**

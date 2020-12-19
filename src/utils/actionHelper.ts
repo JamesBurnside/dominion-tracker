@@ -1,11 +1,14 @@
-import { DominionAction } from "@types";
+import {DominionAction, KnownActions} from "@types";
 
 /**
  * Extract action from log line.
  * Be trivial about this for now and just search for known actions
+ * Assumes that each line contains only one action type
  */
 export function extractActionFromLogLine(logLine: string): DominionAction {
-	return logLine.includes(DominionAction.Buys_And_Gains) ? DominionAction.Buys_And_Gains :
-		logLine.includes(DominionAction.Gains) ? DominionAction.Gains :
-			undefined;
+	const supportedActions = Object.values(DominionAction)
+	for (const action of supportedActions){
+		if(logLine.includes(action)) return action
+	}
+
 }

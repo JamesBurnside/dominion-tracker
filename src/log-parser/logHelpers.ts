@@ -42,6 +42,7 @@ export const hasKnownAction = (logString: string): boolean =>
 			logString.includes("Turn ") ||
 			logString.startsWith("Game ") ||
 			logString.startsWith("Kingdom generated with ") ||
+			logString.includes("Between Turns")||
 			KnownActions.some(action => logString.includes(action))
 		);
 
@@ -68,11 +69,14 @@ export const convertLogStringToLog = (logAsString: string): DominionLog => {
 	// players dont have spaces in their name.
 	const playerName = logAsString.split(/\s/gm)[0];
 
+	//slice player name from log string
+	const logWithoutPlayerName = logAsString.slice(playerName.length).trim()
+
 	// Extract action
-	const action = extractActionFromLogLine(logAsString);
+	const action = extractActionFromLogLine(logWithoutPlayerName);
 
 	// Extract subject
-	const subject = extractSubjectFromLogLine(logAsString);
+	const subject = extractSubjectFromLogLine(logWithoutPlayerName);
 
 	return {
 		playerName,
