@@ -10,5 +10,5 @@ export function extractActionFromLogLine(logLine: string): DominionAction {
 	for (const action of supportedActions){
 		if(logLine.includes(action)) return action
 	}
-
+	return undefined
 }

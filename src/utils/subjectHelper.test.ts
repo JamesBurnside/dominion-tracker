@@ -1,5 +1,5 @@
 import { DominionSubjectType } from "@types";
-import {extractSubjectFromLogLine, parseQualifierToInt} from "./subjectHelper";
+import {extractSubjectFromLogLine, parseQualifierToInt, isCardNameOfficial, cardDepluralizer} from "./subjectHelper";
 
 const unsupportedCard = { type: DominionSubjectType.Unsupported };
 
@@ -8,22 +8,28 @@ describe("Subject helper tests", () => {
 		// falsey tests
 		expect(extractSubjectFromLogLine("turtles")).toEqual(unsupportedCard);
 		expect(extractSubjectFromLogLine("L buys and gains ")).toEqual(unsupportedCard);
+		expect(extractSubjectFromLogLine("L gains 2 ESSTATIES")).toEqual(unsupportedCard);
 
 		// thruthy tests
-		expect(extractSubjectFromLogLine("L buys and gains a silver")).toEqual({
+		expect(extractSubjectFromLogLine("L buys and gains a Silver")).toEqual({
 			type: DominionSubjectType.Card,
-			card: "silver",
+			card: "Silver",
 			amount: 1
 		});
-		expect(extractSubjectFromLogLine("L buys and gains a silver.")).toEqual({
+		expect(extractSubjectFromLogLine("L buys and gains a Silver.")).toEqual({
 			type: DominionSubjectType.Card,
-			card: "silver",
+			card: "Silver",
 			amount: 1
 		});
-		expect(extractSubjectFromLogLine("L buys and gains a silver from trash.")).toEqual({
+		expect(extractSubjectFromLogLine("L buys and gains a Silver from trash.")).toEqual({
 			type: DominionSubjectType.Card,
-			card: "silver",
+			card: "Silver",
 			amount: 1
+		});
+		expect(extractSubjectFromLogLine("L gains 2 Silvers from trash.")).toEqual({
+			type: DominionSubjectType.Card,
+			card: "Silver",
+			amount: 2
 		});
 	});
 	test("parseQualifierToInt should return the correct number", () => {
@@ -37,18 +43,36 @@ describe("Subject helper tests", () => {
 		//null case
 		expect(parseQualifierToInt("Incorrect Format")).toEqual(null);
 	});
+	//TODO: expand this test to include plural numbers
 	test("extractSubjectFromLogLine handles basic numbers", () => {
 		// gains
-		expect(extractSubjectFromLogLine("L gains 2 silver")).toEqual({
+		expect(extractSubjectFromLogLine("L gains 2 Silver")).toEqual({
 			type: DominionSubjectType.Card,
-			card: "silver",
+			card: "Silver",
 			amount: 2
 		});
 		//trashes
-		expect(extractSubjectFromLogLine("L trashes 51023 silver.")).toEqual({
+		expect(extractSubjectFromLogLine("L trashes 51023 Silver.")).toEqual({
 			type: DominionSubjectType.Card,
-			card: "silver",
+			card: "Silver",
 			amount: 51023
 		});
+	});
+	//look in the card dictionary for common typos
+	test("isCardNameOfficial, should find cards in dictionary", () => {
+		// truthy
+		expect(isCardNameOfficial("Copper")).toEqual(true);
+		//falsey
+		expect(isCardNameOfficial("Coppers")).toEqual(false);
+		expect(isCardNameOfficial("NotaRealDominionCard")).toEqual(false);
+	});
+	//depluralize card names
+	test("cardDepluralizer, should depluralize cards", () => {
+		// simple
+		expect(cardDepluralizer("Copper")).toEqual("Copper");
+		//plural
+		expect(cardDepluralizer("Coppers")).toEqual("Copper");
+		//undefined
+		expect(cardDepluralizer("CopperssZss")).toEqual(undefined);
 	});
 });
