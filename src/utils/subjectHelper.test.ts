@@ -60,7 +60,11 @@ describe("Subject helper tests", () => {
 	// check for
 	test("extractSubjectFromLogLine doesn't handle lists of actions", () => {
 		// error
-		expect(extractSubjectsFromLogLine("J gains a Duchy, 2 Estates and a Province")).toEqual(unsupportedCard);
+		expect(extractSubjectsFromLogLine("Jam gains a Duchy, 2 Estates and a Province")).toEqual(unsupportedCard);
+	});
+	test("extractSubjectFromLogLine doesn't handle multiple 'ands'", () => {
+		// error
+		expect(extractSubjectsFromLogLine("Jak gains a Duchy and 2 Estates and a Province")).toEqual(unsupportedCard);
 	});
 	//look in the card dictionary for common typos
 	test("isCardNameOfficial, should find cards in dictionary", () => {

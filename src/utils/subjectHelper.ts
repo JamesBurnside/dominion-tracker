@@ -29,28 +29,37 @@ export function extractSubjectsFromLogLine(logLine: string): DominionSubject {
 		return  extractIndividualSubject(subjectLine, logLine);
 	}
 
-	//throw error if multiple cards in line
-	logger.error(`Multiple cards found, logline: ${logLine}`, true);
-	return unsupportedCard;
-
 	//TODO: deal with lists
 	//assume each list uses a non-oxford comma ending in "and", ex "an estate, 2 duchies and a province"
 	//check for the string "_and_" - this denotes we have multiple subjects.
-	// if(card.includes(" and ")){
-	// 	//we have a list!
-	//
-	// 	//Split by the keyword "_and_"
-	// 	let cardList: string[] = card.split(" and ")
-	// 	const lastCard: string = cardList[1]
-	//
-	// 	//Split by commas
-	// 	cardList = [...cardList[0].split(', ')]
-	//
-	// 	//rebuild our list
-	// 	cardList.push(lastCard)
-	//
-	// 	//deal with each card in cardListArray...
-	// }
+
+	//we have a list!
+	//Split by the keyword "_and_"
+	let cardList: string[] = subjectLine.split(" and ")
+	if(cardList.length > 2){
+		//we have too many "ands"
+		logger.error(`Subject has multiple "ands", subjectline: ${subjectLine}`, true);
+		return undefined;
+	}
+	//pull out last subject
+	const lastCard: string = cardList[1]
+
+	//Split by commas
+	cardList = [...cardList[0].split(", ")]
+
+	//rebuild our list
+	cardList.push(lastCard)
+
+	//deal with each card in cardListArray...
+	for(const cards of cardList){
+		extractIndividualSubject(cards, logLine)
+	}
+
+	//throw error if multiple cards in line
+	//TODO: replace this with logic that returns the cardStack array. This probably involves rewriting all the tests types where this function is used...
+	logger.error(`Multiple cards found, logline: ${logLine}`, true);
+	return unsupportedCard;
+
 }
 
 export const extractIndividualSubject = (card: string, logLine: string) : DominionSubject => {
