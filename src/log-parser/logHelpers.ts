@@ -1,86 +1,50 @@
-import { DominionAction, DominionLog, DominionLogs, KnownActions } from "@types";
-import logger from "logger";
+import { DominionAction, DominionLog, DominionLogs, DominionSubject } from "@types";
 import { extractActionFromLogLine } from "utils/actionHelper";
-import { extractSubjectFromLogLine } from "utils/subjectHelper";
+import { extractSubjectsFromLogLine } from "utils/subjectHelper";
 
-const LOG_CONTAINER_CLASS_NAME = "log-container";
-const LOG_LINE_CLASS_NAME = "log-line";
+export const getLogContainer = (): HTMLElement => document.getElementById("log-container");
 
-/**
- * TODO: Check if this is the correct ID name from dominion.
- */
-export const getLogContainer = (): HTMLElement => document.getElementsByClassName(LOG_CONTAINER_CLASS_NAME)[0] as HTMLElement;
+export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
+	convertLogStringsToLogs(getLogsAsStringsFromContainer(logContainer));
 
-/**
- * Extract an array of DominionLogs from the HTML log container element.
- */
-export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs => Array
-	// extract log html elements as array of HTMLElements
-	.from(logContainer.getElementsByClassName(LOG_LINE_CLASS_NAME))
-	// convert html elements to string
-	.map(log => convertLogAsHTMLElementToString(log as HTMLElement))
-	// filter logs to remove only the logs we care about
-	.filter((log) => isValidLogString(log))
-	// convert the log strings to a usable DominionLog type
-	.map(log => convertLogStringToLog(log));
-
-/**
- * Get the log text out of the html element.
- * TODO: For now just use .innerText. This likely won't cover all scenarios and may need updated.
- */
-export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
-
-
-/**
- * Check if the log line contains any known action - supported or unsupported.
- * Also ignore some known log lines such as "Turn 1 - Player1"
- * TODO: these extra lines really should be filtered out before this function is called.
- */
-export const hasKnownAction = (logString: string): boolean =>
-	logString &&
-		(
-			logString.includes("Turn ") ||
-			logString.startsWith("Game ") ||
-			logString.startsWith("Kingdom generated with ") ||
-			logString.includes("Between Turns")||
-			KnownActions.some(action => logString.includes(action))
-		);
-
-/**
- * Currently a valid log is simply a logline that contains a known action.
- * This may need changed as more edge cases are discovered.
- */
 export const isValidLogString = (logString: string): boolean => {
 	// Quickly check that the log string contains a valid action
-	const supportedActions = Object.values(DominionAction);
+	const validActions = Object.values(DominionAction);
+	return logString && validActions.some(action => logString.includes(action));
 
-	if (!hasKnownAction(logString)) {
-		logger.error(`Log contains no know action: ${logString}`);
-	}
-
-	return logString && supportedActions.some(action => logString.includes(action));
+	// Check if there was an unknown action and log an error
+	// !(logString.startsWith("Game ") && logString.endsWith("rated.")) &&
+	// !(logString.startsWith("Kingdom generated with")) &&
+	// !(logString.match((new VerEx()).startOfLine().digit().oneOrMore().then("%").then(":"))) &&
+	// !(logString.match((new VerEx()).startOfLine().then("Turn ").digit().then(" - ")));
 }
 
-/**
- * Converts a log that is a string to a usable DominionLog.
- */
+export const getLogsAsStringsFromContainer = (logContainer: HTMLElement): string[] => {
+	const logs = logContainer.innerHTML;
+	return logs.split(/\r?\n/).filter((logline) => isValidLogString(logline));
+}
+
+export const convertLogStringsToLogs = (logsAsStrings: string[]): DominionLogs =>
+	logsAsStrings.map((logAsString) => convertLogStringToLog(logAsString));
+
 export const convertLogStringToLog = (logAsString: string): DominionLog => {
 	// Extract player - Be trivial about this for now and assume
 	// players dont have spaces in their name.
-	const playerName = logAsString.split(/\s/gm)[0];
-
-	//slice player name from log string
-	const logWithoutPlayerName = logAsString.slice(playerName.length).trim()
+	const playerName = logAsString.split(" ")[0];
 
 	// Extract action
-	const action = extractActionFromLogLine(logWithoutPlayerName);
+	const primaryAction = extractActionFromLogLine(logAsString);
 
 	// Extract subject
-	const subject = extractSubjectFromLogLine(logWithoutPlayerName);
+<<<<<<< Updated upstream
+	const primarySubject = extractSubjectFromLogLine(logAsString);
+=======
+	const subject = extractSubjectsFromLogLine(logWithoutPlayerName);
+>>>>>>> Stashed changes
 
 	return {
 		playerName,
-		action,
-		subject
+		primaryAction,
+		primarySubject
 	}
 }
