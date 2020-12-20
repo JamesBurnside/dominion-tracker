@@ -1,9 +1,12 @@
 import { DominionLogs } from "@types";
 import logger from "logger";
-import { getLogContainer, getLogsFromContainer } from "./logHelpers";
+import { documentObserver, logContainerObserver, getLogContainer } from "observers";
+import { getLogsFromContainer } from "./logHelpers";
+import { v4 as uuidv4 } from "uuid";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
+		console.log("lor parser ctor");
 		this.logsUpdatedCallback = onLogsChanged;
 
 		if (!getLogContainer()) {
@@ -47,7 +50,7 @@ export default class LogParser {
 	}
 
 	private updateLogContainer(): void {
-		if (this.logContainer && this.logObserver) {
+		if (this.logContainer) {
 			this.unSubscribeToLogContainerChanges();
 		}
 
@@ -57,55 +60,31 @@ export default class LogParser {
 	}
 
 	private listenForLogContainerCreation(): void {
-
-		this.documentObserver = new MutationObserver(() => {
+		console.log("sub to doc changes");
+		documentObserver.subscribe(this.observerId, () => {
 			if (getLogContainer()) {
 				this.updateLogContainer();
 				this.unsubscribeFromDocumentChanges();
 			}
 		});
-
-		this.documentObserver.observe(document.body, {
-			childList: true,
-			subtree: true,
-			attributes: false,
-			characterData: false
-		});
 	}
 
 	private unsubscribeFromDocumentChanges(): void {
-		this.documentObserver.disconnect();
-		this.documentObserver = null;
+		console.log("unsub to doc changes");
+		documentObserver.unsubscribe(this.observerId);
 	}
 
 	private subscribeToLogContainerChanges(): void {
-		if (!this.logContainer) logger.error("Log Container is null!", true);
-		if (this.logObserver) logger.error("Log Observer has already been set!", true);
-
-		this.logObserver = new MutationObserver(() => {
-			this.forceRefreshLogs();
-		});
-
-		this.logObserver.observe(this.logContainer, {
-			childList: true,
-			subtree: true,
-			attributes: false,
-			characterData: false
-		});
+		console.log("sub to log container changes");
+		logContainerObserver.subscribe(this.observerId, this.forceRefreshLogs);
 	}
 
 	private unSubscribeToLogContainerChanges(): void {
-		this.logObserver.disconnect();
-		this.logObserver = null;
+		logContainerObserver.unsubscribe(this.observerId);
 	}
-
-	// used to wait for the log-container to be created
-	private documentObserver: MutationObserver = null;
-
-	// used to track when log-container contains new logs
-	private logObserver: MutationObserver = null;
 
 	private logContainer: HTMLElement = null;
 	private logsUpdatedCallback: (allLogs: DominionLogs) => void = null;
 	private _logs: DominionLogs = [];
+	private observerId = uuidv4();
 }

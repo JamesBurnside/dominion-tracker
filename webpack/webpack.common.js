@@ -36,8 +36,11 @@ module.exports = {
 
 			// Allow for absolute imports
 			"@types": path.resolve(__dirname, srcDir, "@types"),
+			"game-manager": path.resolve(__dirname, srcDir, "game-manager"),
 			"log-parser": path.resolve(__dirname, srcDir, "log-parser"),
 			"logger": path.resolve(__dirname, srcDir, "logger"),
+			"observers": path.resolve(__dirname, srcDir, "observers"),
+			"player-parser": path.resolve(__dirname, srcDir, "player-parser"),
 			"utils": path.resolve(__dirname, srcDir, "utils")
 		},
 	},

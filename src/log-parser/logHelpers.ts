@@ -3,13 +3,7 @@ import logger from "logger";
 import { extractActionFromLogLine } from "utils/actionHelper";
 import { extractSubjectFromLogLine } from "utils/subjectHelper";
 
-const LOG_CONTAINER_CLASS_NAME = "log-container";
 const LOG_LINE_CLASS_NAME = "log-line";
-
-/**
- * TODO: Check if this is the correct ID name from dominion.
- */
-export const getLogContainer = (): HTMLElement => document.getElementsByClassName(LOG_CONTAINER_CLASS_NAME)[0] as HTMLElement;
 
 /**
  * Extract an array of DominionLogs from the HTML log container element.

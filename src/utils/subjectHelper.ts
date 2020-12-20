@@ -1,8 +1,7 @@
 import { DominionSubject, DominionSubjectType } from "@types";
 import { extractActionFromLogLine } from "./actionHelper";
 import logger from "logger";
-import { cardDictionary } from "./cardDictionary"
-import { cardPluralsDictionary } from "./pluralCardMappings";
+import { cardDictionary, cardPluralsDictionary } from "./cardDictionary"
 
 const unsupportedCard: DominionSubject = {
 	type: DominionSubjectType.Unsupported
@@ -65,7 +64,7 @@ export const parseQualifierToInt = (qualifier: string): number => {
 	if(qualifier === "a" || qualifier === "an") return 1
 
 	//something must be wrong
-	return null
+	return null;
 }
 
 
