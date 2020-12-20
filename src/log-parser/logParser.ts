@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
-		console.log("lor parser ctor");
 		this.logsUpdatedCallback = onLogsChanged;
 
 		if (!getLogContainer()) {
@@ -60,7 +59,6 @@ export default class LogParser {
 	}
 
 	private listenForLogContainerCreation(): void {
-		console.log("sub to doc changes");
 		documentObserver.subscribe(this.observerId, () => {
 			if (getLogContainer()) {
 				this.updateLogContainer();
@@ -70,12 +68,10 @@ export default class LogParser {
 	}
 
 	private unsubscribeFromDocumentChanges(): void {
-		console.log("unsub to doc changes");
 		documentObserver.unsubscribe(this.observerId);
 	}
 
 	private subscribeToLogContainerChanges(): void {
-		console.log("sub to log container changes");
 		logContainerObserver.subscribe(this.observerId, this.forceRefreshLogs);
 	}
 
