@@ -2,7 +2,6 @@ import { DominionLogs } from "@types";
 import logger from "logger";
 import { documentObserver, logContainerObserver, getLogContainer } from "observers";
 import { getLogsFromContainer } from "./logHelpers";
-// import { v4 as uuidv4 } from "uuid";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
