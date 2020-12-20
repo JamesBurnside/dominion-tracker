@@ -1,4 +1,4 @@
-import {DominionAction, DominionCommand, DominionLog, DominionLogs, KnownActions} from "@types";
+import {DominionAction, DominionCommand, DominionLogs, DominionPlayerShortName, KnownActions} from "@types";
 import logger from "logger";
 import { extractActionFromLogLine } from "utils/actionHelper";
 import { extractSubjectsFromLogLine } from "utils/subjectHelper";
@@ -77,4 +77,19 @@ export const convertLogStringToLog = (logAsString: string): DominionCommand => {
 		action,
 		subject
 	}
+}
+
+export const getPlayerShortNamesFromContainer = (logContainer: HTMLElement): DominionPlayerShortName[] => {
+	const playersNames = Array
+		// extract log html elements as array of HTMLElements
+		.from(logContainer.getElementsByClassName(LOG_LINE_CLASS_NAME))
+		// convert html elements to string
+		.map(log => convertLogAsHTMLElementToString(log as HTMLElement))
+		// filter logs to remove only the logs we care about. For simplicity use the "starts with" log lines
+		.filter(log => log.includes("starts with"))
+		// extract player names
+		.map(log => log.trim().split(/\s/gm)[0]);
+
+	// Quickly throw into a set to remove duplicates and convert back to array cause I am writing this fast
+	return Array.from(new Set(playersNames));
 }

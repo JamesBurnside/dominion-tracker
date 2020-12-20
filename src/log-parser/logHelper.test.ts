@@ -3,6 +3,7 @@ import { htmlLog1 } from "test-utils";
 import {
 	convertLogStringToLog,
 	getLogsFromContainer,
+	getPlayerShortNamesFromContainer,
 	isValidLogString,
 } from "./logHelpers";
 
@@ -58,6 +59,18 @@ describe("Log helper tests", () => {
 				},
 			}
 		);
+	});
+
+	test("Successfully get players short names", () => {
+		// Arrange
+		const mockDom = document.createElement("div");
+		mockDom.innerHTML += htmlLog1;
+
+		// Act
+		const playerShortNames = getPlayerShortNamesFromContainer(mockDom);
+
+		// Assert
+		expect(playerShortNames).toEqual(["L","C"]);
 	});
 
 	test("Successfully gets only valid logs from log container", async () => {

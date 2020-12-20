@@ -1,7 +1,8 @@
-import { DominionLogs, DominionPlayer, DominionPlayerFullName } from "@types";
+import { DominionLogs, DominionPlayer, DominionPlayerFullName, DominionPlayerShortName } from "@types";
 import logger from "logger";
 
 export interface IGameManager {
+	onPlayerShortNamesFound: (players: DominionPlayerShortName[]) => void;
 	onPlayerFullNamesFound: (players: DominionPlayerFullName[]) => void;
 	onLogsChanged: (logs: DominionLogs) => void;
 }
@@ -14,7 +15,10 @@ export class GameManager implements IGameManager {
 
 	public onPlayerFullNamesFound(players: DominionPlayerFullName[]): void {
 		logger.log(players);
-		// this.players = players;
+	}
+
+	public onPlayerShortNamesFound(players: DominionPlayerFullName[]): void {
+		logger.log(players);
 	}
 
 	private players: DominionPlayer[] = [];
