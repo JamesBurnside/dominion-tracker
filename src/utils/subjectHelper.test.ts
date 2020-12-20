@@ -72,8 +72,6 @@ describe("Subject helper tests", () => {
 		expect(cardDepluralizer("Copper")).toEqual("Copper");
 		//plural
 		expect(cardDepluralizer("Coppers")).toEqual("Copper");
-		//exists in the plurals map
-		expect(cardDepluralizer("Platina")).toEqual("Platinum");
 		//undefined
 		expect(cardDepluralizer("CopperssZss")).toEqual(undefined);
 	});
