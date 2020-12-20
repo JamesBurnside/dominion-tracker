@@ -1,7 +1,7 @@
-import { DominionAction, DominionLog, DominionLogs, KnownActions } from "@types";
+import {DominionAction, DominionCommand, DominionLog, DominionLogs, KnownActions} from "@types";
 import logger from "logger";
 import { extractActionFromLogLine } from "utils/actionHelper";
-import { extractSubjectFromLogLine } from "utils/subjectHelper";
+import { extractSubjectsFromLogLine } from "utils/subjectHelper";
 
 const LOG_LINE_CLASS_NAME = "log-line";
 
@@ -58,7 +58,7 @@ export const isValidLogString = (logString: string): boolean => {
 /**
  * Converts a log that is a string to a usable DominionLog.
  */
-export const convertLogStringToLog = (logAsString: string): DominionLog => {
+export const convertLogStringToLog = (logAsString: string): DominionCommand => {
 	// Extract player - Be trivial about this for now and assume
 	// players dont have spaces in their name.
 	const playerName = logAsString.split(/\s/gm)[0];
@@ -70,7 +70,7 @@ export const convertLogStringToLog = (logAsString: string): DominionLog => {
 	const action = extractActionFromLogLine(logWithoutPlayerName);
 
 	// Extract subject
-	const subject = extractSubjectFromLogLine(logWithoutPlayerName);
+	const subject = extractSubjectsFromLogLine(logWithoutPlayerName);
 
 	return {
 		playerName,

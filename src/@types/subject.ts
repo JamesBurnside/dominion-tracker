@@ -1,3 +1,5 @@
+import {DominionCommand} from "./command";
+
 export enum DominionSubjectType {
 	Unsupported = 0,
 	Card,
@@ -18,3 +20,5 @@ export interface DominionSubject {
 	card?: string;
 	amount?: number;
 }
+
+export type CardStack = DominionSubject [];
