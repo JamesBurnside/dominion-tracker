@@ -39,7 +39,7 @@ export function extractSubjectsFromLogLine(logLine: string): DominionSubject {
 	if(cardList.length > 2){
 		//we have too many "ands"
 		logger.error(`Subject has multiple "ands", subjectline: ${subjectLine}`, true);
-		return undefined;
+		return unsupportedCard;
 	}
 	//pull out last subject
 	const lastCard: string = cardList[1]
