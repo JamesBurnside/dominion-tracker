@@ -2,6 +2,7 @@ import { DominionSubject, DominionSubjectType } from "@types";
 import { extractActionFromLogLine } from "./actionHelper";
 import logger from "logger";
 import { cardDictionary } from "./cardDictionary"
+import { cardPluralsDictionary } from "./pluralCardMappings";
 
 const unsupportedCard: DominionSubject = {
 	type: DominionSubjectType.Unsupported
@@ -69,28 +70,21 @@ export const parseQualifierToInt = (qualifier: string): number => {
 
 
 export const cardDepluralizer = (cardToSearchFor: string): string => {
-	//check if card is in dictionary
+	//check if card is in dictionary as is (i.e. plural form matches singular form, e.g. horse traders)
 	if(isCardNameOfficial(cardToSearchFor)) return cardToSearchFor
 
-	//if not, try removing an "s" and look again
-	//(this is assuming that no card names in dominion are identical except for a trailing "s")
+	//check if card is a known plural of another card (e.g. platina --> platinum)
+	if (cardPluralsDictionary.has(cardToSearchFor)) return cardPluralsDictionary.get(cardToSearchFor);
+
+	//next, try removing an "s" then look again
+	//note: this assumes that no card names in dominion differ only by a trailing "s"
 	if(cardToSearchFor.substring(cardToSearchFor.length -1) === "s"){
 		const cardWithoutS = cardToSearchFor.substring(0, cardToSearchFor.length -1)
 		if(isCardNameOfficial(cardWithoutS)) return cardWithoutS
 	}
 
-	//TODO: add functionality for catching pluralizations that don't end in "s" (are there any?)
-
 	logger.error(`Card not found in dictionary, card: ${cardToSearchFor}`, true);
 	return undefined;
 }
 
-//TODO: teach Jakob how to create a type for cardDictionary
-export const isCardNameOfficial = (cardToSearchFor: string): boolean => {
-	for(const cards of cardDictionary) {
-		if(cardToSearchFor === cards.Name){
-			return true
-		}
-	}
-	return false
-}
+export const isCardNameOfficial = (cardToSearchFor: string): boolean => cardDictionary.has(cardToSearchFor);
