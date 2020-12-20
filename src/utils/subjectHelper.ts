@@ -57,7 +57,7 @@ export function extractSubjectsFromLogLine(logLine: string): DominionSubject {
 
 	//throw error if multiple cards in line
 	//TODO: replace this with logic that returns the cardStack array. This probably involves rewriting all the tests types where this function is used...
-	logger.error(`Multiple cards found, logline: ${logLine}`, true);
+	logger.error(`Multiple cards found, logline: ${logLine}`, false);
 	return unsupportedCard;
 
 }

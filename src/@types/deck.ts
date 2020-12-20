@@ -1,6 +1,4 @@
 export type DominionCard = string;
 
-export interface DominionDeck {
-	cards: DominionCard[];
-}
+export type DominionDeck = DominionCard[];
 
