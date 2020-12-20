@@ -1,6 +1,6 @@
 import { DominionAction, DominionLog, DominionLogs, DominionSubject } from "@types";
 import { extractActionFromLogLine } from "utils/actionHelper";
-import { extractSubjectFromLogLine } from "utils/subjectHelper";
+import { extractSubjectsFromLogLine } from "utils/subjectHelper";
 
 export const getLogContainer = (): HTMLElement => document.getElementById("log-container");
 
@@ -37,6 +37,7 @@ export const convertLogStringToLog = (logAsString: string): DominionLog => {
 
 	// Extract subject
 	const primarySubject = extractSubjectFromLogLine(logAsString);
+	const subject = extractSubjectsFromLogLine(logWithoutPlayerName);
 
 	return {
 		playerName,
