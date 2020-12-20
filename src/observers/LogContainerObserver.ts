@@ -1,4 +1,3 @@
-import logger from "logger";
 import { HTMLObserver } from "./HTMLObserver";
 
 const LOG_CONTAINER_CLASS_NAME = "log-container";
@@ -10,13 +9,7 @@ export const getLogContainer = (): HTMLElement => document.getElementsByClassNam
  */
 class LogContainerObserver extends HTMLObserver {
 	constructor() {
-		const logContainer = getLogContainer();
-
-		if (!logContainer) {
-			logger.error("No log container found", true);
-		}
-
-		super(logContainer);
+		super(getLogContainer);
 	}
 }
 

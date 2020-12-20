@@ -7,8 +7,14 @@ type OnChangedCallback = () => void;
  */
 export class HTMLObserver {
 
-	constructor(elementToObserve: HTMLElement) {
-		this.elementToObserve = elementToObserve;
+	/**
+	 * ctor
+	 * @param fetchElementToObserve A function that returns the html element to observer.
+	 * This function is called when subscribe is called and the element is expected to exist
+	 * at that point.
+	 */
+	constructor(fetchElementToObserve: () => HTMLElement) {
+		this.fetchElementToObserve = fetchElementToObserve;
 	}
 
 	public subscribe(id: string, callback: OnChangedCallback): void {
@@ -24,7 +30,11 @@ export class HTMLObserver {
 				this.callCallbacks();
 			});
 
-			this.observer.observe(this.elementToObserve, {
+			const elementToObserve = this.fetchElementToObserve();
+
+			if (!elementToObserve) logger.error(`Element to observe not found! Element: ${elementToObserve}`);
+
+			this.observer.observe(elementToObserve, {
 				childList: true,
 				subtree: true,
 				attributes: false,
@@ -54,7 +64,7 @@ export class HTMLObserver {
 		});
 	}
 
-	private elementToObserve: HTMLElement = null;
+	private fetchElementToObserve: () => HTMLElement = null;
 	private observer: MutationObserver = null;
 	private callbacks: Map<string, OnChangedCallback> = new Map();
 }

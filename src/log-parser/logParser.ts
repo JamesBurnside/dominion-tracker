@@ -2,7 +2,7 @@ import { DominionLogs } from "@types";
 import logger from "logger";
 import { documentObserver, logContainerObserver, getLogContainer } from "observers";
 import { getLogsFromContainer } from "./logHelpers";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void) {
@@ -21,15 +21,6 @@ export default class LogParser {
 	public get logs() : DominionLogs
 	{
 		return this._logs;
-	}
-
-	/** Reparse all logs from the log container. */
-	public forceRefreshLogs(): void {
-		const logsUpdated = this.updateLogsFromContainer();
-
-		if (logsUpdated && this.logsUpdatedCallback) {
-			this.logsUpdatedCallback(this._logs);
-		}
 	}
 
 	/**
@@ -72,7 +63,13 @@ export default class LogParser {
 	}
 
 	private subscribeToLogContainerChanges(): void {
-		logContainerObserver.subscribe(this.observerId, this.forceRefreshLogs);
+		logContainerObserver.subscribe(this.observerId, () => {
+			const logsUpdated = this.updateLogsFromContainer();
+
+			if (logsUpdated && this.logsUpdatedCallback) {
+				this.logsUpdatedCallback(this._logs);
+			}
+		});
 	}
 
 	private unSubscribeToLogContainerChanges(): void {
@@ -82,5 +79,8 @@ export default class LogParser {
 	private logContainer: HTMLElement = null;
 	private logsUpdatedCallback: (allLogs: DominionLogs) => void = null;
 	private _logs: DominionLogs = [];
-	private observerId = uuidv4();
+
+	// This id could technically conflict with a second instance of a log parser but
+	// meh there's only one currently and it still would be highly unlikely.
+	private observerId = `log-parser ${Math.random()}`
 }

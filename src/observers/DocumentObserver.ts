@@ -5,7 +5,7 @@ import { HTMLObserver } from "./HTMLObserver";
  */
 class DocumentObserver extends HTMLObserver {
 	constructor() {
-		super(document.body);
+		super(() => document.body);
 	}
 }
 
