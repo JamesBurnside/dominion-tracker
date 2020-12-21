@@ -1,5 +1,3 @@
-import {DominionCommand} from "./command";
-
 export enum DominionSubjectType {
 	Unsupported = 0,
 	Card,

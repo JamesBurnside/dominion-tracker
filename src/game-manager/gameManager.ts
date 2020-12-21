@@ -16,7 +16,7 @@ export class GameManager implements IGameManager {
 		// TODO: For now just wipe the players decks and recompute everything
 		// We should really only return new logs and then update players' decks
 		this.players.forEach(player => {
-			player.deck = []
+			player.deck = new Map();
 		});
 
 		logs.forEach(log => this.computeLog(log));
@@ -45,32 +45,33 @@ export class GameManager implements IGameManager {
 		case DominionAction.Gains:
 		case DominionAction.Starts_With:
 			// TODO: add in multiple cards
-			this.addCardToPlayer(log.subject.card, log.playerName);
+			this.addCardStackToPlayer(log.subject.card, log.subject.amount, log.playerName);
 			break;
 		case DominionAction.Trashes:
-			this.removeCardToPlayer(log.subject.card, log.playerName);
+			this.removeCardStackFromPlayer(log.subject.card, log.subject.amount, log.playerName);
 			break;
 		default:
 			logger.log(`Game manager cannot compute log, action not known: ${log.action}`);
 		}
 	}
 
-	private addCardToPlayer = (card: DominionCard, shortName: DominionPlayerShortName): void => {
-		// TODO: don't just add the card to the array, need to add to update the amount of that card owned.
-		this.players.find((player) => player.shortName === shortName).deck.push(card);
+	private addCardStackToPlayer = (card: DominionCard, amount: number, shortName: DominionPlayerShortName): void => {
+		// TODO: pull into helper function and write tests for it
+		const player = this.players.find((player) => player.shortName === shortName);
+		const newAmount = (player.deck.get(card) ?? 0) + amount;
+		player.deck.set(card, newAmount);
 	}
 
-	private removeCardToPlayer = (card: DominionCard, shortName: DominionPlayerShortName): void => {
-		// TODO: don't just add the card to the array, need to add to update the amount of that card owned.
+	private removeCardStackFromPlayer = (card: DominionCard, amount: number, shortName: DominionPlayerShortName): void => {
+		// TODO: pull into helper function and write tests for it
 		const player = this.players.find((player) => player.shortName === shortName)
-		const cardToRemoveIndex = player.deck.indexOf(card);
-
-		if (cardToRemoveIndex !== -1) {
-			player.deck.splice(cardToRemoveIndex, 1);
-		}
+		const newAmount = (player.deck.get(card) ?? 0) - amount;
+		if (newAmount <= 0) player.deck.delete(card);
+		else player.deck.set(card, newAmount);
 	}
 
 	private addFullPlayerNamesToPlayers(fullPlayerName: string): void {
+		// TODO: pull into helper function and write tests for it
 		// Check if it already exists
 		for (const player of this.players) {
 			if (player.fullName === fullPlayerName) return;
@@ -88,11 +89,12 @@ export class GameManager implements IGameManager {
 		this.players.push({
 			fullName: fullPlayerName,
 			shortName: null,
-			deck: []
+			deck: new Map()
 		});
 	}
 
 	private addShortPlayerNamesToPlayers(shortPlayerName: string): void {
+		// TODO: pull into helper function and write tests for it
 		// Check if it already exists
 		for (const player of this.players) {
 			if (player.shortName === shortPlayerName) return;
@@ -110,7 +112,7 @@ export class GameManager implements IGameManager {
 		this.players.push({
 			fullName: null,
 			shortName: shortPlayerName,
-			deck: undefined
+			deck: new Map()
 		})
 	}
 
