@@ -47,6 +47,7 @@
     "webpack-merge": "^5.4.0"
   },
   "dependencies": {
+    "@types/chrome": "0.0.127",
     "verbal-expressions": "^1.0.2"
   }
 }
