@@ -24,7 +24,6 @@ export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
  */
 export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
 
-
 /**
  * Check if the log line contains any known action - supported or unsupported.
  * Also ignore some known log lines such as "Turn 1 - Player1"

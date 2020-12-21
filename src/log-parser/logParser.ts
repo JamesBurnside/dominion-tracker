@@ -42,9 +42,7 @@ export default class LogParser {
 		if (!this.logContainer) logger.error("Log Container is null!", true);
 		const newLogs = getLogsFromContainer(this.logContainer);
 
-		// TODO: for now just trivially check if the log lengths match, we should
-		// really be checking each log to see if anything has changed.
-		const wasThereAnyNewLogs = newLogs.length !== this.logs.length;
+		const wasThereAnyNewLogs = JSON.stringify(newLogs) !== JSON.stringify(this.logs.length);
 
 		this._logs = newLogs;
 		return wasThereAnyNewLogs;

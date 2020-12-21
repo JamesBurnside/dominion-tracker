@@ -46,12 +46,28 @@ export class GameManager implements IGameManager {
 		case DominionAction.Starts_With:
 			// TODO: add in multiple cards
 			this.addCardToPlayer(log.subject.card, log.playerName);
+			break;
+		case DominionAction.Trashes:
+			this.removeCardToPlayer(log.subject.card, log.playerName);
+			break;
+		default:
+			logger.log(`Game manager cannot compute log, action not known: ${log.action}`);
 		}
 	}
 
 	private addCardToPlayer = (card: DominionCard, shortName: DominionPlayerShortName): void => {
 		// TODO: don't just add the card to the array, need to add to update the amount of that card owned.
 		this.players.find((player) => player.shortName === shortName).deck.push(card);
+	}
+
+	private removeCardToPlayer = (card: DominionCard, shortName: DominionPlayerShortName): void => {
+		// TODO: don't just add the card to the array, need to add to update the amount of that card owned.
+		const player = this.players.find((player) => player.shortName === shortName)
+		const cardToRemoveIndex = player.deck.indexOf(card);
+
+		if (cardToRemoveIndex !== -1) {
+			player.deck.splice(cardToRemoveIndex, 1);
+		}
 	}
 
 	private addFullPlayerNamesToPlayers(fullPlayerName: string): void {
