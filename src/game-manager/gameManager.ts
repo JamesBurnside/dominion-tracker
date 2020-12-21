@@ -2,12 +2,16 @@ import { DominionAction, DominionCard, DominionLog, DominionLogs, DominionPlayer
 import logger from "logger";
 
 export interface IGameManager {
+	getPlayers: () => DominionPlayer[];
 	onPlayerShortNamesFound: (players: DominionPlayerShortName[]) => void;
 	onPlayerFullNamesFound: (players: DominionPlayerFullName[]) => void;
 	onLogsChanged: (logs: DominionLogs) => void;
 }
 
 export class GameManager implements IGameManager {
+
+	/** Public getter for players */
+	public getPlayers = (): DominionPlayer[] => this.players;
 
 	public onLogsChanged = (logs: DominionLogs): void => {
 		logger.log("logs");

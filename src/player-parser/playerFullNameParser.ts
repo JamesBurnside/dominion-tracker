@@ -2,7 +2,7 @@ import { DominionPlayerFullName } from "@types";
 import { documentObserver } from "observers";
 import { getPlayerNamesFromDocument } from "./playerParserHelper";
 
-export default class PlayerFullNameParser {
+export class PlayerFullNameParser {
 	constructor(onPlayersFound?: (players: DominionPlayerFullName[]) => void) {
 		this.playersFoundCallback = onPlayersFound;
 
