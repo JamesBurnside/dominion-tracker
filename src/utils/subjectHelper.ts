@@ -1,18 +1,22 @@
-import { DominionSubject, DominionSubjectType } from "@types";
-import { extractActionFromLogLine } from "./actionHelper";
+import {CardStack, DominionSubject, DominionSubjectType} from "@types";
+import {extractActionFromLogLine} from "./actionHelper";
 import logger from "logger";
-import { cardDictionary, cardPluralsDictionary } from "./cardDictionary"
+import {cardDictionary, cardPluralsDictionary} from "./cardDictionary"
 
 const unsupportedCard: DominionSubject = {
 	type: DominionSubjectType.Unsupported
 };
+const unsupportedStack: CardStack = [{
+	type: DominionSubjectType.Unsupported
+}]
 
-export function extractSubjectsFromLogLine(logLine: string): DominionSubject {
+
+export function extractSubjectsFromLogLine(logLine: string): CardStack {
 	// To be incredibly trivial and assume everything after the known action is of format `a`, `an`, INT <card>
 	// TODO: support multi subjects, e.g. L trashes 3 coppers and an estate.
 	const action = extractActionFromLogLine(logLine);
 
-	if (!action) return unsupportedCard;
+	if (!action) return unsupportedStack;
 
 	const subjectStart = logLine.indexOf(action) + action.length + 1;
 	let subjectLine = logLine.substr(subjectStart);
@@ -24,14 +28,14 @@ export function extractSubjectsFromLogLine(logLine: string): DominionSubject {
 			subjectLine = subjectLine.substr(0, subjectLine.length - ending.length);
 		}
 	}
-	if(!subjectLine.includes(" and ")){
-		//we have a single subject in this logline, proceed directly to our subject extracting function
-		return  extractIndividualSubject(subjectLine, logLine);
-	}
 
-	//TODO: deal with lists
+	//CHECK FOR LISTS
 	//assume each list uses a non-oxford comma ending in "and", ex "an estate, 2 duchies and a province"
 	//check for the string "_and_" - this denotes we have multiple subjects.
+	if(!subjectLine.includes(" and ")){
+		//we have a single subject in this logline, proceed directly to our subject extracting function
+		return  [extractIndividualSubject(subjectLine, logLine)];
+	}
 
 	//we have a list!
 	//Split by the keyword "_and_"
@@ -39,27 +43,19 @@ export function extractSubjectsFromLogLine(logLine: string): DominionSubject {
 	if(cardList.length > 2){
 		//we have too many "ands"
 		logger.error(`Subject has multiple "ands", subjectline: ${subjectLine}`, true);
-		return unsupportedCard;
+		return unsupportedStack;
 	}
 	//pull out last subject
 	const lastCard: string = cardList[1]
 
-	//Split by commas
+	//split by commas
 	cardList = [...cardList[0].split(", ")]
 
 	//rebuild our list
 	cardList.push(lastCard)
 
-	//deal with each card in cardListArray...
-	for(const cards of cardList){
-		extractIndividualSubject(cards, logLine)
-	}
-
-	//throw error if multiple cards in line
-	//TODO: replace this with logic that returns the cardStack array. This probably involves rewriting all the tests types where this function is used...
-	logger.error(`Multiple cards found, logline: ${logLine}`, false);
-	return unsupportedCard;
-
+	//return an array of DominionSubject's for each card in our list
+	return  cardList.map(card => extractIndividualSubject(card, logLine))
 }
 
 export const extractIndividualSubject = (card: string, logLine: string) : DominionSubject => {

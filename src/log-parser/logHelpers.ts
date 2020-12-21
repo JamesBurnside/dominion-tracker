@@ -69,12 +69,12 @@ export const convertLogStringToLog = (logAsString: string): DominionCommand => {
 	const action = extractActionFromLogLine(logWithoutPlayerName);
 
 	// Extract subject
-	const subject = extractSubjectsFromLogLine(logWithoutPlayerName);
+	const cardStack = extractSubjectsFromLogLine(logWithoutPlayerName);
 
 	return {
 		playerName,
 		action,
-		subject
+		cardStack
 	}
 }
 
