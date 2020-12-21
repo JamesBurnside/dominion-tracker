@@ -43,6 +43,7 @@ export class GameManager implements IGameManager {
 		switch (log.action) {
 		case DominionAction.Buys_And_Gains:
 		case DominionAction.Gains:
+		case DominionAction.Starts_With:
 			// TODO: add in multiple cards
 			this.addCardToPlayer(log.subject.card, log.playerName);
 		}

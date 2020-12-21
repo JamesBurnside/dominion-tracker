@@ -19,9 +19,9 @@ describe("Log helper tests", () => {
 		).toBeFalsy();
 		expect(isValidLogString("50%: Poacher and Bandit")).toBeFalsy();
 		expect(isValidLogString("Turn 1 - Lord Rattington")).toBeFalsy();
-		expect(isValidLogString("L starts with 7 Coppers.")).toBeFalsy();
 
 		// truthy tests
+		expect(isValidLogString("L starts with 7 Coppers.")).toBeTruthy();
 		expect(isValidLogString("L buys and gains an Ambassador.")).toBeTruthy();
 		expect(isValidLogString("C gains a Noble Brigand.")).toBeTruthy();
 		expect(isValidLogString("C gains a Silver from trash.")).toBeTruthy();
@@ -59,6 +59,16 @@ describe("Log helper tests", () => {
 				},
 			}
 		);
+
+		expect(convertLogStringToLog("Turtles starts with 7 Coppers.")).toEqual({
+			playerName: "Turtles",
+			action: DominionAction.Starts_With,
+			subject: {
+				type: DominionSubjectType.Card,
+				card: "Copper",
+				amount: 7,
+			},
+		});
 	});
 
 	test("Successfully get players short names", () => {
@@ -70,7 +80,7 @@ describe("Log helper tests", () => {
 		const playerShortNames = getPlayerShortNamesFromContainer(mockDom);
 
 		// Assert
-		expect(playerShortNames).toEqual(["L","C"]);
+		expect(playerShortNames).toEqual(["L", "C"]);
 	});
 
 	test("Successfully gets only valid logs from log container", async () => {
@@ -84,6 +94,42 @@ describe("Log helper tests", () => {
 		// Assert
 		expect(logs).toMatchInlineSnapshot(`
       Array [
+        Object {
+          "action": "starts with",
+          "playerName": "L",
+          "subject": Object {
+            "amount": 7,
+            "card": "Copper",
+            "type": 1,
+          },
+        },
+        Object {
+          "action": "starts with",
+          "playerName": "L",
+          "subject": Object {
+            "amount": 3,
+            "card": "Estate",
+            "type": 1,
+          },
+        },
+        Object {
+          "action": "starts with",
+          "playerName": "C",
+          "subject": Object {
+            "amount": 7,
+            "card": "Copper",
+            "type": 1,
+          },
+        },
+        Object {
+          "action": "starts with",
+          "playerName": "C",
+          "subject": Object {
+            "amount": 3,
+            "card": "Estate",
+            "type": 1,
+          },
+        },
         Object {
           "action": "buys and gains",
           "playerName": "L",

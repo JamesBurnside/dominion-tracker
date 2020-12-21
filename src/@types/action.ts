@@ -6,7 +6,8 @@
 export enum DominionAction {
 	Buys_And_Gains = "buys and gains",
 	Gains = "gains",
-	Trashes = "trashes"
+	Trashes = "trashes",
+	Starts_With = "starts with",
 }
 
 /**
@@ -17,7 +18,6 @@ export enum DominionAction {
 export enum UnsupportedAction {
 	Plays = "plays",
 	Buys = "buys",
-	Starts_With = "starts with",
 	Shuffles = "shuffles",
 	Draws = "draws",
 	TopDecks = "topdecks",
