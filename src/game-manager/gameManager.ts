@@ -49,10 +49,10 @@ export class GameManager implements IGameManager {
 		case DominionAction.Gains:
 		case DominionAction.Starts_With:
 			// TODO: add in multiple cards
-			this.addCardStackToPlayer(log.subject.card, log.subject.amount, log.playerName);
+			log.cardStack.forEach(cardStack => this.addCardStackToPlayer(cardStack.card, cardStack.amount, log.playerName))
 			break;
 		case DominionAction.Trashes:
-			this.removeCardStackFromPlayer(log.subject.card, log.subject.amount, log.playerName);
+			log.cardStack.forEach(cardStack => this.removeCardStackFromPlayer(cardStack.card, cardStack.amount, log.playerName))
 			break;
 		default:
 			logger.log(`Game manager cannot compute log, action not known: ${log.action}`);
