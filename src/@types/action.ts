@@ -8,6 +8,7 @@ export enum DominionAction {
 	Gains = "gains",
 	Trashes = "trashes",
 	Starts_With = "starts with",
+	Error_Test ="error"
 }
 
 /**
