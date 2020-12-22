@@ -22,7 +22,9 @@ export enum UnsupportedAction {
 	Draws = "draws",
 	TopDecks = "topdecks",
 	Gets = "gets",
-	Discards = "discards"
+	Discards = "discards",
+	Looks_At = "looks at",
+	Sets = "sets"
 }
 
 export const KnownActions = [...Object.values(DominionAction), ...Object.values(UnsupportedAction)];
