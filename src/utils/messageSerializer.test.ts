@@ -1,5 +1,5 @@
 import { DominionPlayer } from "@types";
-import { serializePlayers } from "./messageSerializer";
+import { deserializePlayers, serializePlayers } from "./messageSerializer";
 
 function createMockPlayer(
 	sName: string,
@@ -11,24 +11,6 @@ function createMockPlayer(
 		fullName: fName,
 		deck: new Map(cards),
 	};
-}
-
-/**
- * WEBPACK IS BEING VERY PROBLEMATIC SO COPYING THIS HERE.
- * Basically when this is exported form utils\messageSerializer the contentScript no longer works.
- * The problem lies somewhere in webpacks loading modules code but I haven't got to the bottom of it.
- * Keep this function the same as the one in popup.ts.
- */
-function deserializePlayers(serializedPlayers: string): DominionPlayer[] {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	return JSON.parse(serializedPlayers, function (this: any, key: string, value: any) {
-		if(typeof value === "object" && value !== null) {
-			if (value.dataType === "Map") {
-				return new Map(value.value);
-			}
-		}
-		return value;
-	});
 }
 
 describe("message serializer/deserializer tests", () => {

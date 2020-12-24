@@ -1,25 +1,6 @@
 import { DominionDeck, DominionPlayer } from "@types";
 import logger from "logger";
-import { PlayerFullNameParser } from "player-parser";
-// import { deserializePlayers } from "utils";
-
-/**
- * WEBPACK IS BEING VERY PROBLEMATIC SO COPYING THIS HERE.
- * Basically when this is exported form utils\messageSerializer the contentScript no longer works.
- * The problem lies somewhere in webpacks loading modules code but I haven't got to the bottom of it.
- * Keep this function the same as the one in messageSerializer.test.ts.
- */
-function deserializePlayers(serializedPlayers: string): DominionPlayer[] {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	return JSON.parse(serializedPlayers, function (this: any, key: string, value: any) {
-		if(typeof value === "object" && value !== null) {
-			if (value.dataType === "Map") {
-				return new Map(value.value);
-			}
-		}
-		return value;
-	});
-}
+import { cardDictionary, deserializePlayers } from "utils";
 
 async function getPlayers(): Promise<DominionPlayer[]> {
 	return new Promise((resolve) => {
@@ -33,6 +14,23 @@ async function getPlayers(): Promise<DominionPlayer[]> {
 			});
 		});
 	});
+}
+
+function playersToCSV(players: DominionPlayer[]): string {
+	let csv = "data:text/csv;charset=utf-8,";
+
+	const header = `Player, ${Array.from(cardDictionary.keys()).join(",")} \r\n`;
+	csv += header;
+
+	players.forEach(function(player) {
+		let row = `${player.fullName}`;
+		for (const card of cardDictionary.keys()) {
+			row += "," + (player.deck.get(card) ?? "0");
+		}
+		csv += row + "\r\n";
+	});
+
+	return csv;
 }
 
 function deckToHtmlElement(deck: DominionDeck): HTMLElement {
@@ -84,3 +82,19 @@ async function updatePlayers(): Promise<void> {
 }
 
 updatePlayers();
+
+document.getElementById("csv-button").onclick = async () => {
+	const players = await getPlayers();
+	const csvString = playersToCSV(players);
+	const encodedUri = encodeURI(csvString);
+
+	const downloadLink = document.createElement("a");
+	downloadLink.href = encodedUri;
+
+	const filename = `dominion - ${(new Date()).toISOString()}.csv`;
+	downloadLink.download = filename;
+
+	document.body.appendChild(downloadLink);
+	downloadLink.click();
+	document.body.removeChild(downloadLink);
+}
