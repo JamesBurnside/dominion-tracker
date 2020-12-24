@@ -73,8 +73,8 @@ describe("Log parser tests", () => {
 		const players: DominionPlayer[] = []
 		const fullName1 = "Jakiezar"
 		const fullName2 = "Jimmypoo"
-        const fullName3 = "JakeTheSnake"
-        const shortName3 = "Jake"
+		const fullName3 = "JakeTheSnake"
+		const shortName3 = "Jake"
 		expect(addFullPlayerNamesToPlayers(fullName1, players))
 		expect(players).toEqual([
 			{
@@ -101,33 +101,33 @@ describe("Log parser tests", () => {
 		expect(players).toEqual(playersCopy);
 
 		//finding a short name
-        players.push({
-            fullName: null,
-            shortName: shortName3,
-            deck: new Map()
-        })
-        expect(addFullPlayerNamesToPlayers(fullName3, players))
-        expect(players).toEqual([
-            {
-                fullName: fullName1,
-                shortName: null,
-                deck: new Map()
-            },
-            {
-                fullName: fullName2,
-                shortName: null,
-                deck: new Map()
-            },
-            {
-                fullName: fullName3,
-                shortName: shortName3,
-                deck: new Map()
-            }
-        ]);
+		players.push({
+			fullName: null,
+			shortName: shortName3,
+			deck: new Map()
+		})
+		expect(addFullPlayerNamesToPlayers(fullName3, players))
+		expect(players).toEqual([
+			{
+				fullName: fullName1,
+				shortName: null,
+				deck: new Map()
+			},
+			{
+				fullName: fullName2,
+				shortName: null,
+				deck: new Map()
+			},
+			{
+				fullName: fullName3,
+				shortName: shortName3,
+				deck: new Map()
+			}
+		]);
 	});
 
 	//AddStack
-    test("addCardStackToPlayer returns results", () => {
+	test("addCardStackToPlayer returns results", () => {
 		const players: DominionPlayer[] = []
 		const shortName = "BYU"
 		const fullName = "BobsYourUncle"
@@ -147,9 +147,9 @@ describe("Log parser tests", () => {
 		expect(players[0].deck.get(card)).toEqual(amount * 2)
 		expect(removeCardStackFromPlayer(card, amount, shortName, players))
 		expect(players[0].deck.get(card)).toEqual(amount)
-    });
+	});
 
-    //RemoveStack
+	//RemoveStack
 	test("removeCardStackToPlayer returns results", () => {
 		const players: DominionPlayer[] = []
 		const shortName = "BYU"

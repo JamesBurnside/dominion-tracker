@@ -1,4 +1,4 @@
-import {DominionAction, KnownActions} from "@types";
+import {DominionAction} from "@types";
 
 /**
  * Extract action from log line.
