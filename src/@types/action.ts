@@ -26,7 +26,9 @@ export enum UnsupportedAction {
 	Discards = "discards",
 	Looks_At = "looks at",
 	Sets = "sets",
-	Blocks = "blocks"
+	Blocks = "blocks",
+	Starts = "starts", // e.g. C starts their turn
+	Puts = "puts"
 }
 
 export const KnownActions = [...Object.values(DominionAction), ...Object.values(UnsupportedAction)];
