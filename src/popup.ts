@@ -1,20 +1,5 @@
-import { DominionDeck, DominionPlayer } from "@types";
-import logger from "logger";
-import { cardDictionary, deserializePlayers } from "utils";
-
-async function getPlayers(): Promise<DominionPlayer[]> {
-	return new Promise((resolve) => {
-		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			chrome.tabs.sendMessage(tabs[0].id, {type: "getPlayers"}, function(serializedPlayers) {
-				const players = deserializePlayers(serializedPlayers);
-				logger.log("Players received from content script:");
-				logger.log(players);
-
-				resolve(players);
-			});
-		});
-	});
-}
+import { DominionPlayer } from "@types";
+import { cardDictionary, getPlayersFromContentScript } from "utils";
 
 function playersToCSV(players: DominionPlayer[]): string {
 	let csv = "data:text/csv;charset=utf-8,";
@@ -33,60 +18,8 @@ function playersToCSV(players: DominionPlayer[]): string {
 	return csv;
 }
 
-function deckToHtmlElement(deck: DominionDeck): HTMLElement {
-	const deckContainer = document.createElement("div");
-	deckContainer.className = "player-deck";
-
-	if (!deck) {
-		deckContainer.className += "no-deck";
-		deckContainer.textContent = "no deck :(";
-		return deckContainer;
-	}
-
-	for (const [card, amount] of deck.entries()) {
-		const cardAmountElement = document.createElement("div");
-		cardAmountElement.className = "card-amount";
-		cardAmountElement.textContent = `${card}: ${amount}`;
-		deckContainer.appendChild(cardAmountElement)
-	}
-
-	return deckContainer;
-}
-
-// TODO: Try out web components and turn a player container into a web component!
-// Wait for this before writing tests.
-function getPlayerAsHtmlElement(player: DominionPlayer): HTMLElement {
-	const playerContainer = document.createElement("div");
-	playerContainer.className = "player-container";
-	playerContainer.id = player?.shortName;
-
-	const fullNameContainer = document.createElement("div");
-	fullNameContainer.className = "player-name";
-	fullNameContainer.textContent = player?.fullName;
-
-	const deckContainer = deckToHtmlElement(player?.deck);
-
-	playerContainer.appendChild(fullNameContainer);
-	playerContainer.appendChild(deckContainer);
-
-	return playerContainer;
-}
-
-async function updatePlayers(): Promise<void> {
-	const players = await getPlayers();
-
-	const playerContainerDiv = document.getElementById("players-container");
-
-	// clear existing players from div
-	playerContainerDiv.innerHTML = "";
-
-	for(const player of players) {
-		playerContainerDiv.appendChild(getPlayerAsHtmlElement(player));
-	}
-}
-
 document.getElementById("csv-button").onclick = async () => {
-	const players = await getPlayers();
+	const players = await getPlayersFromContentScript();
 	const csvString = playersToCSV(players);
 	const encodedUri = encodeURI(csvString);
 
@@ -100,6 +33,3 @@ document.getElementById("csv-button").onclick = async () => {
 	downloadLink.click();
 	document.body.removeChild(downloadLink);
 }
-
-updatePlayers();
-setInterval(updatePlayers, 500);

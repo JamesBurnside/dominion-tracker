@@ -1,5 +1,7 @@
-import { DominionPlayersHtmlElement } from "./dominion-players";
-import { DominionPlayerHtmlElement } from "./dominion-single-player";
+import { DominionPlayersHtmlElement } from "./player-container";
+import { DominionPlayerHtmlElement } from "./dominion-player";
+import { DominionDeckHtmlElement } from "./dominion-deck";
 
-window.customElements.define("dominion-players", DominionPlayersHtmlElement);
-window.customElements.define("dominion-single-player", DominionPlayerHtmlElement);
+window.customElements.define("dominion-deck", DominionDeckHtmlElement);
+window.customElements.define("dominion-player", DominionPlayerHtmlElement);
+window.customElements.define("player-container", DominionPlayersHtmlElement);
