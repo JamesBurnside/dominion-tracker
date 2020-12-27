@@ -58,6 +58,7 @@ function deckToHtmlElement(deck: DominionDeck): HTMLElement {
 function getPlayerAsHtmlElement(player: DominionPlayer): HTMLElement {
 	const playerContainer = document.createElement("div");
 	playerContainer.className = "player-container";
+	playerContainer.id = player?.shortName;
 
 	const fullNameContainer = document.createElement("div");
 	fullNameContainer.className = "player-name";
@@ -76,12 +77,13 @@ async function updatePlayers(): Promise<void> {
 
 	const playerContainerDiv = document.getElementById("players-container");
 
+	// clear existing players from div
+	playerContainerDiv.innerHTML = "";
+
 	for(const player of players) {
 		playerContainerDiv.appendChild(getPlayerAsHtmlElement(player));
 	}
 }
-
-updatePlayers();
 
 document.getElementById("csv-button").onclick = async () => {
 	const players = await getPlayers();
@@ -98,3 +100,6 @@ document.getElementById("csv-button").onclick = async () => {
 	downloadLink.click();
 	document.body.removeChild(downloadLink);
 }
+
+updatePlayers();
+setInterval(updatePlayers, 500);
