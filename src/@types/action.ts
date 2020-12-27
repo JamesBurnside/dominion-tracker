@@ -31,7 +31,8 @@ export enum UnsupportedAction {
 	Puts = "puts",
 	Takes = "takes",
 	Receives = "recevies",
-	Moves = "moves" // e.g. moves their deck to their discard pile
+	Moves = "moves", // e.g. C moves their deck to their discard pile
+	Uses = "uses" // e.g. C uses 1 Coffers. (+$1)
 }
 
 export const KnownActions = [...Object.values(DominionAction), ...Object.values(UnsupportedAction)];
