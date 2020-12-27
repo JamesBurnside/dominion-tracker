@@ -2,6 +2,8 @@
  * All known dominion actions.
  * Order matters (should be ordered from longest to shortest if a string contains a substring of other actions)
  * TODO: this list will grow as more actions are supported.
+ * 	Log contains no know action: C returns a Page.
+ * 	Log contains no know action: C receives a Treasure Hunter.
  */
 export enum DominionAction {
 	Buys_And_Gains = "buys and gains",
@@ -30,9 +32,11 @@ export enum UnsupportedAction {
 	Starts = "starts", // e.g. C starts their turn
 	Puts = "puts",
 	Takes = "takes",
-	Receives = "recevies",
 	Moves = "moves", // e.g. C moves their deck to their discard pile
-	Uses = "uses" // e.g. C uses 1 Coffers. (+$1)
+	Uses = "uses", // e.g. C uses 1 Coffers. (+$1)
+	Ends = "ends", // e.g. C ends their buy phase
+	Loses = "loses", // e.g. C loses 1 Coin.
+	Reveals = "reveals"
 }
 
 export const KnownActions = [...Object.values(DominionAction), ...Object.values(UnsupportedAction)];
