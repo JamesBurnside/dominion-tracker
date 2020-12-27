@@ -6,7 +6,7 @@ const srcDir = path.join("..","src");
 module.exports = {
 	entry: {
 		// Chrome extension entry points
-		popup: path.join(__dirname, srcDir, "popup.ts"),
+		// popup: path.join(__dirname, srcDir, "popup.ts"),
 		// options: path.join(__dirname, srcDir + 'options.ts'),
 		// background: path.join(__dirname, srcDir + 'background.ts'),
 		contentScript: path.join(__dirname, srcDir, "contentScript.ts"),
