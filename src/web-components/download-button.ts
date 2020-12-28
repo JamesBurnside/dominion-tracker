@@ -1,6 +1,7 @@
 import { DominionPlayer } from "@types";
 import { cardDictionary, getPlayersFromContentScript } from "utils";
 
+// TODO: needs tests
 function playersToCSV(players: DominionPlayer[]): string {
 	let csv = "data:text/csv;charset=utf-8,";
 
@@ -19,9 +20,6 @@ function playersToCSV(players: DominionPlayer[]): string {
 }
 
 export class DownloadButtonHtmlElement extends HTMLElement {
-	constructor() {
-		super();
-	}
 
 	get labelText(): string {
 		return this.getAttribute("label-text");
@@ -32,6 +30,7 @@ export class DownloadButtonHtmlElement extends HTMLElement {
 	}
 
 	connectedCallback(): void {
+		this.className += "waves-effect waves-light btn-small"
 		this.textContent = this.labelText;
 		this.onclick = () => { this.downloadDataAsCSV(); }
 	}
