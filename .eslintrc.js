@@ -32,12 +32,6 @@ module.exports = {
 			env: {
 				jest: true
 			}
-		},
-		{
-			files: ["webpack/**/*"],
-			rules: {
-				"@typescript-eslint/no-var-requires": "off",
-			}
 		}
 	]
 };

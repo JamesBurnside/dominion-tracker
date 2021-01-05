@@ -1,9 +1,10 @@
-const webpack = require("webpack");
-const path = require("path");
-const CopyPlugin = require("copy-webpack-plugin");
+import * as webpack from "webpack"
+import path from "path";
+import CopyPlugin from "copy-webpack-plugin";
+
 const srcDir = path.join("..","src");
 
-module.exports = {
+const config: webpack.Configuration = {
 	entry: {
 		// Chrome extension entry points
 		// popup: path.join(__dirname, srcDir, "popup.ts"),
@@ -49,11 +50,11 @@ module.exports = {
 		},
 	},
 	plugins: [
-		// exclude locale files in moment
-		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 		new CopyPlugin({
 			patterns: [{ from: ".", to: "../", context: "public" }],
 			options: {}
 		}),
 	]
 };
+
+export default config;
