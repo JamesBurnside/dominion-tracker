@@ -2,6 +2,7 @@ import {DominionAction, DominionCommand, DominionLogs, DominionPlayerShortName, 
 import logger from "logger";
 import { extractActionFromLogLine } from "utils/actionHelper";
 import { extractSubjectsFromLogLine } from "utils/subjectHelper";
+import {getLogContainer} from "../observers";
 
 const LOG_LINE_CLASS_NAME = "log-line";
 
@@ -22,7 +23,7 @@ export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
  * Get the log text out of the html element.
  * TODO: For now just use .innerText. This likely won't cover all scenarios and may need updated.
  */
-export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
+	export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
 
 /**
  * Check if the log line contains any known action - supported or unsupported.
@@ -91,4 +92,16 @@ export const getPlayerShortNamesFromContainer = (logContainer: HTMLElement): Dom
 
 	// Quickly throw into a set to remove duplicates and convert back to array cause I am writing this fast
 	return Array.from(new Set(playersNames));
+}
+
+/**
+ * Extract Game number from the HTML log container element.
+ */
+export const getGameNumberFromContainer = (): string => {
+	const logString: string = convertLogAsHTMLElementToString(getLogContainer())
+	let logStringArray = logString.split("Game #")
+	if(logStringArray.length > 1){
+		logStringArray = logStringArray[1].split(",")
+	}
+	return logStringArray[0]
 }

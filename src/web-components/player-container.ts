@@ -1,5 +1,5 @@
 import { DominionPlayer } from "@types";
-import { getPlayersFromContentScript, serializePlayers } from "utils";
+import {getGameNumberFromContentScript, getPlayersFromContentScript, serializePlayers} from "utils";
 import { DominionPlayerHtmlElement } from "./dominion-player";
 
 export class DominionPlayersHtmlElement extends HTMLElement {

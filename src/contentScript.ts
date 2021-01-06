@@ -19,6 +19,9 @@ chrome.runtime.onMessage.addListener(
 		case "getPlayers":
 			sendResponse(serializePlayers(gameManager.getPlayers()));
 			break;
+		case "getGameNumber":
+			sendResponse(gameManager.getGameNumber());
+			break;
 		default:
 			logger.error("Unrecognised message: ", message);
 			sendResponse(undefined);

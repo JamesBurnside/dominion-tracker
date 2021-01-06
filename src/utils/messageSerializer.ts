@@ -42,3 +42,13 @@ export async function getPlayersFromContentScript(): Promise<DominionPlayer[]> {
 		});
 	});
 }
+
+export async function getGameNumberFromContentScript(): Promise<string> {
+	return new Promise((resolve) => {
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {type: "getGameNumber"}, function(gameNumber) {
+				resolve(gameNumber);
+			});
+		});
+	});
+}

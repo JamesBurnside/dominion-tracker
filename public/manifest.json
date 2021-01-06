@@ -9,6 +9,9 @@
     "48": "icons/icon48x48.png",
     "128": "icons/icon128x128.png"
   },
+  "permissions": [
+    "tabs"
+  ],
   "browser_action": {
     "default_popup": "popup.html"
   },

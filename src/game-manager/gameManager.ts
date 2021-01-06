@@ -1,9 +1,11 @@
 import { DominionLogs, DominionPlayer, DominionPlayerFullName, DominionPlayerShortName } from "@types";
 import logger from "logger";
 import {addFullPlayerNamesToPlayers, addShortPlayerNamesToPlayers, computeLog} from "./gameHelper";
+import {getGameNumberFromContainer} from "../log-parser/logHelpers";
 
 export interface IGameManager {
 	getPlayers: () => DominionPlayer[];
+	getGameNumber: () => string;
 	onPlayerShortNamesFound: (players: DominionPlayerShortName[]) => void;
 	onPlayerFullNamesFound: (players: DominionPlayerFullName[]) => void;
 	onLogsChanged: (logs: DominionLogs) => void;
@@ -11,9 +13,12 @@ export interface IGameManager {
 
 export class GameManager implements IGameManager {
 	private players: DominionPlayer[] = [];
+	private gameNumber: string = undefined;
 
 	/** Public getter for players */
 	public getPlayers = (): DominionPlayer[] => this.players;
+
+	public getGameNumber = (): string => this.gameNumber;
 
 	public onLogsChanged = (logs: DominionLogs): void => {
 		logger.log("logs");
@@ -24,7 +29,9 @@ export class GameManager implements IGameManager {
 		this.players.forEach(player => {
 			player.deck = new Map();
 		});
+		this.gameNumber = getGameNumberFromContainer()
 
+		logger.log(`Game # ${this.gameNumber}`)
 		logs.forEach(log => computeLog(log, this.players));
 
 		logger.log("players");

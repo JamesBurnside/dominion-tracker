@@ -212,7 +212,6 @@ describe("Log parser tests", () => {
 		expect(players[0].deck.get(card)).toBe(expected)
 	});
 
-
-	//create a snapshot test
+	
 
 });
