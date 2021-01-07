@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(
 			break;
 		case "getGameNumber":
 			sendResponse(gameManager.getGameNumber());
-			getScoreInfo(getScoreContainer())
+			getScoreInfo(getScoreContainer(), gameManager.getPlayers())
 			break;
 		default:
 			logger.error("Unrecognised message: ", message);

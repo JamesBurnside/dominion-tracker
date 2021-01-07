@@ -1,10 +1,10 @@
-import {CardStack} from "./subject";
+import {DominionDeck} from "./deck";
 
 export interface PlayerResults {
     playerName: string,
     score: number,
     turns: number,
-    cardStack: CardStack
+    deck: DominionDeck
 }
 
 export type GameResults = PlayerResults[];
