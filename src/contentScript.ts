@@ -3,7 +3,6 @@ import LogParser from "log-parser";
 import logger from "logger";
 import { PlayerFullNameParser } from "player-parser";
 import { serializePlayers } from "utils";
-import {getScoreContainer, getScoreInfo} from "./game-manager/endOfGameHelper";
 
 logger.log("start")
 const gameManager: IGameManager = new GameManager();
@@ -21,8 +20,12 @@ chrome.runtime.onMessage.addListener(
 			sendResponse(serializePlayers(gameManager.getPlayers()));
 			break;
 		case "getGameNumber":
+			// logger.log("getGameNumber request received by content script")
 			sendResponse(gameManager.getGameNumber());
-			getScoreInfo(getScoreContainer(), gameManager.getPlayers())
+			break;
+		case "addScoresToPlayers":
+			// logger.log("addScoresToPlayers request received by content script")
+			sendResponse(JSON.stringify(gameManager.addScoresToPlayers()))
 			break;
 		default:
 			logger.error("Unrecognised message: ", message);

@@ -12,11 +12,16 @@ player-container {
 	width: max-content;
 }
 
-dominion-deck {
+dominion-deck, .player-stats {
 	display: block;
 	margin-left: 10px;
 	margin-bottom: 10px;
 	font-size: smaller;
+}
+
+.player-stats{
+	font-style: italic;
+	margin-bottom: 0px;
 }
 
 download-button {

@@ -1,5 +1,5 @@
-import { DominionPlayer } from "@types";
-import {getGameNumberFromContentScript, getPlayersFromContentScript, serializePlayers} from "utils";
+import {DominionPlayer} from "@types";
+import {messageContentScript, getPlayersFromContentScript, serializePlayers} from "utils";
 import { DominionPlayerHtmlElement } from "./dominion-player";
 
 export class DominionPlayersHtmlElement extends HTMLElement {
@@ -20,8 +20,9 @@ export class DominionPlayersHtmlElement extends HTMLElement {
 	}
 
 	private async updatePlayers(): Promise<void> {
+		//Ask contentScript to addScoresToPlayers. ContentScript returns true if completed.
+		const isEndOfGame = await messageContentScript("addScoresToPlayers");
 		const players = await getPlayersFromContentScript();
-
 		if (serializePlayers(players) === serializePlayers(this._players)) {
 			// players have not changed since last update. ignore.
 			return;

@@ -1,5 +1,4 @@
 import { DominionPlayer } from "@types";
-import logger from "logger";
 
 export function serializePlayers(players: DominionPlayer[]): string {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -34,8 +33,8 @@ export async function getPlayersFromContentScript(): Promise<DominionPlayer[]> {
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			chrome.tabs.sendMessage(tabs[0].id, {type: "getPlayers"}, function(serializedPlayers) {
 				const players = deserializePlayers(serializedPlayers);
-				logger.log("Players received from content script:");
-				logger.log(players);
+				// logger.log("Players received from content script:");
+				// logger.log(players);
 
 				resolve(players);
 			});
@@ -43,11 +42,14 @@ export async function getPlayersFromContentScript(): Promise<DominionPlayer[]> {
 	});
 }
 
-export async function getGameNumberFromContentScript(): Promise<string> {
+export async function messageContentScript(request: string): Promise<string> {
 	return new Promise((resolve) => {
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			chrome.tabs.sendMessage(tabs[0].id, {type: "getGameNumber"}, function(gameNumber) {
-				resolve(gameNumber);
+			chrome.tabs.sendMessage(tabs[0].id, {type: request}, (response) => {
+				// logger.log('messageSerializer reached, message sent: ' + request)
+				// logger.log('messageSerielizer received a response of: ' + response)
+
+				resolve(JSON.parse(response));
 			});
 		});
 	});

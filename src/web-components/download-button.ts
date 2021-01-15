@@ -1,5 +1,5 @@
 import { DominionPlayer } from "@types";
-import { cardDictionary, getPlayersFromContentScript } from "utils";
+import {cardDictionary, getPlayersFromContentScript} from "utils";
 
 // TODO: needs tests
 function playersToCSV(players: DominionPlayer[]): string {
@@ -36,6 +36,7 @@ export class DownloadButtonHtmlElement extends HTMLElement {
 	}
 
 	private async downloadDataAsCSV(): Promise<void> {
+
 		const players = await getPlayersFromContentScript();
 		const csvString = playersToCSV(players);
 		const encodedUri = encodeURI(csvString);

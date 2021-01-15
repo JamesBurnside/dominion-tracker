@@ -7,4 +7,7 @@ export interface DominionPlayer {
 	fullName: DominionPlayerFullName;
 	shortName: DominionPlayerShortName;
 	deck: DominionDeck;
+	score?: number;
+	turns?: number;
+
 }

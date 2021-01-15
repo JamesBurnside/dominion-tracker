@@ -2,6 +2,7 @@ import { DominionLogs, DominionPlayer, DominionPlayerFullName, DominionPlayerSho
 import logger from "logger";
 import {addFullPlayerNamesToPlayers, addShortPlayerNamesToPlayers, computeLog} from "./gameHelper";
 import {getGameNumberFromContainer} from "../log-parser/logHelpers";
+import {addEndOfGameScoresToPlayers, getScoreContainer} from "./endOfGameHelper";
 
 export interface IGameManager {
 	getPlayers: () => DominionPlayer[];
@@ -9,6 +10,7 @@ export interface IGameManager {
 	onPlayerShortNamesFound: (players: DominionPlayerShortName[]) => void;
 	onPlayerFullNamesFound: (players: DominionPlayerFullName[]) => void;
 	onLogsChanged: (logs: DominionLogs) => void;
+	addScoresToPlayers: () => boolean;
 }
 
 export class GameManager implements IGameManager {
@@ -49,5 +51,9 @@ export class GameManager implements IGameManager {
 		playerShortNames.forEach((playerShortName) => addShortPlayerNamesToPlayers(playerShortName, this.players));
 		logger.log("players");
 		logger.log(this.players);
+	}
+
+	public addScoresToPlayers = (): boolean => {
+		return  addEndOfGameScoresToPlayers(getScoreContainer(), this.players);
 	}
 }
