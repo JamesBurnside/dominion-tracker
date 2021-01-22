@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@types/chrome": "0.0.127",
+    "axios": "^0.21.1",
     "verbal-expressions": "^1.0.2"
   }
 }
