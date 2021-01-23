@@ -36,7 +36,8 @@ export enum UnsupportedAction {
 	Uses = "uses", // e.g. C uses 1 Coffers. (+$1)
 	Ends = "ends", // e.g. C ends their buy phase
 	Loses = "loses", // e.g. C loses 1 Coin.
-	Reveals = "reveals"
+	Reveals = "reveals",
+	Chooses = "chooses" // e.g. Obelisk chooses the Bridge pile.
 }
 
 export const KnownActions = [...Object.values(DominionAction), ...Object.values(UnsupportedAction)];

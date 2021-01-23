@@ -23,7 +23,3 @@ dominion-deck, .player-stats {
 	font-style: italic;
 	margin-bottom: 0px;
 }
-
-download-button {
-	cursor: pointer;
-}

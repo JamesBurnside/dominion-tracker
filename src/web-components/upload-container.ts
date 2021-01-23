@@ -2,7 +2,7 @@
 import {getPlayersFromContentScript, messageContentScript, serializePlayers} from "../utils";
 import logger from "../logger/logger";
 import axios from "axios";
-
+import { CustomButtonHtmlElement } from "./custom-button";
 
 export class UploadContainerHtmlElement extends HTMLElement {
     constructor() {
@@ -35,7 +35,7 @@ export class UploadContainerHtmlElement extends HTMLElement {
             })
     };
 
-    prompt = (text: string, colour: string): void =>{
+    prompt = (text: string, colour: string): void => {
 
         //clean up old warnings messages
         const oldWarning = document.getElementsByClassName("uploadMessage")
@@ -62,11 +62,11 @@ export class UploadContainerHtmlElement extends HTMLElement {
     }
 
     connectedCallback(): void {
-        const uploadButton = document.createElement("button");
-        uploadButton.className += "waves-effect waves-light btn-small";
-        uploadButton.innerText = "Upload";
+        const uploadButton = new CustomButtonHtmlElement();
+        uploadButton.setAttribute("text", "Upload");
+        uploadButton.setAttribute("icon", "cloud_upload");
         uploadButton.onclick = this.uploadHandler;
-        this.appendChild(uploadButton)
+        this.appendChild(uploadButton);
     }
 
 }

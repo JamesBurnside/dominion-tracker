@@ -30,6 +30,7 @@
   "homepage": "https://github.com/JamesBurnside/dominion-tracker#readme",
   "devDependencies": {
     "@types/copy-webpack-plugin": "^6.4.0",
+    "@types/dedent": "^0.7.0",
     "@types/jest": "^26.0.16",
     "@types/sanitize-html": "^1.27.0",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
@@ -51,6 +52,7 @@
   "dependencies": {
     "@types/chrome": "0.0.127",
     "axios": "^0.21.1",
+    "dedent": "^0.7.0",
     "verbal-expressions": "^1.0.2"
   }
 }

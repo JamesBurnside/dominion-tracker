@@ -4,10 +4,16 @@ import logger from "logger";
 import { PlayerFullNameParser } from "player-parser";
 import { serializePlayers } from "utils";
 
-logger.log("start")
-const gameManager: IGameManager = new GameManager();
-new PlayerFullNameParser(gameManager.onPlayerFullNamesFound);
-new LogParser(gameManager.onLogsChanged, gameManager.onPlayerShortNamesFound);
+let gameManager: IGameManager;
+
+function recreateGameTracker() {
+	gameManager = new GameManager();
+	new PlayerFullNameParser(gameManager.onPlayerFullNamesFound);
+	new LogParser(gameManager.onLogsChanged, gameManager.onPlayerShortNamesFound);
+}
+
+// create initial instance of the game tracker
+recreateGameTracker();
 
 /**
  * Communicate with the popup.html.
@@ -16,6 +22,10 @@ new LogParser(gameManager.onLogsChanged, gameManager.onPlayerShortNamesFound);
 chrome.runtime.onMessage.addListener(
 	function(message, sender, sendResponse) {
 		switch(message.type) {
+		case "resetGameTracker":
+			recreateGameTracker();
+			sendResponse(true);
+			break;
 		case "getPlayers":
 			sendResponse(serializePlayers(gameManager.getPlayers()));
 			break;

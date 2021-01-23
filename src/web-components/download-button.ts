@@ -1,5 +1,6 @@
 import { DominionPlayer } from "@types";
 import {cardDictionary, getPlayersFromContentScript} from "utils";
+import { CustomButtonHtmlElement } from "./custom-button";
 
 // TODO: needs tests
 function playersToCSV(players: DominionPlayer[]): string {
@@ -19,36 +20,22 @@ function playersToCSV(players: DominionPlayer[]): string {
 	return csv;
 }
 
-export class DownloadButtonHtmlElement extends HTMLElement {
+async function downloadDataAsCSV(): Promise<void> {
+	const players = await getPlayersFromContentScript();
+	const csvString = playersToCSV(players);
+	const encodedUri = encodeURI(csvString);
 
-	get labelText(): string {
-		return this.getAttribute("label-text");
-	}
+	const downloadLink = document.createElement("a");
+	downloadLink.href = encodedUri;
 
-	set labelText(value: string) {
-		if(value) this.setAttribute("label-text", value);
-	}
+	const filename = `dominion - ${(new Date()).toISOString()}.csv`;
+	downloadLink.download = filename;
 
-	connectedCallback(): void {
-		this.className += "waves-effect waves-light btn-small"
-		this.textContent = this.labelText;
-		this.onclick = () => { this.downloadDataAsCSV(); }
-	}
+	document.body.appendChild(downloadLink);
+	downloadLink.click();
+	document.body.removeChild(downloadLink);
+}
 
-	private async downloadDataAsCSV(): Promise<void> {
-
-		const players = await getPlayersFromContentScript();
-		const csvString = playersToCSV(players);
-		const encodedUri = encodeURI(csvString);
-
-		const downloadLink = document.createElement("a");
-		downloadLink.href = encodedUri;
-
-		const filename = `dominion - ${(new Date()).toISOString()}.csv`;
-		downloadLink.download = filename;
-
-		document.body.appendChild(downloadLink);
-		downloadLink.click();
-		document.body.removeChild(downloadLink);
-	}
+export class DownloadButtonHtmlElement extends CustomButtonHtmlElement {
+	onClickFn = downloadDataAsCSV;
 }
