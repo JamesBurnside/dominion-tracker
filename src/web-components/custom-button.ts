@@ -2,7 +2,7 @@ import dedent from "dedent";
 
 const buttonStyles = dedent`
 	button {
-		display: block;
+		display: block !important;
 		width: 100%;
 		margin-bottom: 10px;
 	}
@@ -23,11 +23,6 @@ const buttonClasses = "waves-effect waves-light btn-small";
 // `;
 
 export class CustomButtonHtmlElement extends HTMLElement {
-
-	constructor() {
-		super();
-	}
-
 	connectedCallback(): void {
 		const shadow = this.attachShadow({ mode: "open" });
 
