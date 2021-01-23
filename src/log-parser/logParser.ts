@@ -54,8 +54,14 @@ export default class LogParser {
 		}
 
 		this.logContainer = getLogContainer();
+		this.updatePlayerShortNamesFromContainer();
 		this.updateLogsFromContainer();
 		this.subscribeToLogContainerChanges();
+
+		if (this._shortPlayerNames) {
+			this.playerShortNamesFoundCallback(this._shortPlayerNames);
+			this.newLogsCallback(this._logs);
+		}
 	}
 
 	private listenForLogContainerCreation(): void {
