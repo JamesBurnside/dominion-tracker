@@ -9,5 +9,6 @@ export interface DominionPlayer {
 	deck: DominionDeck;
 	score?: number;
 	turns?: number;
-
+	gameNumber?: string;
+	date?: Date;
 }

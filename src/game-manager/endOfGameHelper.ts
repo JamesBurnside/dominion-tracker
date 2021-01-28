@@ -9,12 +9,13 @@ export const isEndOfGameScreen = () : boolean => {
 
 //TODO: Write a test
 //adds scores to players or returns false if not at end-of-game screen.
-export const addEndOfGameScoresToPlayers = (scoreContainer: HTMLElement, players: DominionPlayer[]) : boolean => {
+export const addEndOfGameScoresToPlayers = (scoreContainer: HTMLElement, players: DominionPlayer[], gameNumber: string) : boolean => {
 	//check if we are on the end-screen
 	if (!isEndOfGameScreen()) return false
 
 	//turn the data into an array, remove the header information
 	let scoreArray: string[] =  scoreContainer.innerText.split("\n").slice(6)
+	const date: Date = new Date()
 
 	for(let i = 0; scoreArray.length > 3 ; i ++){
 		let playerName: string = scoreArray[1]
@@ -30,6 +31,8 @@ export const addEndOfGameScoresToPlayers = (scoreContainer: HTMLElement, players
 			if (player.fullName === playerName) {
 				player.score = score
 				player.turns = turns
+				player.gameNumber = gameNumber
+				player.date = date
 				break
 			}
 		}

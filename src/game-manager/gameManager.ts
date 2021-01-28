@@ -54,6 +54,6 @@ export class GameManager implements IGameManager {
 	}
 
 	public addScoresToPlayers = (): boolean => {
-		return  addEndOfGameScoresToPlayers(getScoreContainer(), this.players);
+		return  addEndOfGameScoresToPlayers(getScoreContainer(), this.players, this.gameNumber);
 	}
 }

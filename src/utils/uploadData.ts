@@ -31,7 +31,7 @@ export const uploadHandler = async (): Promise<UploadResult> => {
 
 	const players = serializePlayers(await getPlayersFromContentScript() );
 
-	//get game number (used for the post location)
+	//get game number (used for the axios.put location)
 	const gameNumber = await messageContentScript("getGameNumber")
 
 	try {
