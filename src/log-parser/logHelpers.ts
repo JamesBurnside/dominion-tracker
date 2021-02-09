@@ -113,7 +113,6 @@ let previousLogs: DominionLogs = [];
  * Trivially assume its a new game if the only logs are "Starts With" logs.
  */
 export const isNewGame = (logs: DominionLogs): boolean => {
-	console.log(logs);
 	if (JSON.stringify(logs) === JSON.stringify(previousLogs)) {
 		// Logs didn't change so return early.
 		// This is a quick, hacky fix to prevent a constant cycle that a new game is triggered, so
