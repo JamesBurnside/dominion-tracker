@@ -2,21 +2,22 @@ import { DominionLogs, DominionPlayerShortName } from "@types";
 import logger from "logger";
 import { documentObserver, logContainerObserver, getLogContainer } from "observers";
 import { doNotThrow } from "utils";
-import { getLogsFromContainer, getPlayerShortNamesFromContainer } from "./logHelpers";
+import { getLogsFromContainer, getPlayerShortNamesFromContainer, isNewGame } from "./logHelpers";
 
 export default class LogParser {
-	constructor(onLogsChanged?: (logs: DominionLogs) => void, onPlayerShortNamesFound?: (shortNames: DominionPlayerShortName[]) => void) {
+	constructor(
+		onLogsChanged?: (logs: DominionLogs) => void,
+		onPlayerShortNamesFound?: (shortNames: DominionPlayerShortName[]) => void,
+		onNewGameFound?: () => void) {
 		this.newLogsCallback = onLogsChanged;
 		this.playerShortNamesFoundCallback = onPlayerShortNamesFound;
+		this.newGameFoundCallback = onNewGameFound;
+		this.listenForLogContainerCreateOrDestroy();
 		this.initLogContainer();
 	}
 
 	private initLogContainer() {
-		if (!getLogContainer()) {
-			// log container does not exist yet, watch DOM and wait for it to exist
-			this.listenForLogContainerCreation();
-		} else {
-			// log container exists already, use straight away
+		if (getLogContainer()) {
 			this.updateLogContainer();
 		}
 	}
@@ -27,7 +28,6 @@ export default class LogParser {
 	 * Do not reset callbacks.
 	 */
 	public reset(): void {
-		doNotThrow(() => this.unsubscribeFromDocumentChanges());
 		doNotThrow(() => this.unSubscribeToLogContainerChanges());
 		this.logContainer = null;
 		this._logs = [];
@@ -77,17 +77,25 @@ export default class LogParser {
 		this.updateLogsFromContainer();
 		this.subscribeToLogContainerChanges();
 
+		if (this.newGameFoundCallback && isNewGame(this._logs)) {
+			logger.log("new game found!");
+			this.newGameFoundCallback();
+		}
+
 		if (this._shortPlayerNames) {
 			this.playerShortNamesFoundCallback(this._shortPlayerNames);
 			this.newLogsCallback(this._logs);
 		}
 	}
 
-	private listenForLogContainerCreation(): void {
+	private listenForLogContainerCreateOrDestroy(): void {
 		documentObserver.subscribe(this.observerId, () => {
 			if (getLogContainer()) {
-				this.updateLogContainer();
-				this.unsubscribeFromDocumentChanges();
+				if (!this.logContainer) {
+					this.updateLogContainer();
+				}
+			} else if (this.logContainer) {
+				this.reset();
 			}
 		});
 	}
@@ -103,8 +111,14 @@ export default class LogParser {
 				this.playerShortNamesFoundCallback(this._shortPlayerNames);
 			}
 
-			if (this.updateLogsFromContainer() && this.newLogsCallback) {
-				this.newLogsCallback(this._logs);
+			if (this.updateLogsFromContainer()) {
+				if (this.newGameFoundCallback && isNewGame(this._logs)) {
+					logger.log("new game found!");
+					this.newGameFoundCallback();
+				}
+				else if (this.newLogsCallback) {
+					this.newLogsCallback(this._logs);
+				}
 			}
 		});
 	}
@@ -119,6 +133,7 @@ export default class LogParser {
 
 	private newLogsCallback: (allLogs: DominionLogs) => void = null;
 	private playerShortNamesFoundCallback: (players: DominionPlayerShortName[]) => void = null;
+	private newGameFoundCallback: () => void = null;
 
 	// This id could technically conflict with a second instance of a log parser but
 	// meh there's only one currently and it still would be highly unlikely.
