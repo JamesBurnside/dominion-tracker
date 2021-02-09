@@ -1,13 +1,17 @@
 import { DominionLogs, DominionPlayerShortName } from "@types";
 import logger from "logger";
 import { documentObserver, logContainerObserver, getLogContainer } from "observers";
+import { doNotThrow } from "utils";
 import { getLogsFromContainer, getPlayerShortNamesFromContainer } from "./logHelpers";
 
 export default class LogParser {
 	constructor(onLogsChanged?: (logs: DominionLogs) => void, onPlayerShortNamesFound?: (shortNames: DominionPlayerShortName[]) => void) {
 		this.newLogsCallback = onLogsChanged;
 		this.playerShortNamesFoundCallback = onPlayerShortNamesFound;
+		this.initLogContainer();
+	}
 
+	private initLogContainer() {
 		if (!getLogContainer()) {
 			// log container does not exist yet, watch DOM and wait for it to exist
 			this.listenForLogContainerCreation();
@@ -15,6 +19,21 @@ export default class LogParser {
 			// log container exists already, use straight away
 			this.updateLogContainer();
 		}
+	}
+
+	/**
+	 * This function should reset all private tracking variables and put the logger
+	 * in the state of looking for a new log container.
+	 * Do not reset callbacks.
+	 */
+	public reset(): void {
+		doNotThrow(() => this.unsubscribeFromDocumentChanges());
+		doNotThrow(() => this.unSubscribeToLogContainerChanges());
+		this.logContainer = null;
+		this._logs = [];
+		this._shortPlayerNames = [];
+		this.observerId = `log-parser ${Math.random()}`;
+		this.initLogContainer();
 	}
 
 	/** Public getter for the logs */
@@ -79,6 +98,7 @@ export default class LogParser {
 
 	private subscribeToLogContainerChanges(): void {
 		logContainerObserver.subscribe(this.observerId, () => {
+			logger.log(`logContainerObserver called ${this.observerId}`);
 			if (this.updatePlayerShortNamesFromContainer() && this.playerShortNamesFoundCallback) {
 				this.playerShortNamesFoundCallback(this._shortPlayerNames);
 			}
@@ -102,5 +122,5 @@ export default class LogParser {
 
 	// This id could technically conflict with a second instance of a log parser but
 	// meh there's only one currently and it still would be highly unlikely.
-	private observerId = `log-parser ${Math.random()}`
+	private observerId = `log-parser ${Math.random()}`;
 }
