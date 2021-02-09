@@ -4,12 +4,13 @@ import logger from "logger";
 import { PlayerFullNameParser } from "player-parser";
 import { serializePlayers } from "utils";
 
-let gameManager: IGameManager;
+const gameManager: IGameManager = new GameManager();
+const logParser = new LogParser(gameManager.onLogsChanged, gameManager.onPlayerShortNamesFound);
+const playerFullNameParser = new PlayerFullNameParser(gameManager.onPlayerFullNamesFound);
 
 function recreateGameTracker() {
-	gameManager = new GameManager();
-	new PlayerFullNameParser(gameManager.onPlayerFullNamesFound);
-	new LogParser(gameManager.onLogsChanged, gameManager.onPlayerShortNamesFound);
+	logParser?.reset();
+	playerFullNameParser.reset();
 }
 
 // create initial instance of the game tracker
