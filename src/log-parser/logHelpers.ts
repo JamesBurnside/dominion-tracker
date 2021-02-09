@@ -23,7 +23,7 @@ export const getLogsFromContainer = (logContainer: HTMLElement): DominionLogs =>
  * Get the log text out of the html element.
  * TODO: For now just use .innerText. This likely won't cover all scenarios and may need updated.
  */
-	export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
+export const convertLogAsHTMLElementToString = (logElement: HTMLElement): string => logElement.innerText;
 
 /**
  * Check if the log line contains any known action - supported or unsupported.
@@ -104,4 +104,24 @@ export const getGameNumberFromContainer = (): string => {
 		logStringArray = logStringArray[1].split(",")
 	}
 	return logStringArray[0]
+}
+
+// Hackily just store previous logs for new game checking in global space cause that can be future James's problem.
+let previousLogs: DominionLogs = [];
+
+/**
+ * Trivially assume its a new game if the only logs are "Starts With" logs.
+ */
+export const isNewGame = (logs: DominionLogs): boolean => {
+	console.log(logs);
+	if (JSON.stringify(logs) === JSON.stringify(previousLogs)) {
+		// Logs didn't change so return early.
+		// This is a quick, hacky fix to prevent a constant cycle that a new game is triggered, so
+		// the log parser is reset, which triggers a new game, which resets the log parser etc. etc.
+		return false;
+	}
+
+	previousLogs = logs;
+
+	return (logs.filter(log => log.action !== DominionAction.Starts_With)).length > 0;
 }
