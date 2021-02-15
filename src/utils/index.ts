@@ -4,7 +4,7 @@ export function doNotThrow<T>(fn: (...args : unknown[]) => T): T | undefined  {
 	try {
 		return fn();
 	} catch (e) {
-		logger.error(e);
+		logger.warn(e);
 		return undefined;
 	}
 }

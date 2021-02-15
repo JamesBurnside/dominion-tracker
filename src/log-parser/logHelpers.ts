@@ -128,5 +128,6 @@ export const isNewGame = (logs: DominionLogs): boolean => {
 
 	previousLogs = logs;
 
-	return (logs.filter(log => log.action !== DominionAction.Starts_With)).length > 0;
+	// New game is a game where the only logs are StartsWith logs.
+	return (logs.filter(log => log.action !== DominionAction.Starts_With)).length === 0;
 }
