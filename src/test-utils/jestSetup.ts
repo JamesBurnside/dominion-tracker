@@ -15,5 +15,6 @@ Object.defineProperty(global.Element.prototype, "innerText", {
 // Do not perform logging during tests. Tests should fail when the expect() fails.
 jest.mock("logger", () => ({
 	log: jest.fn(),
+	warn: jest.fn(),
 	error: jest.fn()
 }));

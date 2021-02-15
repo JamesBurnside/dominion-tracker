@@ -11,6 +11,15 @@ class Logger {
 	}
 
 	/**
+	 * Quick console logging function - USE THIS INSTEAD OF CONSOLE.WARN
+	 * This prefixes all error messages with [Dominion Tracker].
+	 * It also allows for easy mocking in tests.
+	 */
+	public warn(message: unknown): void {
+		console.warn(LOG_PREFIX, message);
+	}
+
+	/**
 	 * Quick error logging function - USE THIS INSTEAD OF CONSOLE.ERROR and THROW NEW ERROR.
 	 * This prefixes all error messages with [Dominion Tracker].
 	 * It also allows for easy mocking in tests.
