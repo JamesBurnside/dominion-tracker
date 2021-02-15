@@ -5,6 +5,7 @@ import {getGameNumberFromContainer} from "../log-parser/logHelpers";
 import {addEndOfGameScoresToPlayers, getScoreContainer} from "./endOfGameHelper";
 
 export interface IGameManager {
+	reset: () => void;
 	getPlayers: () => DominionPlayer[];
 	getGameNumber: () => string;
 	onPlayerShortNamesFound: (players: DominionPlayerShortName[]) => void;
@@ -21,6 +22,11 @@ export class GameManager implements IGameManager {
 	public getPlayers = (): DominionPlayer[] => this.players;
 
 	public getGameNumber = (): string => this.gameNumber;
+
+	public reset = (): void => {
+		this.players = [];
+		this.gameNumber = undefined;
+	}
 
 	public onLogsChanged = (logs: DominionLogs): void => {
 		logger.log("logs");
@@ -54,6 +60,6 @@ export class GameManager implements IGameManager {
 	}
 
 	public addScoresToPlayers = (): boolean => {
-		return  addEndOfGameScoresToPlayers(getScoreContainer(), this.players, this.gameNumber);
+		return addEndOfGameScoresToPlayers(getScoreContainer(), this.players, this.gameNumber);
 	}
 }

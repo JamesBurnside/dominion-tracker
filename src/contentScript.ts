@@ -5,8 +5,9 @@ import { PlayerFullNameParser } from "player-parser";
 import { serializePlayers } from "utils";
 
 function recreateGameTracker() {
+	gameManager?.reset();
 	logParser?.reset();
-	playerFullNameParser.reset();
+	playerFullNameParser?.reset();
 }
 
 const gameManager: IGameManager = new GameManager();
