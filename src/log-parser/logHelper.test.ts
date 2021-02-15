@@ -27,74 +27,98 @@ describe("Log helper tests", () => {
 		expect(isValidLogString("C gains a Silver from trash.")).toBeTruthy();
 	});
 
-	test("Successfully converts log strings to dominion logs", () => {
-		expect(convertLogStringToLog("L buys and gains an Ambassador.")).toEqual({
-			playerName: "L",
-			action: DominionAction.Buys_And_Gains,
-			cardStack: [
-				{
-					type: DominionSubjectType.Card,
-					card: "Ambassador",
-					amount: 1,
-				},
-			],
+	describe("Successfully converts log strings to dominion logs", () => {
+		test("L buys and gains an Ambassador.", () => {
+			expect(convertLogStringToLog("L buys and gains an Ambassador.")).toEqual({
+				playerName: "L",
+				action: DominionAction.Buys_And_Gains,
+				cardStack: [
+					{
+						type: DominionSubjectType.Card,
+						card: "Ambassador",
+						amount: 1,
+					},
+				],
+			});
 		});
 
-		expect(convertLogStringToLog("C gains a Noble Brigand.")).toEqual({
-			playerName: "C",
-			action: DominionAction.Gains,
-			cardStack: [
-				{
-					type: DominionSubjectType.Card,
-					card: "Noble Brigand",
-					amount: 1,
-				},
-			],
+		test("Lord R buys and gains an Ambassador.", () => {
+			expect(
+				convertLogStringToLog("Lord R buys and gains an Ambassador.")
+			).toEqual({
+				playerName: "Lord R",
+				action: DominionAction.Buys_And_Gains,
+				cardStack: [
+					{
+						type: DominionSubjectType.Card,
+						card: "Ambassador",
+						amount: 1,
+					},
+				],
+			});
 		});
 
-		expect(
-			convertLogStringToLog("Turtles gains a Silver and a Copper from trash.")
-		).toEqual({
-			playerName: "Turtles",
-			action: DominionAction.Gains,
-			cardStack: [
-				{
-					type: DominionSubjectType.Card,
-					card: "Silver",
-					amount: 1,
-				},
-				{
-					type: DominionSubjectType.Card,
-					card: "Copper",
-					amount: 1,
-				},
-			],
+		test("C gains a Noble Brigand.", () => {
+			expect(convertLogStringToLog("C gains a Noble Brigand.")).toEqual({
+				playerName: "C",
+				action: DominionAction.Gains,
+				cardStack: [
+					{
+						type: DominionSubjectType.Card,
+						card: "Noble Brigand",
+						amount: 1,
+					},
+				],
+			});
 		});
 
-		expect(
-			convertLogStringToLog(
-				"NextYear starts with a Death Cart, 13 Rats and 2020 Doctors."
-			)
-		).toEqual({
-			playerName: "NextYear",
-			action: DominionAction.Starts_With,
-			cardStack: [
-				{
-					type: DominionSubjectType.Card,
-					card: "Death Cart",
-					amount: 1,
-				},
-				{
-					type: DominionSubjectType.Card,
-					card: "Rats",
-					amount: 13,
-				},
-				{
-					type: DominionSubjectType.Card,
-					card: "Doctor",
-					amount: 2020,
-				},
-			],
+		test("Turtles gains a Silver and a Copper from trash.", () => {
+			expect(
+				convertLogStringToLog("Turtles gains a Silver and a Copper from trash.")
+			).toEqual({
+				playerName: "Turtles",
+				action: DominionAction.Gains,
+				cardStack: [
+					{
+						type: DominionSubjectType.Card,
+						card: "Silver",
+						amount: 1,
+					},
+					{
+						type: DominionSubjectType.Card,
+						card: "Copper",
+						amount: 1,
+					},
+				],
+			});
+		});
+
+		test("NextYear starts with a Death Cart, 13 Rats and 2020 Doctors.", () => {
+			expect(
+				convertLogStringToLog(
+					"NextYear starts with a Death Cart, 13 Rats and 2020 Doctors."
+				)
+			).toEqual({
+				playerName: "NextYear",
+				action: DominionAction.Starts_With,
+				cardStack: [
+					{
+						type: DominionSubjectType.Card,
+						card: "Death Cart",
+						amount: 1,
+					},
+					{
+						type: DominionSubjectType.Card,
+						card: "Rats",
+						amount: 13,
+					},
+					{
+						type: DominionSubjectType.Card,
+						card: "Doctor",
+						amount: 2020,
+					},
+				],
+			});
 		});
 	});
 

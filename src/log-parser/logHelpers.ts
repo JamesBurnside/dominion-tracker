@@ -60,8 +60,14 @@ export const isValidLogString = (logString: string): boolean => {
  */
 export const convertLogStringToLog = (logAsString: string): DominionCommand => {
 	// Extract player - Be trivial about this for now and assume
-	// players dont have spaces in their name.
-	const playerName = logAsString.split(/\s/gm)[0];
+	// players dont have spaces in their name, except do an extra
+	// quick check for the bots (Lord R and Lord V).
+	let playerName = logAsString.split(/\s/gm)[0];
+	if (playerName === "Lord") {
+		const botShortname = logAsString.split(/\s/gm)[1];
+		if (botShortname === "R" || botShortname === "V")
+			playerName += " " + logAsString.split(/\s/gm)[1];
+	}
 
 	//slice player name from log string
 	const logWithoutPlayerName = logAsString.slice(playerName.length).trim()
@@ -87,8 +93,8 @@ export const getPlayerShortNamesFromContainer = (logContainer: HTMLElement): Dom
 		.map(log => convertLogAsHTMLElementToString(log as HTMLElement))
 		// filter logs to remove only the logs we care about. For simplicity use the "starts with" log lines
 		.filter(log => log.includes("starts with"))
-		// extract player names
-		.map(log => log.trim().split(/\s/gm)[0]);
+		// extract player names, assume it is everything before ' starts with ...'
+		.map(log => log.trim().split(/\sstarts with/gm)[0].trim());
 
 	// Quickly throw into a set to remove duplicates and convert back to array cause I am writing this fast
 	return Array.from(new Set(playersNames));
