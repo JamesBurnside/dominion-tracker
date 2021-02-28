@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --config webpack/webpack.dev.ts --watch",
+    "dev:no-watch": "webpack --config webpack/webpack.dev.ts",
     "package": "webpack --config webpack/webpack.prod.ts && npm run zip-dist",
     "zip-dist": "cross-zip dist \"DominionWorld Chromium Extension2.zip\"",
     "test": "npx jest --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "checks": "npm run build && npm run test && npm run lint"
+    "checks": "npm run dev:no-watch && npm run test && npm run lint"
   },
   "husky": {
     "hooks": {
