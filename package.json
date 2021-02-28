@@ -4,14 +4,14 @@
   "description": "Dominion deck tracker",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack --config webpack/webpack.dev.ts --watch",
-    "build": "npx tsc",
-    "build:dev": "webpack --config webpack/webpack.dev.ts",
-    "build:prod": "webpack --config webpack/webpack.prod.ts",
+    "dev": "webpack --config webpack/webpack.dev.ts --watch",
+    "dev:no-watch": "webpack --config webpack/webpack.dev.ts",
+    "package": "webpack --config webpack/webpack.prod.ts && npm run zip-dist",
+    "zip-dist": "cross-zip dist \"DominionWorld Chromium Extension.zip\"",
     "test": "npx jest --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "checks": "npm run build && npm run test && npm run lint"
+    "checks": "npm run dev:no-watch && npm run test && npm run lint"
   },
   "husky": {
     "hooks": {
@@ -36,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
     "copy-webpack-plugin": "^6.4.0",
+    "cross-zip-cli": "^1.0.0",
     "eslint": "^7.15.0",
     "husky": "^4.3.6",
     "jest": "^26.6.3",

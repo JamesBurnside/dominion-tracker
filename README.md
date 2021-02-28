@@ -27,7 +27,7 @@ npm i
 Build extension:
 
 ```
-npm run watch
+npm run dev
 ```
 
 Add the extension you have just built to Edge Chromium or Chrome browsers:
@@ -38,12 +38,18 @@ Settings > Extensions > "Load unpacked"
 Choose project dist folder (<repo root>/dist)
 ```
 
-Changes are retranspiled under `npm run watch`. If only UI has changed the browser seems to pick this up automatically. If any typescript or javascript is updated, in edge/chrome, you will have to click `reload` under the extension in the Extensions page and refresh the browser page. The official [docs](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) don't actually say when this is necessarry but I found it is often needed ¯\\\_(ツ)\_\/¯
+Changes are retranspiled under `npm run dev`. If only UI has changed the browser seems to pick this up automatically. If any typescript or javascript is updated, in edge/chrome, you will have to click `reload` under the extension in the Extensions page and refresh the browser page. The official [docs](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) don't actually say when this is necessarry but I found it is often needed ¯\\\_(ツ)\_\/¯
 
-### How Tested
+### Run Tests
 
 Oh, barely. But you can run tests with:
 
 ```
 npm run test
+```
+
+### Create production zip to upload to chrome extension store
+
+```
+npm run package
 ```
