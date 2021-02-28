@@ -48,7 +48,7 @@ Oh, barely. But you can run tests with:
 npm run test
 ```
 
-### Package up to upload to chrome
+### Create production zip to upload to chrome extension store
 
 ```
 npm run package
