@@ -11,4 +11,5 @@ export interface DominionPlayer {
 	turns?: number;
 	gameNumber?: string;
 	date?: Date;
+	gameDuration?: number;
 }
