@@ -41,7 +41,7 @@ export class PlayerFullNameParser {
 		return this._players;
 	}
 
-	public updatePlayers(newPlayers: string []): void {
+	private updatePlayers(newPlayers: string []) {
 		if (JSON.stringify(newPlayers) !== JSON.stringify(this.players)) {
 			this._players = newPlayers;
 			this.playersFoundCallback(newPlayers);
