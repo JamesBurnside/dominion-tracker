@@ -11,5 +11,6 @@ export const log2 = getLogFileAsString("./textLog2.txt");
 export const log3 = getLogFileAsString("./textLog3.txt");
 export const log4 = getLogFileAsString("./textLog4.txt");
 export const log5 = getLogFileAsString("./textLog5.txt");
+export const logReceivesReturns = getLogFileAsString("./textLogReceivesReturns.txt");
 
 export const htmlLog1 = getLogFileAsString("./htmlLog1.html");

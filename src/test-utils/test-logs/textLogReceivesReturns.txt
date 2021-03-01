@@ -1,0 +1,67 @@
+
+Game #68378530, unrated.
+
+Kingdom generated with these relative percentages:
+0%: Treasure Map
+50%: Bandit
+
+L starts with 7 Coppers.
+L starts with 3 Estates.
+R starts with 7 Coppers.
+R starts with 3 Estates.
+C starts with 7 Coppers.
+C starts with 3 Estates.
+L shuffles their deck.
+L draws 5 cards.
+R shuffles their deck.
+R draws 5 cards.
+C shuffles their deck.
+C draws 2 Coppers and 3 Estates.
+
+Turn 1 - Cl0bBer123
+C plays 2 Coppers. (+$2)
+C buys and gains a Page.
+C draws 5 Coppers.
+
+Turn 2 - Cl0bBer123
+C plays 5 Coppers. (+$5)
+C buys and gains a Trader.
+C shuffles their deck.
+C draws 3 Coppers, an Estate and a Page.
+
+Turn 3 - Cl0bBer123
+C plays a Page.
+C draws a Copper.
+C gets +1 Action.
+C plays 4 Coppers. (+$4)
+C buys and gains a Trader.
+C returns a Page.
+C receives a Treasure Hunter.
+C draws 3 Coppers and 2 Estates.
+
+Turn 4 - Cl0bBer123
+C plays 3 Coppers. (+$3)
+C buys and gains a Peasant.
+C shuffles their deck.
+C draws a Copper, 2 Estates and 2 Traders.
+
+Turn 5 - Cl0bBer123
+C plays a Trader.
+C trashes an Estate.
+C gains a Silver.
+C returns a Silver.
+C receives a Changeling.
+C gains a Silver.
+C reacts with a Trader.
+C returns a Silver.
+Changeling can no longer move Silver (it already moved).
+C receives a Silver.
+C plays a Copper. (+$1)
+
+Players can see spectator chat
+Joining game #68378325 on frankfurt.
+Joining game #68378530 on oregon.
+message
+The game has ended.
+Cl0bBer123 has resigned.
+Ok

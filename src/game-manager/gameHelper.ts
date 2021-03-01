@@ -1,14 +1,23 @@
+import { cardDictionary } from "utils";
 import {DominionAction, DominionCard, DominionLog, DominionPlayer, DominionPlayerShortName} from "../@types";
 import logger from "../logger";
 
 export const computeLog = (log: DominionLog, players: DominionPlayer[]): void => {
+	// Dont deal with logs containing boons and hexes
+	log.cardStack = log.cardStack.filter(cardStack => {
+		const matchingKnownCard = cardDictionary.get(cardStack.card);
+		return !matchingKnownCard || (matchingKnownCard.Types !== "Hex" && matchingKnownCard.Types !== "Boon");
+	});
+
 	switch (log.action) {
 	case DominionAction.Buys_And_Gains:
 	case DominionAction.Gains:
 	case DominionAction.Starts_With:
+	case DominionAction.Receives:
 		log.cardStack.forEach(cardStack => addCardStackToPlayer(cardStack.card, cardStack.amount, log.playerName, players))
 		break;
 	case DominionAction.Trashes:
+	case DominionAction.Returns:
 		log.cardStack.forEach(cardStack => removeCardStackFromPlayer(cardStack.card, cardStack.amount, log.playerName, players))
 		break;
 	default:

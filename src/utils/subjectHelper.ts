@@ -64,7 +64,7 @@ export const extractIndividualSubject = (card: string, logLine: string) : Domini
 	const amount = parseQualifierToInt(qualifier)
 
 	// remove the qualifier ("an" or "a" or INT)
-	card = card.substring(card.indexOf(" ") + 1)
+	card = qualifier === "The" ? card : card.substring(card.indexOf(" ") + 1)
 
 	//deal with plural cards
 	if(amount > 1){
@@ -94,9 +94,10 @@ export const parseQualifierToInt = (qualifier: string): number => {
 	if(qualifierInt) return qualifierInt
 
 	//check for "a" or "an"
-	if(qualifier === "a" || qualifier === "an") return 1
+	if(qualifier === "a" || qualifier === "an" || qualifier === "The") return 1;
 
 	//something must be wrong
+	logger.log(`Unknown card qualifer: ${qualifier}`);
 	return null;
 }
 
