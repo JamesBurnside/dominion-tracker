@@ -33,7 +33,7 @@ export class GameManager implements IGameManager {
 				this.gameEndTime = Date.now();
 
 				const gameDuration = (this.gameEndTime && this.gameStartTime) ? (this.gameEndTime - this.gameStartTime) : undefined;
-				logger.log(`End of game! Game was ${Math.floor(gameDuration/1000/60)} minutes and ${Math.floor(gameDuration/1000)} seconds`);
+				logger.log(`End of game! Game was ${Math.floor(gameDuration/1000/60)} minutes and ${Math.floor(gameDuration/1000 % 60)} seconds`);
 			}
 		});
 	}
