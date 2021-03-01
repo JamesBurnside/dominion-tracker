@@ -40,6 +40,30 @@ describe("Subject helper tests", () => {
 			card: "Silver",
 			amount: 2
 		}]);
+
+		expect(extractSubjectsFromLogLine("L returns a Horse to the Horse pile.")).toEqual([{
+			type: DominionSubjectType.Card,
+			card: "Horse",
+			amount: 1
+		}]);
+
+		expect(extractSubjectsFromLogLine("C gains a Necromancer onto their drawpile.")).toEqual([{
+			type: DominionSubjectType.Card,
+			card: "Necromancer",
+			amount: 1
+		}]);
+
+		expect(extractSubjectsFromLogLine("C receives War.")).toEqual([{
+			type: DominionSubjectType.Card,
+			card: "War",
+			amount: 1
+		}]);
+
+		expect(extractSubjectsFromLogLine("C receives The Wind's Gift.")).toEqual([{
+			type: DominionSubjectType.Card,
+			card: "The Wind's Gift",
+			amount: 1
+		}]);
 	});
 	//Handling Individual Actions
 	test("extractIndividualSubject handles individual subjects", () => {
