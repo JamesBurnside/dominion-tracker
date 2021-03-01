@@ -53,5 +53,7 @@ jobs:
         with:
           files: 'DominionWorld Chromium Extension.zip'
           name: "DominionWorld Chromium Extension Package"
+          tag: latest
+          fail_on_unmatched_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
