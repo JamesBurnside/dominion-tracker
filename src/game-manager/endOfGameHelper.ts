@@ -9,10 +9,7 @@ export const isEndOfGameScreen = () : boolean => {
 
 //TODO: Write a test
 //adds scores to players or returns false if not at end-of-game screen.
-export const addEndOfGameScoresToPlayers = (scoreContainer: HTMLElement, players: DominionPlayer[], gameNumber: string) : boolean => {
-	//check if we are on the end-screen
-	if (!isEndOfGameScreen()) return false
-
+export const addEndOfGameScoresToPlayers = (scoreContainer: HTMLElement, players: DominionPlayer[], gameNumber: string, gameDuration: number | undefined) : boolean => {
 	//turn the data into an array, remove the header information
 	let scoreArray: string[] =  scoreContainer.innerText.split("\n").slice(6)
 	const date: Date = new Date()
@@ -33,6 +30,8 @@ export const addEndOfGameScoresToPlayers = (scoreContainer: HTMLElement, players
 				player.turns = turns
 				player.gameNumber = gameNumber
 				player.date = date
+				// This won't be known if a game was joined part-way through.
+				player.gameDuration = gameDuration
 				break
 			}
 		}
