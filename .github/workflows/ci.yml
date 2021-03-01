@@ -46,3 +46,12 @@ jobs:
         uses: codecov/codecov-action@v1.0.15
         with:
           token: 65a53498-2a23-4a44-ace0-0adb07586906
+
+      - name: Upload Package
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: 'DominionWorld Chromium Extension.zip'
+          name: "DominionWorld Chromium Extension Package"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
