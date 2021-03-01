@@ -10,6 +10,7 @@ const unsupportedStack: CardStack = [{
 	type: DominionSubjectType.Unsupported
 }]
 
+const knownEndings = [".", " from trash", " onto their ", " to the "];
 
 export function extractSubjectsFromLogLine(logLine: string): CardStack {
 	// To be incredibly trivial and assume everything after the known action is of format `a`, `an`, INT <card>
@@ -22,10 +23,10 @@ export function extractSubjectsFromLogLine(logLine: string): CardStack {
 	let subjectLine = logLine.substr(subjectStart);
 
 	// remove known endings. Order of endings array matters here
-	const endings = [".", " from trash"];
-	for (const ending of endings) {
-		if (subjectLine.endsWith(ending)) {
-			subjectLine = subjectLine.substr(0, subjectLine.length - ending.length);
+	for (const ending of knownEndings) {
+		const i = subjectLine.indexOf(ending);
+		if (i > -1) {
+			subjectLine = subjectLine.substr(0, i);
 		}
 	}
 
@@ -58,13 +59,16 @@ export function extractSubjectsFromLogLine(logLine: string): CardStack {
 	return  cardList.map(card => extractIndividualSubject(card, logLine))
 }
 
+// Extracted from cardDictionary into quick map for fast lookup
+const knownBoonOrHexPrefixes = new Map([["The", 1], ["Bad", 1],["Delusion", 1],["Envy", 1],["Famine", 1],["Fear", 1],["Greed", 1],["Haunting", 1],["Locusts", 1],["Misery", 1],["Plague", 1],["Poverty", 1],["War", 1]]);
+
 export const extractIndividualSubject = (card: string, logLine: string) : DominionSubject => {
 	//find the number leading the card
-	const qualifier = card.substring(0, card.indexOf(" "))
+	const qualifier = card.substring(0, card.indexOf(" ")) || card;
 	const amount = parseQualifierToInt(qualifier)
 
-	// remove the qualifier ("an" or "a" or INT)
-	card = qualifier === "The" ? card : card.substring(card.indexOf(" ") + 1)
+	// remove the qualifier ("an" or "a" or INT, or some known value a hex has)
+	card = knownBoonOrHexPrefixes.has(qualifier) ? card : card.substring(card.indexOf(" ") + 1)
 
 	//deal with plural cards
 	if(amount > 1){
@@ -94,7 +98,7 @@ export const parseQualifierToInt = (qualifier: string): number => {
 	if(qualifierInt) return qualifierInt
 
 	//check for "a" or "an"
-	if(qualifier === "a" || qualifier === "an" || qualifier === "The") return 1;
+	if(qualifier === "a" || qualifier === "an" || knownBoonOrHexPrefixes.has(qualifier)) return 1;
 
 	//something must be wrong
 	logger.log(`Unknown card qualifer: ${qualifier}`);
