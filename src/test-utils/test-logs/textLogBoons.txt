@@ -1,0 +1,168 @@
+
+Game #68379827, unrated.
+
+Kingdom generated with these relative percentages:
+0%: Treasure Map
+50%: Bandit
+
+L starts with a Lucky Coin.
+L starts with 6 Coppers.
+L starts with 3 Estates.
+C starts with a Lucky Coin.
+C starts with 6 Coppers.
+C starts with 3 Estates.
+R starts with a Lucky Coin.
+R starts with 6 Coppers.
+R starts with 3 Estates.
+L shuffles their deck.
+L draws 5 cards.
+C shuffles their deck.
+C draws 3 Coppers, an Estate and a Lucky Coin.
+R shuffles their deck.
+R draws 5 cards.
+
+Turn 1 - Lord Rattington
+L plays a Lucky Coin. (+$1)
+L gains a Silver.
+L plays 2 Coppers. (+$2)
+L buys and gains a Silver.
+L draws 5 cards.
+
+Turn 1 - Cl0bBer123
+C plays 3 Coppers. (+$3)
+C buys and gains a Fool.
+C draws 3 Coppers and 2 Estates.
+
+Turn 1 - Revenge Witch
+R plays 3 Coppers. (+$3)
+R plays a Lucky Coin. (+$1)
+R gains a Silver.
+R buys and gains a Jack of All Trades.
+R draws 5 cards.
+
+Turn 2 - Lord Rattington
+L plays 4 Coppers. (+$4)
+L buys and gains a Jack of All Trades.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 2 - Cl0bBer123
+C plays 3 Coppers. (+$3)
+C buys and gains a Silver.
+C shuffles their deck.
+C draws 2 Coppers, 2 Estates and a Lucky Coin.
+
+Turn 2 - Revenge Witch
+R plays 3 Coppers. (+$3)
+R buys and gains a Silver.
+R shuffles their deck.
+R draws 5 cards.
+
+Turn 3 - Lord Rattington
+L plays a Jack of All Trades.
+L gains a Silver.
+L looks at a card.
+L discards a Copper.
+L draws a card.
+L trashes an Estate.
+L plays 2 Coppers. (+$2)
+L plays a Lucky Coin. (+$1)
+L gains a Silver.
+L plays a Copper. (+$1)
+L buys and gains a Jack of All Trades.
+L draws 5 cards.
+
+Turn 3 - Cl0bBer123
+C plays 2 Coppers. (+$2)
+C plays a Lucky Coin. (+$1)
+C gains a Silver.
+C buys and gains a Silver.
+C draws 3 Coppers, an Estate and a Fool.
+
+Turn 3 - Revenge Witch
+R plays 3 Coppers and a Silver. (+$5)
+R buys and gains a Jack of All Trades.
+R draws 5 cards.
+
+Turn 4 - Lord Rattington
+L plays 2 Coppers and 2 Silvers. (+$6)
+L buys and gains a Gold.
+L shuffles their deck.
+L draws 5 cards.
+
+Turn 4 - Cl0bBer123
+C plays a Fool.
+C takes Lost In The Woods.
+C takes The Field's Gift.
+C takes The Moon's Gift.
+C takes The Sky's Gift.
+C receives The Field's Gift.
+C gets +1 Action.
+C gets +$1.
+C receives The Sky's Gift.
+C discards 2 Coppers and an Estate.
+C gains a Gold.
+C discards The Sky's Gift.
+C receives The Moon's Gift.
+C looks at a Gold, 3 Estates, a Lucky Coin, 4 Coppers and 2 Silvers.
+C topdecks a Gold.
+C discards The Moon's Gift.
+C plays a Copper. (+$1)
+C discards The Field's Gift.
+C shuffles their deck.
+C draws 2 Coppers, a Silver, a Gold and an Estate.
+
+Turn 4 - Revenge Witch
+R plays a Jack of All Trades.
+R gains a Silver.
+R looks at a card.
+R topdecks a card.
+R draws a card.
+R trashes an Estate.
+R plays a Lucky Coin. (+$1)
+R gains a Silver.
+R plays 2 Coppers and a Silver. (+$4)
+R buys and gains a Minion.
+R shuffles their deck.
+R draws 5 cards.
+
+Turn 5 - Lord Rattington
+L plays 2 Coppers and 2 Silvers. (+$6)
+L buys and gains a Gold.
+L draws 5 cards.
+
+Turn 5 - Cl0bBer123
+C starts their turn.
+C discards an Estate.
+C takes The Swamp's Gift.
+C receives The Swamp's Gift.
+C gains a Will-o'-Wisp.
+C discards The Swamp's Gift.
+C plays a Gold, 2 Coppers and a Silver. (+$7)
+C buys and gains a Cursed Village.
+C takes Poverty.
+C receives Poverty.
+C discards Poverty.
+C draws 3 Coppers, a Silver and an Estate.
+
+Turn 5 - Revenge Witch
+R plays 3 Coppers and a Silver. (+$5)
+R buys and gains a Jack of All Trades.
+R draws 5 cards.
+
+Turn 6 - Lord Rattington
+L plays a Jack of All Trades.
+L gains a Silver.
+L looks at a card.
+L topdecks a card.
+L draws a card.
+L plays a Gold, a Copper and 2 Silvers. (+$8)
+L buys and gains a Province.
+L draws 5 cards.
+
+Turn 6 - Cl0bBer123
+C starts their turn.
+
+Players can see spectator chat
+Joining game #68379827 on frankfurt.
+Cl0bBer123 reconnected.
