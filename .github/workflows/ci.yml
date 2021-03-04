@@ -60,6 +60,6 @@ jobs:
         with:
           files: DominionWorld Chromium Extension.zip
           name: DominionWorld Chromium Extension Package ${{ steps.releasenames.outputs.releasename }}
-          tag_name: latest
+          tag_name: Release/${{ steps.releasenames.outputs.releasename }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
