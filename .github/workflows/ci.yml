@@ -47,12 +47,18 @@ jobs:
         with:
           token: 65a53498-2a23-4a44-ace0-0adb07586906
 
+      - name: Get Release names
+        if: github.ref == 'refs/heads/main'
+        id: releasenames
+        run: |
+          echo "::set-output name=tagname::$(date +'%Y-%m-%d-%H%M')"
+          echo "::set-output name=releasename::$(TZ=":America/Vancouver" date +'%Y-%m-%d %H%M')"
+
       - name: Upload Package
         if: github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v1
         with:
-          files: 'DominionWorld Chromium Extension.zip'
-          name: "DominionWorld Chromium Extension Package"
-          tag_name: latest
+          files: DominionWorld Chromium Extension.zip
+          name: DominionWorld Chromium Extension Package ${{ steps.releasenames.outputs.releasename }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
