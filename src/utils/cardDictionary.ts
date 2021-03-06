@@ -15,7 +15,8 @@ type CardProperties = {
  * 	Horse Traders --> Horse Traders
  */
 export const cardPluralsDictionary = new Map<string, DominionCard>([
-	["Platina", "Platinum"]
+	["Platina", "Platinum"],
+	["Feodum", "Feoda"]
 ]);
 
 /**
