@@ -1,10 +1,11 @@
 {
   "name": "dominion-log-parser",
-  "version": "0.2.0",
+  "version": "0.1.1",
   "description": "Dominion log parser -- under development.",
   "main": "src/npm-package/index.js",
   "bin": "src/npm-package/index.js",
   "scripts": {
+    "bump": "ts-node bump-version/cli.ts",
     "dev": "webpack --config webpack/webpack.dev.ts --watch",
     "dev:no-watch": "webpack --config webpack/webpack.dev.ts",
     "package": "webpack --config webpack/webpack.prod.ts && npm run zip-dist",

@@ -1,7 +1,7 @@
 {
   "name": "DominionWorld Game Tracker",
-  "version": "0.0.0.2",
-  "manifest_version": 3,
+  "version": "0.1.1",
+  "manifest_version": 2,
   "description": "A chromium extension to track you games and upload the results to a leaderboard.",
   "icons": {
     "16": "icons/icon16x16.png",
@@ -14,8 +14,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://dominion.games/"],
-      "js": ["js/vendor.js", "js/contentScript.js"]
+      "matches": [
+        "https://dominion.games/"
+      ],
+      "js": [
+        "js/vendor.js",
+        "js/contentScript.js"
+      ]
     }
   ]
 }
