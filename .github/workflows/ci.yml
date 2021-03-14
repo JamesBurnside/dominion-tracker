@@ -73,9 +73,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Use Node.js v14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      # install dependencies
+      - run: npm install
+
       # Setup bot information for commiting the version bumps
       - name: Setup bot git information
-        if: github.ref == 'refs/heads/main'
         run: |
           git config user.email "dominion-world-bot@wow-i-am-a-bot.com"
           git config user.name "dominion-world-bot"
