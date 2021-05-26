@@ -1,6 +1,6 @@
 {
   "name": "dominion-log-parser",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Dominion log parser -- under development.",
   "main": "src/npm-package/index.js",
   "bin": "src/npm-package/index.js",
