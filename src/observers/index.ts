@@ -1,2 +1,2 @@
-export * from "./DocumentObserver";
-export * from "./LogContainerObserver";
+export * from './DocumentObserver';
+export * from './LogContainerObserver';

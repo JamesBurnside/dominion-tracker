@@ -1,4 +1,4 @@
 {
-	// force tabs
-	"editor.insertSpaces": false,
+  // force tabs
+  "editor.insertSpaces": false
 }

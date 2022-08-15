@@ -1,25 +1,26 @@
 body {
-	font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-	font-weight: 400;
-	font-size: 100%;
-	width: max-content;
-	padding: 0px 8px 8px 8px;
+  font-family: 'Segoe UI', 'Lucida Grande', Tahoma, sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+  width: max-content;
+  padding: 0px 8px 8px 8px;
 }
 
 player-container {
-	display: block;
-	margin-bottom: 10px;
-	width: max-content;
+  display: block;
+  margin-bottom: 10px;
+  width: max-content;
 }
 
-dominion-deck, .player-stats {
-	display: block;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	font-size: smaller;
+dominion-deck,
+.player-stats {
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: smaller;
 }
 
-.player-stats{
-	font-style: italic;
-	margin-bottom: 0px;
+.player-stats {
+  font-style: italic;
+  margin-bottom: 0px;
 }

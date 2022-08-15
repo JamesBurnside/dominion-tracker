@@ -8,4 +8,3 @@ export type DominionCard = string;
  * }
  */
 export type DominionDeck = Map<DominionCard, number>;
-

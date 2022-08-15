@@ -1,4 +1,4 @@
-import {DominionAction} from "@types";
+import { DominionAction } from '@types';
 
 /**
  * Extract action from log line.
@@ -6,9 +6,9 @@ import {DominionAction} from "@types";
  * Assumes that each line contains only one action type
  */
 export function extractActionFromLogLine(logLine: string): DominionAction {
-	const supportedActions = Object.values(DominionAction)
-	for (const action of supportedActions){
-		if(logLine.includes(action)) return action
-	}
-	return undefined
+  const supportedActions = Object.values(DominionAction);
+  for (const action of supportedActions) {
+    if (logLine.includes(action)) return action;
+  }
+  return undefined;
 }

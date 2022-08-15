@@ -1,5 +1,5 @@
-import { DominionAction } from "./action";
-import {CardStack} from "./subject";
+import { DominionAction } from './action';
+import { CardStack } from './subject';
 
 /**
  * Currently we are saying that Dominion.online logs have a structured format like so:
@@ -11,7 +11,7 @@ import {CardStack} from "./subject";
  * We will almost certainly be proved wrong about this format but we can update as we discover new information.
  */
 export interface DominionCommand {
-	playerName: string;
-	action: DominionAction,
-	cardStack: CardStack
+  playerName: string;
+  action: DominionAction;
+  cardStack: CardStack;
 }

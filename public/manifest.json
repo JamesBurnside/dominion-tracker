@@ -14,13 +14,8 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://dominion.games/"
-      ],
-      "js": [
-        "js/vendor.js",
-        "js/contentScript.js"
-      ]
+      "matches": ["https://dominion.games/"],
+      "js": ["js/vendor.js", "js/contentScript.js"]
     }
   ]
 }

@@ -1,9 +1,9 @@
 export enum DominionSubjectType {
-	Unsupported = 0,
-	Card,
-	Deck,
-	Discard,
-	Hand
+  Unsupported = 0,
+  Card,
+  Deck,
+  Discard,
+  Hand,
 }
 
 /**
@@ -14,9 +14,9 @@ export enum DominionSubjectType {
  * 	cards: [{copper, 2}, {silver, 1}, {turtle 1}]
  */
 export interface DominionSubject {
-	type: DominionSubjectType
-	card?: string;
-	amount?: number;
+  type: DominionSubjectType;
+  card?: string;
+  amount?: number;
 }
 
-export type CardStack = DominionSubject [];
+export type CardStack = DominionSubject[];

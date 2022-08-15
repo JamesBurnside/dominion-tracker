@@ -1,4 +1,4 @@
-import { DominionCommand } from "./command";
+import { DominionCommand } from './command';
 
 export type DominionLog = DominionCommand;
 

@@ -1,149 +1,149 @@
-import { DominionAction, DominionSubjectType } from "@types";
-import { htmlLog1 } from "test-utils";
+import { DominionAction, DominionSubjectType } from '@types';
+import { htmlLog1 } from 'test-utils';
 import {
-	convertLogStringToLog,
-	getLogsFromContainer,
-	getPlayerShortNamesFromContainer,
-	isValidLogString,
-} from "./logHelpers";
+  convertLogStringToLog,
+  getLogsFromContainer,
+  getPlayerShortNamesFromContainer,
+  isValidLogString,
+} from './logHelpers';
 
-describe("Log helper tests", () => {
-	test("invalid log strings are correctly identified", () => {
-		// falsy tests
-		expect(isValidLogString(undefined)).toBeFalsy();
-		expect(isValidLogString(null)).toBeFalsy();
-		expect(isValidLogString("")).toBeFalsy();
-		expect(isValidLogString("Game #61325495, unrated.")).toBeFalsy();
-		expect(
-			isValidLogString("Kingdom generated with these relative percentages:")
-		).toBeFalsy();
-		expect(isValidLogString("50%: Poacher and Bandit")).toBeFalsy();
-		expect(isValidLogString("Turn 1 - Lord Rattington")).toBeFalsy();
+describe('Log helper tests', () => {
+  test('invalid log strings are correctly identified', () => {
+    // falsy tests
+    expect(isValidLogString(undefined)).toBeFalsy();
+    expect(isValidLogString(null)).toBeFalsy();
+    expect(isValidLogString('')).toBeFalsy();
+    expect(isValidLogString('Game #61325495, unrated.')).toBeFalsy();
+    expect(
+      isValidLogString('Kingdom generated with these relative percentages:')
+    ).toBeFalsy();
+    expect(isValidLogString('50%: Poacher and Bandit')).toBeFalsy();
+    expect(isValidLogString('Turn 1 - Lord Rattington')).toBeFalsy();
 
-		// truthy tests
-		expect(isValidLogString("L starts with 7 Coppers.")).toBeTruthy();
-		expect(isValidLogString("L buys and gains an Ambassador.")).toBeTruthy();
-		expect(isValidLogString("C gains a Noble Brigand.")).toBeTruthy();
-		expect(isValidLogString("C gains a Silver from trash.")).toBeTruthy();
-	});
+    // truthy tests
+    expect(isValidLogString('L starts with 7 Coppers.')).toBeTruthy();
+    expect(isValidLogString('L buys and gains an Ambassador.')).toBeTruthy();
+    expect(isValidLogString('C gains a Noble Brigand.')).toBeTruthy();
+    expect(isValidLogString('C gains a Silver from trash.')).toBeTruthy();
+  });
 
-	describe("Successfully converts log strings to dominion logs", () => {
-		test("L buys and gains an Ambassador.", () => {
-			expect(convertLogStringToLog("L buys and gains an Ambassador.")).toEqual({
-				playerName: "L",
-				action: DominionAction.Buys_And_Gains,
-				cardStack: [
-					{
-						type: DominionSubjectType.Card,
-						card: "Ambassador",
-						amount: 1,
-					},
-				],
-			});
-		});
+  describe('Successfully converts log strings to dominion logs', () => {
+    test('L buys and gains an Ambassador.', () => {
+      expect(convertLogStringToLog('L buys and gains an Ambassador.')).toEqual({
+        playerName: 'L',
+        action: DominionAction.Buys_And_Gains,
+        cardStack: [
+          {
+            type: DominionSubjectType.Card,
+            card: 'Ambassador',
+            amount: 1,
+          },
+        ],
+      });
+    });
 
-		test("Lord R buys and gains an Ambassador.", () => {
-			expect(
-				convertLogStringToLog("Lord R buys and gains an Ambassador.")
-			).toEqual({
-				playerName: "Lord R",
-				action: DominionAction.Buys_And_Gains,
-				cardStack: [
-					{
-						type: DominionSubjectType.Card,
-						card: "Ambassador",
-						amount: 1,
-					},
-				],
-			});
-		});
+    test('Lord R buys and gains an Ambassador.', () => {
+      expect(
+        convertLogStringToLog('Lord R buys and gains an Ambassador.')
+      ).toEqual({
+        playerName: 'Lord R',
+        action: DominionAction.Buys_And_Gains,
+        cardStack: [
+          {
+            type: DominionSubjectType.Card,
+            card: 'Ambassador',
+            amount: 1,
+          },
+        ],
+      });
+    });
 
-		test("C gains a Noble Brigand.", () => {
-			expect(convertLogStringToLog("C gains a Noble Brigand.")).toEqual({
-				playerName: "C",
-				action: DominionAction.Gains,
-				cardStack: [
-					{
-						type: DominionSubjectType.Card,
-						card: "Noble Brigand",
-						amount: 1,
-					},
-				],
-			});
-		});
+    test('C gains a Noble Brigand.', () => {
+      expect(convertLogStringToLog('C gains a Noble Brigand.')).toEqual({
+        playerName: 'C',
+        action: DominionAction.Gains,
+        cardStack: [
+          {
+            type: DominionSubjectType.Card,
+            card: 'Noble Brigand',
+            amount: 1,
+          },
+        ],
+      });
+    });
 
-		test("Turtles gains a Silver and a Copper from trash.", () => {
-			expect(
-				convertLogStringToLog("Turtles gains a Silver and a Copper from trash.")
-			).toEqual({
-				playerName: "Turtles",
-				action: DominionAction.Gains,
-				cardStack: [
-					{
-						type: DominionSubjectType.Card,
-						card: "Silver",
-						amount: 1,
-					},
-					{
-						type: DominionSubjectType.Card,
-						card: "Copper",
-						amount: 1,
-					},
-				],
-			});
-		});
+    test('Turtles gains a Silver and a Copper from trash.', () => {
+      expect(
+        convertLogStringToLog('Turtles gains a Silver and a Copper from trash.')
+      ).toEqual({
+        playerName: 'Turtles',
+        action: DominionAction.Gains,
+        cardStack: [
+          {
+            type: DominionSubjectType.Card,
+            card: 'Silver',
+            amount: 1,
+          },
+          {
+            type: DominionSubjectType.Card,
+            card: 'Copper',
+            amount: 1,
+          },
+        ],
+      });
+    });
 
-		test("NextYear starts with a Death Cart, 13 Rats and 2020 Doctors.", () => {
-			expect(
-				convertLogStringToLog(
-					"NextYear starts with a Death Cart, 13 Rats and 2020 Doctors."
-				)
-			).toEqual({
-				playerName: "NextYear",
-				action: DominionAction.Starts_With,
-				cardStack: [
-					{
-						type: DominionSubjectType.Card,
-						card: "Death Cart",
-						amount: 1,
-					},
-					{
-						type: DominionSubjectType.Card,
-						card: "Rats",
-						amount: 13,
-					},
-					{
-						type: DominionSubjectType.Card,
-						card: "Doctor",
-						amount: 2020,
-					},
-				],
-			});
-		});
-	});
+    test('NextYear starts with a Death Cart, 13 Rats and 2020 Doctors.', () => {
+      expect(
+        convertLogStringToLog(
+          'NextYear starts with a Death Cart, 13 Rats and 2020 Doctors.'
+        )
+      ).toEqual({
+        playerName: 'NextYear',
+        action: DominionAction.Starts_With,
+        cardStack: [
+          {
+            type: DominionSubjectType.Card,
+            card: 'Death Cart',
+            amount: 1,
+          },
+          {
+            type: DominionSubjectType.Card,
+            card: 'Rats',
+            amount: 13,
+          },
+          {
+            type: DominionSubjectType.Card,
+            card: 'Doctor',
+            amount: 2020,
+          },
+        ],
+      });
+    });
+  });
 
-	test("Successfully get players short names", () => {
-		// Arrange
-		const mockDom = document.createElement("div");
-		mockDom.innerHTML += htmlLog1;
+  test('Successfully get players short names', () => {
+    // Arrange
+    const mockDom = document.createElement('div');
+    mockDom.innerHTML += htmlLog1;
 
-		// Act
-		const playerShortNames = getPlayerShortNamesFromContainer(mockDom);
+    // Act
+    const playerShortNames = getPlayerShortNamesFromContainer(mockDom);
 
-		// Assert
-		expect(playerShortNames).toEqual(["L", "C"]);
-	});
+    // Assert
+    expect(playerShortNames).toEqual(['L', 'C']);
+  });
 
-	test("Successfully gets only valid logs from log container", async () => {
-		// Arrange
-		const mockDom = document.createElement("div");
-		mockDom.innerHTML += htmlLog1;
+  test('Successfully gets only valid logs from log container', async () => {
+    // Arrange
+    const mockDom = document.createElement('div');
+    mockDom.innerHTML += htmlLog1;
 
-		// Act
-		const logs = getLogsFromContainer(mockDom);
+    // Act
+    const logs = getLogsFromContainer(mockDom);
 
-		// Assert
-		expect(logs).toMatchInlineSnapshot(`
+    // Assert
+    expect(logs).toMatchInlineSnapshot(`
       Array [
         Object {
           "action": "starts with",
@@ -268,5 +268,5 @@ describe("Log helper tests", () => {
         },
       ]
     `);
-	});
+  });
 });

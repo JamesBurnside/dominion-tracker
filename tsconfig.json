@@ -1,18 +1,14 @@
 {
   "compilerOptions": {
-      "module": "commonjs",
-      "target": "es6",
-      "noImplicitAny": true,
-      "sourceMap": true,
-      "baseUrl": "src",
-      "rootDir": "src",
-      "outDir": "dist/js",
-      "typeRoots": [
-        "node_modules/@types"
-      ],
-      "esModuleInterop": true
-},
-  "include": [
-    "src"
-  ]
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "baseUrl": "src",
+    "rootDir": "src",
+    "outDir": "dist/js",
+    "typeRoots": ["node_modules/@types"],
+    "esModuleInterop": true
+  },
+  "include": ["src"]
 }

@@ -1,3 +1,3 @@
-import logParser from "./logParser";
+import logParser from './logParser';
 
 export default logParser;

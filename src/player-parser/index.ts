@@ -1,2 +1,2 @@
-export * from "./playerFullNameParser";
-export * from "./playerParserHelper";
+export * from './playerFullNameParser';
+export * from './playerParserHelper';

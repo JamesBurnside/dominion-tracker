@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-console.log("ran");
+console.log('ran');
